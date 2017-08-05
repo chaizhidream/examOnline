@@ -145,3 +145,8 @@ create table mistakes(
 
 /*还原数据库*/
 /*mysql -u root -p123456 < C:\backup.sql*/
+
+
+/*开启MySQL的远程帐号-2）创建远程登陆用户并授权*/
+/*如果想不限制链接的 IP 则设置为“%”即可。*/
+/*grant all PRIVILEGES on 数据库名/数据表名 to root@'192.168.1.101'  identified by '123456';*/
