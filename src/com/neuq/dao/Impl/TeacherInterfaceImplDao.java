@@ -28,7 +28,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		pst = con.prepareStatement(sql);
 		pst.setString(1, t.getTeachername());
 		rs = pst.executeQuery();
-		if(rs.next()) {
+		while(rs.next()) {
 			info.setTeachername(rs.getString(2));
 			info.setPwd(rs.getString(3));
 			info.setName(rs.getString(4));
@@ -117,7 +117,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		pst = con.prepareStatement(sql);
 		pst.setString(1, sc);
 		rs = pst.executeQuery();
-		if(rs.next()) {
+		while(rs.next()) {
 			info.setId(rs.getInt(1));
 			info.setUsername(rs.getString(2));
 			info.setName(rs.getString(4));

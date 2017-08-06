@@ -28,7 +28,7 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 		String sql = "select * from Teacher ";
 		pst = con.prepareStatement(sql);
 		rs = pst.executeQuery();
-		if(rs.next()) {
+		while(rs.next()) {
 			info.setId(rs.getInt(1));
 			info.setTeachername(rs.getString(2));
 			info.setName(rs.getString(4));

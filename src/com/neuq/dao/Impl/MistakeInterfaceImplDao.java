@@ -67,7 +67,7 @@ public class MistakeInterfaceImplDao implements MistakesInterfaceDao{
 			pst = con.prepareStatement(sql);
 			pst.setString(1, username);
 			rs = pst.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				mis.setId(rs.getInt(1));
 				mis.setUsername(rs.getString(2));
 				mis.setQuestiontype(rs.getString(3));
@@ -91,7 +91,7 @@ public class MistakeInterfaceImplDao implements MistakesInterfaceDao{
 			pst.setString(1, username);
 			pst.setString(2, questionpoint);
 			rs = pst.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				mis.setId(rs.getInt(1));
 				mis.setUsername(rs.getString(2));
 				mis.setQuestiontype(rs.getString(3));

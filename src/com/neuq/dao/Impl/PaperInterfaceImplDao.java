@@ -83,7 +83,7 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 		try {
 			pst = con.prepareStatement(sql);
 			rs = pst.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				pap.setId(rs.getInt(1));
 				pap.setStarttime(rs.getDate(2));
 				pap.setEndtime(rs.getDate(3));
@@ -120,7 +120,7 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 			pst = con.prepareStatement(sql);
 			pst.setString(1, questionpoint);
 			rs = pst.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				pap.setId(rs.getInt(1));
 				pap.setStarttime(rs.getDate(2));
 				pap.setEndtime(rs.getDate(3));
