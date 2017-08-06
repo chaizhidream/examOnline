@@ -13,13 +13,14 @@ public class Manager implements Serializable {
 	private String managername;
 	private String pwd;
 	private String name;
-	private char sex;
+	private String sex;
 	private String telephone;
 	private String email;
 	private int ru;
 	
 	public Manager() {
 		// TODO 自动生成的构造函数存根
+		this.ru = 1;
 	}
 	
 	
@@ -32,7 +33,7 @@ public class Manager implements Serializable {
 	 * @param email 管理员邮箱
 	 * @param ru 管理员权限1，教师权限2，学生3
 	 */
-	public Manager(String managername, String pwd, String name, char sex, String telephone, String email) {
+	public Manager(String managername, String pwd, String name, String sex, String telephone, String email) {
 		super();
 		this.managername = managername;
 		this.pwd = pwd;
@@ -69,10 +70,10 @@ public class Manager implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public char getSex() {
+	public String getSex() {
 		return sex;
 	}
-	public void setSex(char sex) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
 	public String getTelephone() {

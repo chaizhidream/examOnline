@@ -13,7 +13,7 @@ public class Teacher implements Serializable{
 	private String teachername;
 	private String pwd;
 	private String name;
-	private char sex;
+	private String sex;
 	private String telephone;
 	private String email;
 	private int ru;
@@ -21,6 +21,7 @@ public class Teacher implements Serializable{
 	
 	public Teacher() {
 		// TODO 自动生成的构造函数存根
+		this.ru = 2;
 	}
 	
 	
@@ -35,7 +36,7 @@ public class Teacher implements Serializable{
 	 * @param email 教师邮箱
 	 * @param ru 管理员权限1，教师权限2，学生3
 	 */
-	public Teacher(String teachername, String pwd, String name, char sex, String telephone, String email) {
+	public Teacher(String teachername, String pwd, String name, String sex, String telephone, String email) {
 		super();
 		this.teachername = teachername;
 		this.pwd = pwd;
@@ -73,10 +74,10 @@ public class Teacher implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public char getSex() {
+	public String getSex() {
 		return sex;
 	}
-	public void setSex(char sex) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
 	public String getTelephone() {

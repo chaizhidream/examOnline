@@ -12,7 +12,7 @@ public class Xzt implements Serializable{
 	
 	private int id;
 	private String question;
-	private char answer;
+	private String answer;
 	private String optionA;
 	private String optionB;
 	private String optionC;
@@ -22,6 +22,7 @@ public class Xzt implements Serializable{
 	
 	public Xzt() {
 		// TODO 自动生成的构造函数存根
+		this.questiontype = 1;
 	}
 		
   /**
@@ -34,8 +35,8 @@ public class Xzt implements Serializable{
      * @param questiontype  题目类型（选择题）
 	 * @param questionpoint  题目知识点
 	 */
-	public Xzt(String question, char answer, String optionA, String optionB, String optionC, String optionD,
-			int questiontype, String questionpoint) {
+	public Xzt(String question, String answer, String optionA, String optionB, String optionC, String optionD,
+			 String questionpoint) {
 		super();
 		this.question = question;
 		this.answer = answer;
@@ -43,7 +44,7 @@ public class Xzt implements Serializable{
 		this.optionB = optionB;
 		this.optionC = optionC;
 		this.optionD = optionD;
-		this.questiontype = questiontype;
+		this.questiontype = 1;
 		this.questionpoint = questionpoint;
 	}
 
@@ -62,10 +63,10 @@ public class Xzt implements Serializable{
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public char getAnswer() {
+	public String getAnswer() {
 		return answer;
 	}
-	public void setAnswer(char answer) {
+	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
 	public String getOptionA() {

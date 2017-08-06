@@ -16,6 +16,7 @@ public class Bct implements Serializable {
 	
 	public Bct() {
 		// TODO 自动生成的构造函数存根
+		this.questiontype = 3;
 	}
 		
 	/**
@@ -23,10 +24,10 @@ public class Bct implements Serializable {
 	 * @param questiontype 题目类型（编程题）
 	 * @param questionpoint 题目知识点
 	 */
-	public Bct(String question, int questiontype, String questionpoint) {
+	public Bct(String question,  String questionpoint) {
 		super();
 		this.question = question;
-		this.questiontype = questiontype;
+		this.questiontype = 3;
 		this.questionpoint = questionpoint;
 	}
 

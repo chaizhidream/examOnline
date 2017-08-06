@@ -19,6 +19,7 @@ public class Tkt implements Serializable{
 	
 	public Tkt() {
 		// TODO 自动生成的构造函数存根
+		this.questiontype = 2;
 	}
 	
 	
@@ -29,11 +30,11 @@ public class Tkt implements Serializable{
 	 * @param questiontype  题目类型（填空题）
 	 * @param questionpoint  题目知识点
 	 */
-	public Tkt(String question, char answer, int questiontype, String questionpoint) {
+	public Tkt(String question, char answer, String questionpoint) {
 		super();
 		this.question = question;
 		this.answer = answer;
-		this.questiontype = questiontype;
+		this.questiontype = 2;
 		this.questionpoint = questionpoint;
 	}
 

@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 学生成绩类
  */
-public class Studentgrade implements Serializable{
+public class StudentGrade implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -23,7 +23,7 @@ public class Studentgrade implements Serializable{
 	 * @param score 学生成绩
 	 * @param papername 试卷名
 	 */
-	public Studentgrade(String username, int score, int papername) {
+	public StudentGrade(String username, int score, int papername) {
 		super();
 		this.username = username;
 		this.score = score;
