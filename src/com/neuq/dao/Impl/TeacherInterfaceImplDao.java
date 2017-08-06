@@ -10,17 +10,19 @@ import java.util.List;
 import com.neuq.bean.Student;
 import com.neuq.bean.Teacher;
 import com.neuq.dao.I.TeacherInterfaceDao;
+import com.neuq.db.DBUtil;
 
 public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
-
+	private static Connection con = DBUtil.getConnection();
+	private static PreparedStatement pst = null;
+	private static ResultSet rs = null;
+	boolean b=false;
 	@Override
 	/**
 	 * 教师查询个人信息
 	 */
 	public Teacher select(Teacher t, Connection con) throws SQLException {
 		Teacher info=new Teacher();
-		PreparedStatement pst=null;
-		ResultSet rs = null;
 		String sql = "select * from Teacher where username = ?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, t.getTeachername());
@@ -33,8 +35,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 			info.setTelephone(rs.getString(7));
 			info.setEmail(rs.getString(8));
 		}
-		pst.close();
-		rs.close();
+		DBUtil.CloseConnection(rs, pst, con);
 		return info;
 	}
 
@@ -47,6 +48,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		PreparedStatement pst=null;
 		boolean b = false;
 		String sql = "insert into Student values (null,?,?,?,?,?,?,?,3)";
+		pst = con.prepareStatement(sql);
 		pst.setString(1, s.getUsername());
 		pst.setString(2, s.getPwd());
 		pst.setString(3, s.getName());
@@ -58,7 +60,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		if(n>0) {
 			b = true;
 		}
-		pst.close();
+		DBUtil.CloseConnection(rs, pst, con);
 		return b;
 	}
 
@@ -70,13 +72,14 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		PreparedStatement pst=null;
 		boolean b = false;
 		String sql = "updata Teacher set pwd = ? where username = ?";
+		pst = con.prepareStatement(sql);
 		pst.setString(1, t.getPwd());
 		pst.setString(2, t.getTeachername());
 		int n = pst.executeUpdate();
 		if(n>0) {
 			b = true;
 		}
-		pst.close();
+		DBUtil.CloseConnection(rs, pst, con);
 		return b;
 	}
 
@@ -89,12 +92,13 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		PreparedStatement pst=null;
 		boolean b = false;
 		String sql = "delete from Student  where username = ?";
+		pst = con.prepareStatement(sql);
 		pst.setString(1, s.getUsername());
 		int n = pst.executeUpdate();
 		if(n>0) {
 			b = true;
 		}
-		pst.close();
+		DBUtil.CloseConnection(rs, pst, con);
 		return b;
 	}
 
@@ -113,6 +117,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		pst.setString(1, sc);
 		rs = pst.executeQuery();
 		if(rs.next()) {
+			info.setId(rs.getInt(1));
 			info.setUsername(rs.getString(2));
 			info.setName(rs.getString(4));
 			info.setSex(rs.getString(5));
@@ -121,8 +126,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 			info.setEmail(rs.getString(8));
 			list.add(info);
 		}
-		pst.close();
-		rs.close();
+		DBUtil.CloseConnection(rs, pst, con);
 		return list;
 	}
 

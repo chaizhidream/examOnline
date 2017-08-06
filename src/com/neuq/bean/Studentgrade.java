@@ -13,7 +13,7 @@ public class StudentGrade implements Serializable{
 	private int id;	
 	private String username;
 	private int score;
-	private int papername;
+	private String papername;
 	
 	
 	
@@ -23,11 +23,14 @@ public class StudentGrade implements Serializable{
 	 * @param score 学生成绩
 	 * @param papername 试卷名
 	 */
-	public StudentGrade(String username, int score, int papername) {
+	public StudentGrade(String username, int score, String papername) {
 		super();
 		this.username = username;
 		this.score = score;
 		this.papername = papername;
+	}
+	public StudentGrade() {
+		// TODO Auto-generated constructor stub
 	}
 	public int getId() {
 		return id;
@@ -47,10 +50,10 @@ public class StudentGrade implements Serializable{
 	public void setScore(int score) {
 		this.score = score;
 	}
-	public int getPapername() {
+	public String getPapername() {
 		return papername;
 	}
-	public void setPapername(int papername) {
+	public void setPapername(String papername) {
 		this.papername = papername;
 	}
 }

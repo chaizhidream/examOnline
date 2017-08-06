@@ -23,13 +23,13 @@ public class XztInterfaceImplDao implements XztInterfaceDao {
         try {
 			pr=con.prepareStatement(sql);
 			pr.setString(1, xzt.getQuestion());
-		pr.setString(2, xzt.getAnswer());
-		pr.setString(3, xzt.getOptionA());
-		pr.setString(4, xzt.getOptionB());
-		pr.setString(5, xzt.getOptionC());
-		pr.setString(6, xzt.getOptionD());
-		pr.setInt(7, 1);
-		pr.setString(8, xzt.getQuestionpoint());
+			pr.setString(2, xzt.getAnswer());
+			pr.setString(3, xzt.getOptionA());
+			pr.setString(4, xzt.getOptionB());
+			pr.setString(5, xzt.getOptionC());
+			pr.setString(6, xzt.getOptionD());
+			pr.setInt(7, 1);
+			pr.setString(8, xzt.getQuestionpoint());
 			row=pr.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -65,8 +65,7 @@ public class XztInterfaceImplDao implements XztInterfaceDao {
         //题目种类不会变
         String sql="update xzt set question=?,answer=?,optionA=?,optoinB=?,optionC=?,optoinD=?,questionpoint=? where id=?";
         try {
-			pr=con.prepareStatement(sql);
-			
+			pr=con.prepareStatement(sql);	
 			pr.setString(1, xzt.getQuestion());
 			pr.setString(2, xzt.getAnswer());
 			pr.setString(3, xzt.getOptionA());

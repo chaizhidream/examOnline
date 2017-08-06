@@ -31,7 +31,7 @@ public class Paper implements Serializable{
 	private int bct2;
 
 	public Paper() {
-		// TODO 自动生成的构造函数存根
+
 	}
 	
 	

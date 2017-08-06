@@ -1,18 +1,10 @@
-package com.neuq.dao.I;
+package com.neuq.service.I;
 
 import java.util.List;
 
 import com.neuq.bean.Paper;
 
-
-
-/**
- * 试卷数据库接口类
- *
- */
-public interface PaperInterfaceDao {
-
-
+public interface PaperInterfaceBiz {
 	/**
 	 * 增加一张试卷
 	 * @param paper
@@ -47,8 +39,4 @@ public interface PaperInterfaceDao {
 	 * @return  Paper 试卷集合
 	 */
 	public List<Paper> select(String questionpoint);
-	
-	
-	
-	
 }

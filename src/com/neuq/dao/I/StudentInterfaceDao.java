@@ -10,5 +10,5 @@ public interface StudentInterfaceDao {
 	public boolean insert(Student s, Connection con)throws SQLException;
 	public boolean updata(Student s,Connection con)throws SQLException;
 	public boolean delete(Student s,Connection con)throws SQLException;//不可使用
-
+	public Student login(String username, String pwd) throws SQLException;
 }

@@ -11,23 +11,25 @@ import com.neuq.bean.Manager;
 import com.neuq.bean.Student;
 import com.neuq.bean.Teacher;
 import com.neuq.dao.I.ManagerInterfaceDao;
+import com.neuq.db.DBUtil;
 
 public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
-
+	private static Connection con = DBUtil.getConnection();
+	private static PreparedStatement pst = null;
+	private static ResultSet rs = null;
+	boolean b=false;
 	/**
 	 * 查询所有教师，此处可做分页
 	 */
 	@Override
 	public List<Teacher> select(Connection con) throws SQLException {
-		// TODO Auto-generated method stub
 		Teacher info = new Teacher();
-		PreparedStatement pst=null;
 		List<Teacher> list  = new ArrayList<Teacher>();	
-		ResultSet rs = null;
 		String sql = "select * from Teacher ";
 		pst = con.prepareStatement(sql);
 		rs = pst.executeQuery();
 		if(rs.next()) {
+			info.setId(rs.getInt(1));
 			info.setTeachername(rs.getString(2));
 			info.setName(rs.getString(4));
 			info.setSex(rs.getString(5));
@@ -35,10 +37,8 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 			info.setEmail(rs.getString(7));
 			list.add(info);
 		}
-		pst.close();
-		rs.close();
+		DBUtil.CloseConnection(rs, pst, con);
 		return list;
-
 	}
 
 	/**
@@ -46,10 +46,8 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 	 */
 	@Override
 	public boolean insert(Teacher t, Connection con) throws SQLException {
-		// TODO Auto-generated method stub
-		PreparedStatement pst=null;
-		boolean b = false;
 		String sql = "insert into Teacher values (null,?,?,?,?,?,?,2)";
+		pst=con.prepareStatement(sql);
 		pst.setString(1, t.getTeachername());
 		pst.setString(2, t.getPwd());
 		pst.setString(3, t.getName());
@@ -60,7 +58,7 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 		if(n>0) {
 			b = true;
 		}
-		pst.close();
+		DBUtil.CloseConnection(rs, pst, con);
 		return b;
 	}
 
@@ -69,16 +67,14 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 	 */
 	@Override
 	public boolean delete(Teacher t, Connection con) throws SQLException {
-		// TODO Auto-generated method stub
-		PreparedStatement pst=null;
-		boolean b = false;
 		String sql = "delete from Student  where username = ?";
+		pst=con.prepareStatement(sql);
 		pst.setString(1, t.getTeachername());
 		int n = pst.executeUpdate();
 		if(n>0) {
 			b = true;
 		}
-		pst.close();
+		DBUtil.CloseConnection(rs, pst, con);
 		return b;
 	}
 	
@@ -87,10 +83,7 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 	 */
 	@Override
 	public Manager select(Manager m, Connection con) throws SQLException {
-		// TODO Auto-generated method stub
 		Manager info=new Manager();
-		PreparedStatement pst=null;
-		ResultSet rs = null;
 		String sql = "select * from Manager where username = ?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, m.getName());
@@ -103,8 +96,7 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 			info.setTelephone(rs.getString(7));
 			info.setEmail(rs.getString(8));
 		}
-		pst.close();
-		rs.close();
+		DBUtil.CloseConnection(rs, pst, con);
 		return info;
 	}
 	
