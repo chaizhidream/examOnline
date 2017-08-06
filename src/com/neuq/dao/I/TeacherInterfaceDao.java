@@ -13,4 +13,5 @@ public interface TeacherInterfaceDao   {
 	public boolean insert(Student s,Connection con)throws SQLException;
 	public boolean updata(Teacher t,Connection con)throws SQLException;
 	public boolean delete(Student s,Connection con)throws SQLException;
+	
 }

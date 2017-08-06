@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.neuq.bean.Mistakes;
-import com.neuq.bean.Student;
 import com.neuq.dao.I.MistakesInterfaceDao;
 import com.neuq.db.DBUtil;
 

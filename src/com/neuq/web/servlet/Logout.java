@@ -1,8 +1,6 @@
 package com.neuq.web.servlet;
 
 import java.io.IOException;
-import java.text.MessageFormat;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

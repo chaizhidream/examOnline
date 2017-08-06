@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.neuq.bean.Manager;
-import com.neuq.bean.Student;
 import com.neuq.bean.Teacher;
 import com.neuq.dao.I.ManagerInterfaceDao;
 import com.neuq.db.DBUtil;
 
 public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
+	@SuppressWarnings("unused")
 	private static Connection con = DBUtil.getConnection();
 	private static PreparedStatement pst = null;
 	private static ResultSet rs = null;

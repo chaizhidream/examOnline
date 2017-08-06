@@ -7,10 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.tomcat.dbcp.dbcp2.PStmtKey;
-
 import com.neuq.bean.Tkt;
-import com.neuq.bean.Xzt;
 import com.neuq.dao.I.TktInterfaceDao;
 import com.neuq.db.DBUtil;
 

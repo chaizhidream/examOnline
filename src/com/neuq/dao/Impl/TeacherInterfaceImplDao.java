@@ -13,6 +13,7 @@ import com.neuq.dao.I.TeacherInterfaceDao;
 import com.neuq.db.DBUtil;
 
 public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
+	@SuppressWarnings("unused")
 	private static Connection con = DBUtil.getConnection();
 	private static PreparedStatement pst = null;
 	private static ResultSet rs = null;

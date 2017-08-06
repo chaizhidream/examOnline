@@ -8,7 +8,6 @@ package com.neuq.web.servlet;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.neuq.dao.Impl.StudentInterfaceImplDao;
 import com.neuq.db.DBUtil;
 import com.neuq.bean.Student;
-import com.neuq.dao.I.StudentInterfaceDao;
 
 /**
  * Servlet implementation class Register

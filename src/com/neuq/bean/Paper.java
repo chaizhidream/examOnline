@@ -1,7 +1,7 @@
 package com.neuq.bean;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * ÊÔ¾íÀà
@@ -12,8 +12,8 @@ public class Paper implements Serializable{
 	
 	
 	private int id;
-	private java.sql.Date starttime;
-	private java.sql.Date endtime;
+	private Date starttime;
+	private Date endtime;
 	private String papername;
 	private int xzt1;
 	private int xzt2;
@@ -85,16 +85,16 @@ public class Paper implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public java.sql.Date getStarttime() {
+	public java.util.Date getStarttime() {
 		return starttime;
 	}
-	public void setStarttime(java.sql.Date starttime) {
+	public void setStarttime(Date starttime) {
 		this.starttime = starttime;
 	}
-	public java.sql.Date getEndtime() {
+	public Date getEndtime() {
 		return endtime;
 	}
-	public void setEndtime(java.sql.Date endtime) {
+	public void setEndtime(Date endtime) {
 		this.endtime = endtime;
 	}
 	public String getPapername() {

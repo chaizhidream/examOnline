@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.neuq.bean.Mistakes;
 import com.neuq.bean.Paper;
 import com.neuq.dao.I.PaperInterfaceDao;
 import com.neuq.db.DBUtil;
@@ -22,8 +21,8 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 		 String sql="insert into  Paper values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	        try {
 				pst=con.prepareStatement(sql);			
-	        	pst.setDate(1, paper.getStarttime());
-				pst.setDate(2, paper.getEndtime());
+	        	pst.setDate(1, (java.sql.Date)paper.getStarttime());
+				pst.setDate(2, (java.sql.Date)paper.getEndtime());
 				pst.setString(3, paper.getPapername());
 				pst.setInt(4, paper.getXzt1());
 				pst.setInt(5, paper.getXzt2());

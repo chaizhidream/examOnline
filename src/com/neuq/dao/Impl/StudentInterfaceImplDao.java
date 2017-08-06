@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-
 import com.neuq.bean.Student;
 import com.neuq.dao.I.StudentInterfaceDao;
 import com.neuq.db.DBUtil;

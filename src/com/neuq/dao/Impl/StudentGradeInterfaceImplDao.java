@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.neuq.bean.Bct;
 import com.neuq.bean.StudentGrade;
 import com.neuq.dao.I.StudentGradeInterfaceDao;
 import com.neuq.db.DBUtil;
