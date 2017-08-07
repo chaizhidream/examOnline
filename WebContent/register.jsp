@@ -18,7 +18,8 @@
 		</div>
         <div class="logina-main main clearfix">
             <div class="tab-con">
-                <form id="form-login" method="post" action="passport/ajax-login">
+                <form id="form-login" name="form-login" method="post" onSubmit="return myCheck()"action="Register" >
+                
                     <div id='login-error' class="error-tip"></div>
                     <table border="0" cellspacing="0" cellpadding="0">
                         <tbody>
@@ -36,7 +37,7 @@
                                 <th>姓名</th>
                                 <td width="245">
                                     <input id="realname" type="text" name="realname" placeholder="请输入真实姓名" 
-                                    autocomplete="off" value="" onblur="javascript:checkrelname()">
+                                    autocomplete="off" value="" onblur="javascript:checkrealname()">
                                 </td>
                                 <td>
                                 	<span></span>

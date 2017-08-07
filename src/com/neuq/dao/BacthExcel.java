@@ -4,13 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import com.neuq.bean.Bct;
+import com.neuq.bean.Tkt;
 import com.neuq.bean.Xzt;
 import com.neuq.db.DBUtil;
 
 public class BacthExcel {
-
-	
-	
 	public static void insert(Xzt xzt) throws SQLException {
 		Connection con =DBUtil.getConnection();
 		String sql="insert into xzt(id,question, answer, optionA, optionB,optionC,optionD,questiontype,questionpoint) values(null,?,?,?,?,?,?,1,?)";
@@ -28,6 +27,37 @@ public class BacthExcel {
 			System.out.println("Save data : No. = " + xzt.toString()+ " succeed!");
 		}else {
 			System.out.println("NoSave data : No. = " + xzt.toString()+ " failed!");
+
+		}
+}
+	public static void insert(Tkt tkt) throws SQLException {
+		Connection con =DBUtil.getConnection();
+		String sql="insert into xzt(id,question, answer,questiontype,questionpoint) values(null,?,?,2,?)";
+		PreparedStatement ps = con.prepareStatement(sql);
+        ps = con.prepareStatement(sql);
+		ps.setString(1, tkt.getQuestion());
+		ps.setString(2, tkt.getAnswer());
+		ps.setString(3, tkt.getQuestionpoint());
+         boolean flag = ps.execute();
+		if(!flag){
+			System.out.println("Save data : No. = " + tkt.toString()+ " succeed!");
+		}else {
+			System.out.println("NoSave data : No. = " + tkt.toString()+ " failed!");
+
+		}
+}
+	public static void insert(Bct bct) throws SQLException {
+		Connection con =DBUtil.getConnection();
+		String sql="insert into xzt(id,question,questiontype,questionpoint) values(null,?,1,?)";
+		PreparedStatement ps = con.prepareStatement(sql);
+        ps = con.prepareStatement(sql);
+		ps.setString(1, bct.getQuestion());	
+		ps.setString(7, bct.getQuestionpoint());
+         boolean flag = ps.execute();
+		if(!flag){
+			System.out.println("Save data : No. = " + bct.toString()+ " succeed!");
+		}else {
+			System.out.println("NoSave data : No. = " + bct.toString()+ " failed!");
 
 		}
 }

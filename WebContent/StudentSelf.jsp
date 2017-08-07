@@ -87,8 +87,8 @@
 			  	<tr height="20px">
 			  		<td>性别</td>
 			  		<td>
-			  		  男<input type="radio" name="usex" value="${u.sex}" checked style="height: 20px; width: 100px;">&nbsp;
-			  		 女<input type="radio" name="usex" value="${u.sex}" style="height: 20px; width: 100px;">
+			  		  男<input type="radio" name="usex" value="<%=u.getSex()%>" checked style="height: 20px; width: 100px;">&nbsp;
+			  		 女<input type="radio" name="usex" value="<%=u.getSex()%>" style="height: 20px; width: 100px;">
 			  		</td>
 			  	</tr>
 			  	<tr height="60px">

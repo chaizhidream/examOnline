@@ -45,4 +45,10 @@ public class StudentInterfaceImplBiz implements StudentInterfaceBiz{
 		return stu.stucj(username);
 	}
 
+	@Override
+	public Student login(String username, String password) throws SQLException {
+		
+		return stu.login(username, password);
+	}
+
 }

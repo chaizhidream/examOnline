@@ -1,17 +1,13 @@
 
-//刷新验证码    
-function refresh()    
-{    
-document.getElementById("authImg").src="AuthImg?now="+new Date();//使用时间作为参数避免浏览器从缓存取图片    
-}    
+
 function check() {  
- //alert("开始check函数");
-    if(document.getElementById("vcode").value==""){  
-        //  document.getElementById("verSpan").innerHTML = "验证码不能为空";  
+
+   if(document.getElementById("vcode").value==""){  
+          //document.getElementById("verSpan").innerHTML = "验证码不能为空";  
 		alert("验证码不能为空!");
-          return;   
+          return false;   
       }      
-    // alert("不为空判断完成"); 
+ 
     
     var xmlHttp;  
     if(window.XMLHttpRequest) { //如果是ie7以上浏览器，使用new new XMLHttpRequest()创建对象  
@@ -39,11 +35,17 @@ function check() {
 
       if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {  
             
-            if (xmlHttp.responseText == "1") {//从服务端端返回的字符串如果为1，则判定输入验证码正确  
+            if (xmlHttp.responseText == "1") {
+				//从服务端端返回的字符串如果为1，则判定输入验证码正确  
                 //document.getElementById("verSpan").innerHTML = "验证码正确";  
-           }  
+                 return true;
+		  }  
            else {  
-               document.getElementById("verSpan").innerHTML = "验证码不正确";  
+               alert("验证码不正确");
+			   reloadcode();
+			   delData();
+			   
+                return false;			   
             }  
       }  
 	   
@@ -57,13 +59,13 @@ function check() {
 function delData() {  
     
     document.getElementById("vcode").value ="";  
-    document.getElementById("verSpan").innerHTML="";  
+ //   document.getElementById("verSpan").innerHTML="";  
 }  
 
 
 
 
-
+//刷新验证码    
  function reloadcode() {
 		document.getElementById("codeImg").src = "code?" + new Date();
 	}
@@ -90,11 +92,11 @@ function delData() {
 			document.form01.password.focus();            
 			return false;         
 		}  
-		
-		if(document.form01.vcode.value==""){            
-			alert("验证码不能为空");          
-			document.form01.vcode.focus();            
-			return false;         
-		}  		       
-		return true;       
+				
+	//	if(document.form01.vcode.value==""){            
+	//		alert("验证码不能为空");          
+	//		document.form01.vcode.focus();            
+	//		return false;         
+	//	}  		       
+		return check();       
 	}

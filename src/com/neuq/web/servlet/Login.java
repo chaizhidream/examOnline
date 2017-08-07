@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.neuq.bean.Student;
 import com.neuq.dao.I.StudentInterfaceDao;
 import com.neuq.dao.Impl.StudentInterfaceImplDao;
+import com.neuq.service.I.StudentInterfaceBiz;
+import com.neuq.service.Impl.StudentInterfaceImplBiz;
 
 
 /**
@@ -50,7 +52,7 @@ public class Login extends HttpServlet {
 		String upsw=request.getParameter("password");
 		String message1 =null;
 		String message2 =null;
-	StudentInterfaceDao service=new StudentInterfaceImplDao();
+	StudentInterfaceBiz service=new StudentInterfaceImplBiz();
 	
 		//ÓÃ»§µÇÂ¼
 		Student stu=null;

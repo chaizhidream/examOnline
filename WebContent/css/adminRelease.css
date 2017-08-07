@@ -1,0 +1,75 @@
+*{
+	margin:0;
+	padding:0;
+}
+.header{
+		width:100%;
+		height:80px;
+		background-image: url('../images/logo.jpg');
+		position:relative;
+	}
+	.header p{
+		font-size: 30px;
+		color: white;
+		text-align: center;
+		line-height: 80px;
+	}
+ #naver{
+     	width: 80%;
+     	line-height: 50px;
+     	background-color: blue;
+     	height: 50px;
+     	margin: 0 auto;
+}
+#naver .pl{
+     	float: left;
+     	width: 30%;
+     	text-align: right;
+}
+#naver .pr{
+     	float: left;
+        width: 65%;
+        text-align: right;
+        padding-right: 30px;
+}
+#main{
+     	width: 60%;
+     	height: 75%;
+     	margin: 0 auto;
+		border: red 1px solid;
+     	height: 800px;
+}
+#main .tab1{
+	border: 1px gainsboro dashed;
+	border-radius:5%;
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 80%;
+	height: 50px;
+}
+#main .td1{
+	width: 30px;
+	border: 1px black solid;
+	text-align: center;
+}
+.tab1 a{
+	text-decoration: none;
+}
+.tab1 a:hover{
+	background-color: aliceblue;
+	border: ;
+}
+     
+
+#footer{
+	width:100%;
+	height:50px;
+	background-image: url('../images/logo.jpg');
+	position:relative;
+	
+}
+.copyright{
+	position:absolute;
+	top:20px;
+	left:500px;
+}

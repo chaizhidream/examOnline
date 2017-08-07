@@ -59,10 +59,10 @@ public class MistakeInterfaceImplDao implements MistakesInterfaceDao{
 	}
 
 	@Override
-	public List<Mistakes> select(String username) {
+	public List<Mistakes> selectxzt(String username) {
 		Mistakes mis=new Mistakes();
 		List<Mistakes> list  = new ArrayList<Mistakes>();	
-		String sql = "select * from Mistakes where username= ? ";
+		String sql = "select * from Mistakes where username= ? and questiontype = 1";
 		try {
 			pst = con.prepareStatement(sql);
 			pst.setString(1, username);
@@ -90,6 +90,56 @@ public class MistakeInterfaceImplDao implements MistakesInterfaceDao{
 			pst = con.prepareStatement(sql);
 			pst.setString(1, username);
 			pst.setString(2, questionpoint);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				mis.setId(rs.getInt(1));
+				mis.setUsername(rs.getString(2));
+				mis.setQuestiontype(rs.getString(3));
+				mis.setQuestionid(rs.getInt(4));
+				list.add(mis);
+		}} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.CloseConnection(rs, pst, con);
+		}
+		return list;
+	}
+
+
+
+	@Override
+	public List<Mistakes> selecttkt(String username) {
+		Mistakes mis=new Mistakes();
+		List<Mistakes> list  = new ArrayList<Mistakes>();	
+		String sql = "select * from Mistakes where username= ? and questiontype = 2";
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, username);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				mis.setId(rs.getInt(1));
+				mis.setUsername(rs.getString(2));
+				mis.setQuestiontype(rs.getString(3));
+				mis.setQuestionid(rs.getInt(4));
+				list.add(mis);
+		}} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.CloseConnection(rs, pst, con);
+		}
+		return list;
+	}
+/**
+ * 编程题错题传入仍需商讨
+ */
+	@Override
+	public List<Mistakes> selectbct(String username) {
+		Mistakes mis=new Mistakes();
+		List<Mistakes> list  = new ArrayList<Mistakes>();	
+		String sql = "select * from Mistakes where username= ? and questiontype = 3";
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, username);
 			rs = pst.executeQuery();
 			while(rs.next()) {
 				mis.setId(rs.getInt(1));

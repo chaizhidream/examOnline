@@ -21,12 +21,13 @@ public class StudentInterfaceImplDao implements StudentInterfaceDao{
 	 *查询学生信息
 	 */
 	public Student select(Student s,Connection con) throws SQLException {
-		Student info=new Student();
+		Student info=null;
 		String sql = "select * from Student where username = ?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, s.getUsername());
 		rs = pst.executeQuery();
 		if(rs.next()) {
+			info=new Student();
 			info.setUsername(rs.getString(2));
 			info.setPwd(rs.getString(3));
 			info.setName(rs.getString(4));
@@ -97,13 +98,14 @@ public class StudentInterfaceImplDao implements StudentInterfaceDao{
 	@Override
 	public Student login(String username, String pwd) throws SQLException {
 		Connection con = DBUtil.getConnection();
-		Student info=new Student();
+		Student info=null;
 		String sql = "select * from Student where username = ? and pwd=?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, username);
 		pst.setString(2,pwd);
 		rs = pst.executeQuery();
 		if(rs.next()) {
+			info=new Student();
 			info.setUsername(rs.getString(2));
 			info.setPwd(rs.getString(3));
 			info.setName(rs.getString(4));
