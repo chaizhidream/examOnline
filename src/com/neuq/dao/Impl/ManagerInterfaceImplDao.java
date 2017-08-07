@@ -99,5 +99,31 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 		DBUtil.CloseConnection(rs, pst, con);
 		return info;
 	}
+
+	@Override
+	public Manager showManagerInfo(String username) throws SQLException {
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		con = DBUtil.getConnection();
+		
+		Manager u=new Manager();
+		String sql="select * from Manager where username = ?";
+		pst = con.prepareStatement(sql);
+		pst.setString(1, username);
+		rs = pst.executeQuery(sql);
+		while (rs.next()) {
+
+			u.setId(rs.getInt("id"));
+			u.setManagername(rs.getString("username"));
+			u.setName(rs.getString("name"));
+			u.setSex(rs.getString("sex"));
+			u.setEmail(rs.getString("email"));
+            u.setTelephone(rs.getString("telephone"));
+			System.out.println(u.toString());
+
+		}
+		return u;
+	}
 	
 }

@@ -29,4 +29,20 @@ PaperInterfaceDao pif=new PaperInterfaceImplDao();
 		return pif.select(questionpoint);
 	}
 
+	@Override
+	public List<Paper> showbeforePaper() {
+		return pif.showbeforePaper();
+	}
+
+	@Override
+	public List<Paper> showafterPaper() {
+		return pif.showafterPaper();
+	}
+
+	@Override
+	public List<Paper> shownowPaper() {
+		return pif.shownowPaper();
+	}
+	
+
 }

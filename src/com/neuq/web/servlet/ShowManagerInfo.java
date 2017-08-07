@@ -2,12 +2,14 @@ package com.neuq.web.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.neuq.dao.I.StudentInterfaceDao;
-import com.neuq.dao.Impl.StudentInterfaceImplDao;
+import com.neuq.dao.I.ManagerInterfaceDao;
+import com.neuq.dao.Impl.ManagerInterfaceImplDao;
+
 
 /**
  * Servlet implementation class cjservlet
@@ -15,27 +17,26 @@ import com.neuq.dao.Impl.StudentInterfaceImplDao;
 
 
 
-public class Stucj extends HttpServlet {
+public class ShowManagerInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-    public Stucj() {
+    public ShowManagerInfo() {
         super();
 
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-    	StudentInterfaceDao sid=new StudentInterfaceImplDao();
-    	try {
-    		//后期加上request.getparameter("username")即可
-			request.setAttribute("list", sid.stucj("chai"));
+		try {
+		ManagerInterfaceDao tid=new ManagerInterfaceImplDao();
+		//传入Manager类
+		request.setAttribute("Manager", tid.showManagerInfo(request.getParameter("username")));			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-    			//将list数据发送到.jsp文件中
-		request.getRequestDispatcher("cj.jsp").forward(request, response);
+		}		
+		//将list数据发送到.jsp文件中
+		request.getRequestDispatcher("ManagerSelf.jsp").forward(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

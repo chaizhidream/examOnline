@@ -12,4 +12,5 @@ public interface ManagerInterfaceDao {
 	public List<Teacher> select(Connection con)throws SQLException;
 	public boolean insert(Teacher t,Connection con)throws SQLException;
 	public boolean delete(Teacher t,Connection con)throws SQLException;
+	public Manager showManagerInfo(String parameter) throws SQLException; 
 }

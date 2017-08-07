@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.neuq.bean.Student;
+import com.neuq.bean.StudentGrade;
 import com.neuq.bean.Teacher;
 import com.neuq.dao.I.TeacherInterfaceDao;
 import com.neuq.db.DBUtil;
@@ -131,6 +132,66 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		return list;
 	}
 
+	@Override
+	public List<StudentGrade> stucj(String studentclass,String Papername) throws SQLException {
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		con = DBUtil.getConnection();
+		ArrayList<StudentGrade> list = new ArrayList<StudentGrade>();
+		try {
+			String sql="select score,username form studentgrade  where papername=? and username = (select username from student where studentclass = ?) ";
+			pst = con.prepareStatement(sql);
+			pst.setString(1, Papername);
+			pst.setString(2, studentclass);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				StudentGrade sg=new StudentGrade();
+				sg.setId(rs.getInt(1));
+				sg.setUsername(rs.getString(2));
+				sg.setScore(rs.getInt(3));
+				sg.setPapername(rs.getString(4));
+				list.add(sg);
+	}
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+		return list;
 
 
 }
+/**
+ * 查看教师个人信息
+ */
+	@Override
+	public Teacher showTeacherInfo(String username) throws SQLException {
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		con = DBUtil.getConnection();
+		
+		Teacher u=new Teacher();
+		String sql="select * from teacher where username = ?";
+		pst = con.prepareStatement(sql);
+		pst.setString(1, username);
+		rs = pst.executeQuery(sql);
+		while (rs.next()) {
+
+			u.setId(rs.getInt("id"));
+			u.setTeachername(rs.getString("username"));
+			u.setName(rs.getString("name"));
+			u.setSex(rs.getString("sex"));
+			u.setEmail(rs.getString("email"));
+            u.setTelephone(rs.getString("telephone"));
+			System.out.println(u.toString());
+
+		}
+		return u;
+	}
+	
+}
+
+
+
+

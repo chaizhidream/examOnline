@@ -48,7 +48,9 @@ public interface PaperInterfaceDao {
 	 */
 	public List<Paper> select(String questionpoint);
 	
-	
+	public List<Paper> showbeforePaper();
+	public List<Paper> showafterPaper();
+	public List<Paper> shownowPaper();
 	
 	
 }

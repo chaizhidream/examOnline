@@ -51,7 +51,14 @@ public class Xzt implements Serializable{
 
 
 
-    public int getId() {
+    @Override
+public String toString() {
+	return "Xzt [id=" + id + ", question=" + question + ", answer=" + answer + ", optionA=" + optionA + ", optionB="
+			+ optionB + ", optionC=" + optionC + ", optionD=" + optionD + ", questiontype=" + questiontype
+			+ ", questionpoint=" + questionpoint + "]";
+}
+
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {

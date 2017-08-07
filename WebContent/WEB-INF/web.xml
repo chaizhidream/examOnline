@@ -24,14 +24,21 @@
     <servlet-name>Mistakecollect</servlet-name>
     <url-pattern>/Mistakecollect</url-pattern>
   </servlet-mapping>
-
-    <servlet>
+  <servlet>
     <servlet-name>Selftest</servlet-name>
     <servlet-class>com.neuq.servlet.Selftest</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Selftest</servlet-name>
     <url-pattern>/Selftest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Upload</servlet-name>
+    <servlet-class>com.neuq.servlet.Upload</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Upload</servlet-name>
+    <url-pattern>/Upload</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>main.jsp</welcome-file>

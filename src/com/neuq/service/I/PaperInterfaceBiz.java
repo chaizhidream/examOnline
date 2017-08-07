@@ -39,4 +39,7 @@ public interface PaperInterfaceBiz {
 	 * @return  Paper ÊÔ¾í¼¯ºÏ
 	 */
 	public List<Paper> select(String questionpoint);
+	public List<Paper> showbeforePaper();
+	public List<Paper> showafterPaper();
+	public List<Paper> shownowPaper();
 }

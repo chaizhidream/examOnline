@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.neuq.bean.Student;
+import com.neuq.bean.StudentGrade;
 import com.neuq.dao.I.StudentInterfaceDao;
 import com.neuq.db.DBUtil;
 
@@ -112,6 +116,61 @@ public class StudentInterfaceImplDao implements StudentInterfaceDao{
 		return info;
 	}
 
+	@Override
+	public Student showuserinfo(String username) throws SQLException {
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		con = DBUtil.getConnection();
+		
+		Student u=new Student();
+		String sql="select * from student where username = ?";
+		pst = con.prepareStatement(sql);
+		pst.setString(1, username);
+		rs = pst.executeQuery(sql);
+		while (rs.next()) {
+
+			u.setId(rs.getInt("id"));
+			u.setUsername(rs.getString("username"));
+			u.setName(rs.getString("name"));
+			u.setSex(rs.getString("sex"));
+			u.setEmail(rs.getString("email"));
+            u.setTelephone(rs.getString("telephone"));
+            u.setStudentclass(rs.getString("studentclass"));
+			System.out.println(u.toString());
+
+		}
+		return u;
+	}
+
+	@Override
+	public List<StudentGrade> stucj(String username) throws SQLException {
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		con = DBUtil.getConnection();
+		ArrayList<StudentGrade> list = new ArrayList<StudentGrade>();
+		try {
+			String sql="select * from studentgrade where username=?";
+			pst = con.prepareStatement(sql);
+			pst.setString(1, username);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				StudentGrade sg=new StudentGrade();
+				sg.setId(rs.getInt(1));
+				sg.setUsername(rs.getString(2));
+				sg.setScore(rs.getInt(3));
+				sg.setPapername(rs.getString(4));
+				list.add(sg);
+				System.out.println(sg.getUsername());
+	}
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}finally {
+		DBUtil.CloseConnection(rs, pst, con);
+	}
+		return list;
 
 
-}
+}}
