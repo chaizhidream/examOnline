@@ -15,11 +15,11 @@ import com.neuq.dao.Impl.StudentInterfaceImplDao;
 
 
 
-public class Stucj extends HttpServlet {
+public class ShowStudentgrade extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-    public Stucj() {
+    public ShowStudentgrade() {
         super();
 
     }
@@ -31,7 +31,6 @@ public class Stucj extends HttpServlet {
     		//后期加上request.getparameter("username")即可
 			request.setAttribute("list", sid.stucj("chai"));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     			//将list数据发送到.jsp文件中
