@@ -1,5 +1,11 @@
 ﻿ # （必填）开发记录（时间倒序排列）
-  
+ 
+### 8/8 15：20
+柴智：数据库增加了Bctanswer表，增加对应的javabean以及dao包和数据库操作。封装service层，完成对应的servlet。 
+ 
+### 8/8 14：30
+方娇： 增加了教师出卷功能的dao层方法，和一部分servlet。
+
 ### 8/8 09：20
 柴智：把数据库studentgrade，score字段分为xztscore,tktscore,bctscore,其中bctscore默认值为-1，代表未批阅。同时修改对应的Javabean以及dao包下对应SQL语句。  
   
