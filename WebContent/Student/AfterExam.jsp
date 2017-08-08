@@ -1,9 +1,8 @@
-<%@ page language="java" 
-    pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html>
 <html>
-<head>
- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style type="text/css">
         	.tt{
@@ -17,9 +16,16 @@
     	<div>
 	 			<table class="tt">
 	 				<!--获取后台 将来的考试信息-->
-	 				<c:forEach items="${sessionScope.PaperAfter } var="pf">
 	 				<tr>
-	 				  <td>${pf. }</td>
+	 					<th>考试号</th>
+	 					<th>开始时间</th>
+	 					<th>结束时间</th>
+	 					<th>试卷名</th>
+	 					<th>操作</th>
+	 				</tr>
+	 				<c:forEach items="${sessionScope.PaperAfter }" var="pf">
+	 				<tr>
+	 				  <td>${pf.Id }</td>
 	 				  <td>${pf.Starttime }</td>
 	 				  <td>${pf.Endtime }</td>
 	 				  <td>${pf.Papername }</td>
@@ -27,5 +33,5 @@
 	 				</c:forEach>
 	 			</table>
 	 		</div>
-</body>
+ 	</body>
 </html>

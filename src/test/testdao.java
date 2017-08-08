@@ -68,8 +68,8 @@ public class testdao {
 //			//list.add(sg);
 //			System.out.println(sg.getUsername());
 //}
-		SaveData sd=new SaveData();
-		sd.save(null);
+//		SaveData sd=new SaveData();
+//		sd.save(null);
 		
 		
 	}

@@ -1,10 +1,8 @@
-<%@ page language="java" contentType="text/html; 
-    pageEncoding="utf-8" import="com.neuq.bean.Student"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-<head>
-		<meta charset="utf-8" />
+    <meta charset="utf-8" />
 		<link rel="stylesheet" href="../css/StudengtSelf.css" />
 		<title>个人中心</title>
 	</head>
@@ -68,7 +66,7 @@
 			  	  <tr height="60px">
 			  		<td><p>邮箱</p></td>
 			  	  	<td>
-			  			<input type="text" value="<%=u.getEmail()%>" name="email" />
+			  			<input type="text" value="<%=u.getEmail%>" name="email" />
 			  		</td>
 			  	  </tr>
 			  	  <tr>
@@ -86,5 +84,5 @@
 		<div class="footer">
 			<div class="copyright">Copyright © 1996-2017. All Rights Reserved. 版权所有</div>
 		</div>
-</body>
+ 	</body>
 </html>

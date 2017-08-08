@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
- <servlet>
+  <servlet>
     <description></description>
     <display-name>ValidateCodeServlet</display-name>
     <servlet-name>ValidateCodeServlet</servlet-name>
@@ -10,7 +10,6 @@
     <servlet-name>ValidateCodeServlet</servlet-name>
     <url-pattern>/code</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Login</servlet-name>
     <servlet-class>com.neuq.web.servlet.Login</servlet-class>
@@ -18,8 +17,7 @@
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
- </servlet-mapping>
- 
+  </servlet-mapping>
   <servlet>
     <servlet-name>Logout</servlet-name>
     <servlet-class>com.neuq.web.servlet.Logout</servlet-class>
@@ -28,7 +26,6 @@
     <servlet-name>Logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Mistakecollect</servlet-name>
     <servlet-class>com.neuq.web.servlet.Mistakecollect</servlet-class>
@@ -37,7 +34,6 @@
     <servlet-name>Mistakecollect</servlet-name>
     <url-pattern>/Mistakecollect</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Register</servlet-name>
     <servlet-class>com.neuq.web.servlet.Register</servlet-class>
@@ -45,17 +41,15 @@
   <servlet-mapping>
     <servlet-name>Register</servlet-name>
     <url-pattern>/Register</url-pattern>
-  </servlet-mapping> 
-  
-   <servlet>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Selftest</servlet-name>
     <servlet-class>com.neuq.web.servlet.Selftest</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Selftest</servlet-name>
     <url-pattern>/Selftest</url-pattern>
-  </servlet-mapping> 
-  
+  </servlet-mapping>
   <servlet>
     <servlet-name>ShowManagerInfo</servlet-name>
     <servlet-class>com.neuq.web.servlet.ShowManagerInfo</servlet-class>
@@ -63,8 +57,7 @@
   <servlet-mapping>
     <servlet-name>ShowManagerInfo</servlet-name>
     <url-pattern>/ShowManagerInfo</url-pattern>
- </servlet-mapping>
- 
+  </servlet-mapping>
   <servlet>
     <servlet-name>ShowPaper</servlet-name>
     <servlet-class>com.neuq.web.servlet.ShowPaper</servlet-class>
@@ -72,9 +65,7 @@
   <servlet-mapping>
     <servlet-name>ShowPaper</servlet-name>
     <url-pattern>/ShowPaper</url-pattern>
- </servlet-mapping>
- 
- 
+  </servlet-mapping>
   <servlet>
     <servlet-name>ShowStudentInfo</servlet-name>
     <servlet-class>com.neuq.web.servlet.ShowStudentInfo</servlet-class>
@@ -82,9 +73,7 @@
   <servlet-mapping>
     <servlet-name>ShowStudentInfo</servlet-name>
     <url-pattern>/ShowStudentInfo</url-pattern>
- </servlet-mapping>
- 
- 
+  </servlet-mapping>
   <servlet>
     <servlet-name>ShowTeacherInfo</servlet-name>
     <servlet-class>com.neuq.web.servlet.ShowTeacherInfo</servlet-class>
@@ -92,9 +81,7 @@
   <servlet-mapping>
     <servlet-name>ShowTeacherInfo</servlet-name>
     <url-pattern>/ShowTeacherInfo</url-pattern>
- </servlet-mapping>
- 
- 
+  </servlet-mapping>
   <servlet>
     <servlet-name>ShowUserInfo</servlet-name>
     <servlet-class>com.neuq.web.servlet.ShowUserInfo</servlet-class>
@@ -102,9 +89,7 @@
   <servlet-mapping>
     <servlet-name>ShowUserInfo</servlet-name>
     <url-pattern>/ShowUserInfo</url-pattern>
- </servlet-mapping>
- 
- 
+  </servlet-mapping>
   <servlet>
     <servlet-name>Upload</servlet-name>
     <servlet-class>com.neuq.web.servlet.Upload</servlet-class>
@@ -112,9 +97,7 @@
   <servlet-mapping>
     <servlet-name>Upload</servlet-name>
     <url-pattern>/Upload</url-pattern>
- </servlet-mapping>
- 
- 
+  </servlet-mapping>
   <servlet>
     <servlet-name>CheckCode</servlet-name>
     <servlet-class>com.neuq.web.servlet.CheckCode</servlet-class>
@@ -122,15 +105,7 @@
   <servlet-mapping>
     <servlet-name>CheckCode</servlet-name>
     <url-pattern>/CheckCode</url-pattern>
- </servlet-mapping>
- 
- 
- 
- 
- 
- 
- 
- 
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>main.jsp</welcome-file>
     <welcome-file>index.jsp</welcome-file>

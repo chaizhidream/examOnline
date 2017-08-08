@@ -1,17 +1,24 @@
 package com.neuq.dao.Impl;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.neuq.bean.Bct;
+import com.neuq.bean.Paper;
+import com.neuq.bean.PaperString;
 import com.neuq.bean.Student;
 import com.neuq.bean.StudentGrade;
 import com.neuq.bean.Teacher;
+import com.neuq.bean.Tkt;
+import com.neuq.bean.Xzt;
 import com.neuq.dao.I.TeacherInterfaceDao;
 import com.neuq.db.DBUtil;
+import com.neuq.util.QuestionInstance;
+import com.neuq.util.SaveData;
 
 public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 	@SuppressWarnings("unused")
@@ -89,7 +96,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 	/**
 	 * É¾³ýÑ§Éú
 	 */
-	public boolean delete(Student s, Connection con) throws SQLException {
+	public boolean delete(Student s,String studentclass, Connection con) throws SQLException {
 		// TODO Auto-generated method stub
 		PreparedStatement pst=null;
 		boolean b = false;
@@ -133,7 +140,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 	}
 
 	@Override
-	public List<StudentGrade> stucj(String studentclass,String Papername) throws SQLException {
+	public List<StudentGrade> studentgrade(String studentclass,String Papername) throws SQLException {
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
@@ -191,6 +198,142 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		}
 		return u;
 	}
+
+
+
+@Override
+public boolean batchquestion(int questiontype) {
+	SaveData sd=new SaveData();
+	boolean b = false;
+	if(questiontype == 1) {
+		try {
+			try {
+				sd.savexcel("upload/", 1);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+	}
+	if(questiontype == 2) {
+		try {
+			try {
+				sd.savexcel("upload/", 2);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+		}
+	if(questiontype == 3) {
+		try {
+			try {
+				sd.savexcel("upload/", 3);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+	}
+	return b;
+}
+
+@Override
+public boolean  setPaper(int[] questionxztid,int[] questiontktid, int[] questionbctid ) throws SQLException {
+	boolean  b = false;
+	List<Xzt> xzts=new ArrayList<Xzt>();
+	List<Tkt> tkts=new ArrayList<Tkt>();
+	List<Bct> bcts=new ArrayList<Bct>();
+	for(int i  = 0; i<questionxztid.length;i++){
+		xzts.add(QuestionInstance.getXzt(questionxztid[i]));
+	}
+	for(int j  = 0; j<questionxztid.length;j++){
+		tkts.add(QuestionInstance.getTkt(questiontktid[j]));	
+	}
+	for(int k  = 0; k<questionxztid.length;k++){
+		bcts.add(QuestionInstance.getBct(questionbctid[k]));	
+	}
+	if(xzts != null && tkts != null && bcts != null) {
+		b = true;
+	}
+	return b;
+}	
+
+
+@Override
+public boolean correctPaper(int score) throws SQLException {
+	// TODO Auto-generated method stub
+	return false;
+}
+
+@Override
+public PaperString showPaper(Paper paper) throws SQLException {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public List<Xzt> showPaperbankxzt() throws SQLException {
+	List<Xzt> list = new ArrayList<Xzt>();
+	Xzt xzt= new Xzt();
+	String sql = " select * from xzt";
+	pst=con.prepareStatement(sql);
+	rs = pst.executeQuery();
+	while(rs.next()) {
+		xzt.setId(rs.getInt(1));
+		xzt.setQuestion(rs.getString(2));
+		xzt.setAnswer(rs.getString(3));
+		xzt.setOptionA(rs.getString(4));
+		xzt.setOptionB(rs.getString(5));
+		xzt.setOptionC(rs.getString(6));
+		xzt.setOptionD(rs.getString(7));
+		xzt.setQuestiontype(rs.getInt(8));
+		xzt.setQuestionpoint(rs.getString(9));
+	}
+	list.add(xzt);
+	return list;
+}
+
+@Override
+public List<Tkt> showPaperbanktkt() throws SQLException {
+	List<Tkt> list = new ArrayList<Tkt>();
+	Tkt tkt= new Tkt();
+	String sql = " select * from tkt";
+	pst=con.prepareStatement(sql);
+	rs = pst.executeQuery();
+	while(rs.next()) {
+		tkt.setId(rs.getInt(1));
+		tkt.setQuestion(rs.getString(2));
+		tkt.setAnswer(rs.getString(3));
+		tkt.setQuestiontype(rs.getInt(4));
+		tkt.setQuestionpoint(rs.getString(5));
+	}
+	list.add(tkt);
+	return list;
+}
+
+@Override
+public List<Bct> showPaperbankbct() throws SQLException {
+	List<Bct> list = new ArrayList<Bct>();
+	Bct bct= new Bct();
+	String sql = " select * from bct";
+	pst=con.prepareStatement(sql);
+	rs = pst.executeQuery();
+	while(rs.next()) {
+		bct.setId(rs.getInt(1));
+		bct.setQuestion(rs.getString(2));
+		bct.setQuestiontype(rs.getInt(4));
+		bct.setQuestionpoint(rs.getString(5));
+	}
+	list.add(bct);
+	return list;
+}
 	
 }
 

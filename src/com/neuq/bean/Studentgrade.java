@@ -1,4 +1,3 @@
-
 package com.neuq.bean;
 
 import java.io.Serializable;
@@ -25,8 +24,7 @@ public class StudentGrade implements Serializable{
 	/**
 	 * @param username 学生用户名	
 	 * @param score 学生成绩
-	
- * @param papername 试卷名
+	 * @param papername 试卷名
 	 */
 	public StudentGrade(String username, int xztscore,int tktscore, String papername) {
 		super();

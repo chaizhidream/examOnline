@@ -1,0 +1,44 @@
+﻿* { word-wrap: break-word; }
+body { font: 12px/1.5 Tahoma,'Microsoft Yahei','Simsun'; color: #444; }
+body, ul, li { margin: 0; padding: 0; }
+    ul li { list-style: none; }
+a { color: #000; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a img { border: none; }
+.cl:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.cl { zoom: 1; }
+
+.frame { margin-bottom: 10px; border: 1px solid #e1e1e1; background: #FFF; }
+.title { padding: 0 10px; height: 32px; font-size: 14px; font-weight: 700; line-height: 32px; overflow: hidden; }
+
+.block { margin: 10px 10px 0; }
+
+.temp { margin: 1px; }
+
+.slideshow { clear: both; }
+    .slideshow li { position: relative; overflow: hidden; }
+    .slideshow span.title { position: absolute; bottom: 0; left: 0; margin-bottom: 0; width: 100%; height: 32px; line-height: 32px; font-size: 14px; text-indent: 10px; }
+.slideshow span.title, .slidebar li { background: rgba(0,0,0,0.3); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = #30000000,endColorstr = #30000000); color: #FFF; overflow: hidden; }
+.slidebar li { float: left; margin-right: 1px; width: 20px; height: 20px; line-height: 20px; text-align: center; font-size: 10px; cursor: pointer; }
+    .slidebar li.on { background: rgba(255,255,255,0.5); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = #50FFFFFF,endColorstr = #50FFFFFF); color: #000; font-weight: 700; }
+
+
+ul, li { list-style: none; }
+a:hover { text-decoration: underline; color: #a50001; }
+
+.frame { background: none; border: 0px solid #fff; margin-bottom: 0px; }
+.temp { margin: 0; }
+.slidebar { position: absolute; top: 5px; left: 4px; }
+.slideshow span.title, .slidebar li { background: rgba(0,0,0,0.3); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = #90000000,endColorstr = #90000000); color: #FFF; overflow: hidden; }
+.slidebar li.on { background: rgba(255,255,255,0.5); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = #90000000,endColorstr = #90000000); color: #ff0; font-weight: 700; }
+
+.slideshow SPAN.title { text-indent: 0px; }
+.block { margin: 0;position: relative; }
+#frameHlicAe { margin: 0px !important; border: 0px !important; }
+.comiis_wrap960, .comiis_wrapad { margin: 0 auto; width: 1060px; }
+/*.comiis_wrapad { margin-top: 40px; }*/
+.comiis_wrapad { overflow: hidden; }
+.comiis_wrapad img { float: left; margin-top: 0px; }
+
+#slidesImgs li { width: 1060px; height:390px; display: none; }
+/* 酷站代码整理 http://www.5icool.org */
