@@ -1,4 +1,10 @@
 ﻿ # （必填）开发记录（时间倒序排列）
+  
+### 8/8 09：20
+柴智：把数据库studentgrade，score字段分为xztscore,tktscore,bctscore,其中bctscore默认值为-1，代表未批阅。同时修改对应的Javabean以及dao包下对应SQL语句。  
+  
+ ---
+ 
 ### 8/7 20：20
 方娇：修复了mistakes类的问题，完成了错题集的填空题和编程题。
 
