@@ -149,8 +149,10 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 				StudentGrade sg=new StudentGrade();
 				sg.setId(rs.getInt(1));
 				sg.setUsername(rs.getString(2));
-				sg.setScore(rs.getInt(3));
-				sg.setPapername(rs.getString(4));
+				sg.setXztscore(rs.getInt(3));
+				sg.setTktscore(rs.getInt(4));
+				sg.setBctscore(rs.getInt(5));
+				sg.setPapername(rs.getString(6));
 				list.add(sg);
 	}
 		

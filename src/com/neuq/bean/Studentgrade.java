@@ -1,3 +1,4 @@
+
 package com.neuq.bean;
 
 import java.io.Serializable;
@@ -12,26 +13,34 @@ public class StudentGrade implements Serializable{
 	
 	private int id;	
 	private String username;
-	private int score;
+	private int xztscore;
+	private int tktscore;
+	private int bctscore=-1;
 	private String papername;
 	
 	
 	
 	
-    /**
+   
+	/**
 	 * @param username 学生用户名	
 	 * @param score 学生成绩
-	 * @param papername 试卷名
+	
+ * @param papername 试卷名
 	 */
-	public StudentGrade(String username, int score, String papername) {
+	public StudentGrade(String username, int xztscore,int tktscore, String papername) {
 		super();
 		this.username = username;
-		this.score = score;
+		this.xztscore=xztscore;
+		this.tktscore=tktscore;
 		this.papername = papername;
 	}
+	
 	public StudentGrade() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -44,12 +53,26 @@ public class StudentGrade implements Serializable{
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public int getScore() {
-		return score;
-	}
-	public void setScore(int score) {
-		this.score = score;
-	}
+
+	 public int getXztscore() {
+			return xztscore;
+		}
+		public void setXztscore(int xztscore) {
+			this.xztscore = xztscore;
+		}
+		public int getTktscore() {
+			return tktscore;
+		}
+		public void setTktscore(int tktscore) {
+			this.tktscore = tktscore;
+		}
+		public int getBctscore() {
+			return bctscore;
+		}
+		public void setBctscore(int bctscore) {
+			this.bctscore = bctscore;
+		}
+	
 	public String getPapername() {
 		return papername;
 	}

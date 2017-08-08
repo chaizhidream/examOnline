@@ -17,8 +17,12 @@ public interface MistakesInterfaceBiz {
 		 * 查询某个学生的全部错题  
 		 */
 		public List<Mistakes> select(String username);		
+		public List<Mistakes> selectbct(String username);	
+		public List<Mistakes> selecttkt(String username);	
+		
 		/**
 		 * 按知识点查询某个学生的全部错题
 		 */
 		public List<Mistakes> select(String username,String questionpoint);
+		List<Mistakes> selectxzt(String username);
 }

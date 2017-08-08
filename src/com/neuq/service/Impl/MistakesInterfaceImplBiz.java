@@ -20,13 +20,25 @@ public class MistakesInterfaceImplBiz implements MistakesInterfaceBiz {
 	}
 
 	@Override
-	public List<Mistakes> select(String username) {
-		return mif.select(username);
+	public List<Mistakes> selectxzt(String username) {
+		return mif.selectxzt(username);
+	}
+	public List<Mistakes> selecttkt(String username) {
+		return mif.selecttkt(username);
+	}
+	public List<Mistakes> selectbct(String username) {
+		return mif.selectbct(username);
 	}
 
 	@Override
 	public List<Mistakes> select(String username, String questionpoint) {
 		return mif.select(username,questionpoint);
+	}
+
+	@Override
+	public List<Mistakes> select(String username) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

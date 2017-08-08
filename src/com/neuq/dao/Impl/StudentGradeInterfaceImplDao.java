@@ -26,12 +26,13 @@ public class StudentGradeInterfaceImplDao implements StudentGradeInterfaceDao {
 	public boolean insert(StudentGrade studentGrade) {
 		int row=0;
         con=DBUtil.getConnection();
-        String sql="insert into studentGrade values (null,?,?,?)";
+        String sql="insert into studentGrade (username,xztscore,tktscore,papername)values (?,?,?,?)";
         try {
 			pr=con.prepareStatement(sql);
 			pr.setString(1, studentGrade.getUsername());
-			pr.setInt(2, studentGrade.getScore());
-			pr.setString(3, studentGrade.getPapername());
+			pr.setInt(2, studentGrade.getXztscore());
+			pr.setInt(3, studentGrade.getTktscore());
+			pr.setString(4, studentGrade.getPapername());
 			row=pr.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -76,13 +77,15 @@ public class StudentGradeInterfaceImplDao implements StudentGradeInterfaceDao {
 		int row=0;
         con=DBUtil.getConnection();
         //题目种类不会变
-        String sql="update studentGrade set  username=?,score=?, papername=? where id=?";
+        String sql="update studentGrade set  username=?,xzscore=?, tktscore=?,bctscore=?,papername=? where id=?";
         try {
 			pr=con.prepareStatement(sql);	
 			pr.setString(1, studentGrade.getUsername());
-			pr.setInt(2, studentGrade.getScore());
-			pr.setString(3, studentGrade.getPapername());
-			pr.setInt(4, studentGrade.getId());
+			pr.setInt(2, studentGrade.getXztscore());
+			pr.setInt(3, studentGrade.getTktscore());
+			pr.setInt(4, studentGrade.getBctscore());
+			pr.setString(5, studentGrade.getPapername());
+			pr.setInt(6, studentGrade.getId());
 			row=pr.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -109,7 +112,9 @@ public class StudentGradeInterfaceImplDao implements StudentGradeInterfaceDao {
 				StudentGrade sgrade=new StudentGrade();
 				sgrade.setId(rs.getInt("id"));
 				sgrade.setUsername(username);
-				sgrade.setScore(rs.getInt("score"));
+				sgrade.setXztscore(rs.getInt("xzscore"));
+				sgrade.setTktscore(rs.getInt("tkscore"));
+				sgrade.setBctscore(rs.getInt("bcscore"));
 				sgrade.setPapername(rs.getString("papername"));
 				list.add(sgrade);
 			}
@@ -141,7 +146,9 @@ public class StudentGradeInterfaceImplDao implements StudentGradeInterfaceDao {
 				StudentGrade sgrade=new StudentGrade();
 				sgrade.setId(rs.getInt("id"));
 				sgrade.setUsername(rs.getString("username"));
-				sgrade.setScore(rs.getInt("score"));
+				sgrade.setXztscore(rs.getInt("xztscore"));
+				sgrade.setTktscore(rs.getInt("tktscore"));
+				sgrade.setBctscore(rs.getInt("bctscore"));
 				sgrade.setPapername(rs.getString("papername"));
 				list.add(sgrade);
 			}

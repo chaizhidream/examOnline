@@ -21,13 +21,12 @@ public class StudentInterfaceImplDao implements StudentInterfaceDao{
 	 *查询学生信息
 	 */
 	public Student select(Student s,Connection con) throws SQLException {
-		Student info=null;
+		Student info=new Student();
 		String sql = "select * from Student where username = ?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, s.getUsername());
 		rs = pst.executeQuery();
 		if(rs.next()) {
-			info=new Student();
 			info.setUsername(rs.getString(2));
 			info.setPwd(rs.getString(3));
 			info.setName(rs.getString(4));
@@ -161,8 +160,10 @@ public class StudentInterfaceImplDao implements StudentInterfaceDao{
 				StudentGrade sg=new StudentGrade();
 				sg.setId(rs.getInt(1));
 				sg.setUsername(rs.getString(2));
-				sg.setScore(rs.getInt(3));
-				sg.setPapername(rs.getString(4));
+				sg.setXztscore(rs.getInt(3));
+				sg.setTktscore(rs.getInt(4));
+				sg.setBctscore(rs.getInt(5));
+				sg.setPapername(rs.getString(6));
 				list.add(sg);
 				System.out.println(sg.getUsername());
 	}
