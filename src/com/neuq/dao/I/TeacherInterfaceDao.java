@@ -72,7 +72,7 @@ public interface TeacherInterfaceDao   {
 	/**
 	 * 批量导题
 	 */
-	public boolean batchquestion(int questiontype) throws SQLException;
+	public boolean batchquestion(int questiontype,String filename,String path) throws SQLException;
 	/**
 	 * 出卷
 	 */
@@ -88,7 +88,11 @@ public interface TeacherInterfaceDao   {
 	 */
 	public boolean correctPaper(int score)throws SQLException;
 	/**
-	 * 查看试卷
+	 * 根据前台返回的试卷名称查看试卷
 	 */
-	public PaperString showPaper(Paper paper)throws SQLException; 
+	public PaperString showPaper(String papername)throws SQLException; 
+	/**
+	 * login
+	 */
+	public Teacher login(String username, String pwd) throws SQLException;
 }

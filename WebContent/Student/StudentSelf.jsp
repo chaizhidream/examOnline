@@ -1,5 +1,6 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
+<%@ page import="com.neuq.bean.Student" %>
 <!DOCTYPE html>
 <html>
     <meta charset="utf-8" />
@@ -8,8 +9,9 @@
 	</head>
 	<body class="b">
 		<% 
-  		Student u = (Student) request.getAttribute("Student");
+  		Student u = (Student) session.getAttribute("Student");
   	%>
+  	  
 		<div class="naver">
 			<p>在线考试系统</p>
 		</div>
@@ -28,7 +30,7 @@
 			  	<tr height="60px">
 			  		<td><p>用户名</p></td>
 			  		<td>
-			  		  <input type="text" name="username" value="<%=u.getUsername()%>" style="width:200px height: 100px;"/>
+			  		  <input type="text" name="username" value="${Student.username }" style="width:200px height: 100px;"/>
 			  		</td>
 			  	</tr>
 			  	<tr height="60px">
@@ -66,7 +68,7 @@
 			  	  <tr height="60px">
 			  		<td><p>邮箱</p></td>
 			  	  	<td>
-			  			<input type="text" value="<%=u.getEmail%>" name="email" />
+			  			<input type="text" value="<%=u.getEmail()%>" name="email" />
 			  		</td>
 			  	  </tr>
 			  	  <tr>

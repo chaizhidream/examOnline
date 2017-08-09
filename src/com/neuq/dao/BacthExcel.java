@@ -32,13 +32,14 @@ public class BacthExcel {
 }
 	public static void insert(Tkt tkt) throws SQLException {
 		Connection con =DBUtil.getConnection();
-		String sql="insert into xzt(id,question, answer,questiontype,questionpoint) values(null,?,?,2,?)";
+		String sql="insert into tkt(id,question, answer,questiontype,questionpoint) values(null,?,?,2,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
         ps = con.prepareStatement(sql);
 		ps.setString(1, tkt.getQuestion());
 		ps.setString(2, tkt.getAnswer());
 		ps.setString(3, tkt.getQuestionpoint());
          boolean flag = ps.execute();
+     	System.out.println("777   "+tkt.getAnswer());
 		if(!flag){
 			System.out.println("Save data : No. = " + tkt.toString()+ " succeed!");
 		}else {
@@ -48,7 +49,7 @@ public class BacthExcel {
 }
 	public static void insert(Bct bct) throws SQLException {
 		Connection con =DBUtil.getConnection();
-		String sql="insert into xzt(id,question,questiontype,questionpoint) values(null,?,1,?)";
+		String sql="insert into bct(id,question,questiontype,questionpoint) values(null,?,3,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
         ps = con.prepareStatement(sql);
 		ps.setString(1, bct.getQuestion());	

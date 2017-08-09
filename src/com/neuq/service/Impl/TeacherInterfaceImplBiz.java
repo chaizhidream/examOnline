@@ -39,4 +39,9 @@ public class TeacherInterfaceImplBiz implements TeacherInterfaceBiz {
 		return ti.delete(s, con);
 	}
 
+	@Override
+	public Teacher login(String username, String password) throws SQLException {
+		return ti.login(username, password);
+	}
+
 }

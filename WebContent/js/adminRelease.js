@@ -1,4 +1,4 @@
-	//是否删除
+﻿	//是否删除
 	function deleted(){
 		confirm("是否确定删除？");
 	}

@@ -207,6 +207,63 @@ public class PaperString {
 	
 	
 	
+	@Override
+	public String toString() {
+		System.out.println("PaperString:");
+		System.out.println("id=" + id + ", starttime=" + starttime + ", endtime=" + endtime + ", papername="+ papername);
+		System.out.println("xzt1qu:" + xzt1qu);
+		System.out.println("xzt1an"+xzt1an);
+		System.out.println("A:"+xzt1opA);
+		System.out.println("B:"+xzt1opB);
+		System.out.println("C:"+xzt1opC);
+		System.out.println("D:"+xzt1opD);
+		
+		System.out.println("xzt2qu:" + xzt2qu);
+		System.out.println("xzt2an"+xzt2an);
+		System.out.println("A:"+xzt1opA);
+		System.out.println("B:"+xzt1opB);
+		System.out.println("C:"+xzt1opC);
+		System.out.println("D:"+xzt1opD);
+		
+		System.out.println("xzt3qu:" + xzt3qu);
+		System.out.println("xzt3an"+xzt3an);
+		System.out.println("A:"+xzt1opA);
+		System.out.println("B:"+xzt1opB);
+		System.out.println("C:"+xzt1opC);
+		System.out.println("D:"+xzt1opD);
+		
+		System.out.println("xzt4qu:" + xzt4qu);
+		System.out.println("xzt4an"+xzt4an);
+		System.out.println("A:"+xzt1opA);
+		System.out.println("B:"+xzt1opB);
+		System.out.println("C:"+xzt1opC);
+		System.out.println("D:"+xzt1opD);
+		
+		
+		return "xzt1qu=" + xzt1qu + ", xzt1an=" + xzt1an + ", xzt1opA=" + xzt1opA + ", xzt1opB="
+				+ xzt1opB + ", xzt1opC=" + xzt1opC + ", xzt1opD=" + xzt1opD + ", xzt2qu=" + xzt2qu + ", xzt2an="
+				+ xzt2an + ", xzt2opA=" + xzt2opA + ", xzt2opB=" + xzt2opB + ", xzt2opC=" + xzt2opC + ", xzt2opD="
+				+ xzt2opD + ", xzt3qu=" + xzt3qu + ", xzt3an=" + xzt3an + ", xzt3opA=" + xzt3opA + ", xzt3opB="
+				+ xzt3opB + ", xzt3opC=" + xzt3opC + ", xzt3opD=" + xzt3opD + ", xzt4qu=" + xzt4qu + ", xzt4an="
+				+ xzt4an + ", xzt4opA=" + xzt4opA + ", xzt4opB=" + xzt4opB + ", xzt4opC=" + xzt4opC + ", xzt4opD="
+				+ xzt4opD + ", xzt5qu=" + xzt5qu + ", xzt5an=" + xzt5an + ", xzt5opA=" + xzt5opA + ", xzt5opB="
+				+ xzt5opB + ", xzt5opC=" + xzt5opC + ", xzt5opD=" + xzt5opD + ", xzt6qu=" + xzt6qu + ", xzt6an="
+				+ xzt6an + ", xzt6opA=" + xzt6opA + ", xzt6opB=" + xzt6opB + ", xzt6opC=" + xzt6opC + ", xzt6opD="
+				+ xzt6opD + ", xzt7qu=" + xzt7qu + ", xzt7an=" + xzt7an + ", xzt7opA=" + xzt7opA + ", xzt7opB="
+				+ xzt7opB + ", xzt7opC=" + xzt7opC + ", xzt7opD=" + xzt7opD + ", xzt8qu=" + xzt8qu + ", xzt8an="
+				+ xzt8an + ", xzt8opA=" + xzt8opA + ", xzt8opB=" + xzt8opB + ", xzt8opC=" + xzt8opC + ", xzt8opD="
+				+ xzt8opD + ", xzt9qu=" + xzt9qu + ", xzt9an=" + xzt9an + ", xzt9opA=" + xzt9opA + ", xzt9opB="
+				+ xzt9opB + ", xzt9opC=" + xzt9opC + ", xzt9opD=" + xzt9opD + ", xzt10qu=" + xzt10qu + ", xzt10an="
+				+ xzt10an + ", xzt10opA=" + xzt10opA + ", xzt10opB=" + xzt10opB + ", xzt10opC=" + xzt10opC
+				+ ", xzt10opD=" + xzt10opD + ", tkt1qu=" + tkt1qu + ", tkt1an=" + tkt1an + ", tkt2qu=" + tkt2qu
+				+ ", tkt2an=" + tkt2an + ", tkt3qu=" + tkt3qu + ", tkt3an=" + tkt3an + ", tkt4qu=" + tkt4qu
+				+ ", tkt4an=" + tkt4an + ", tkt5qu=" + tkt5qu + ", tkt5an=" + tkt5an + ", bct1qu=" + bct1qu
+				+ ", bct2qu=" + bct2qu + "]";
+	}
+
+
+
+
 	public int getId() {
 		return id;
 	}

@@ -1,6 +1,8 @@
 package com.neuq.web.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,8 @@ import com.jspsmart.upload.SmartFiles;
 import com.jspsmart.upload.SmartRequest;
 import com.jspsmart.upload.SmartUpload;
 import com.jspsmart.upload.SmartUploadException;
+import com.neuq.dao.I.TeacherInterfaceDao;
+import com.neuq.dao.Impl.TeacherInterfaceImplDao;
 
 public class Upload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -55,11 +59,22 @@ public class Upload extends HttpServlet {
 		// 获取一个
 		SmartFile sf = sfs.getFile(0);
 		try {
-			sf.saveAs("upload/" + sf.getFileName());
+			sf.saveAs("/upload//34.xls" ,1);
 		} catch (SmartUploadException e) {
 			e.printStackTrace();
 		}
-		System.out.println(msg );
-		System.out.println(sf.getFilePathName());
+	System.out.println(msg );
+//		System.out.println(sf.getFilePathName());
+//		System.out.println(sf.getFileName());
+		String path = request.getServletContext().getRealPath("/");
 		System.out.println("文件上传成功！");
+		TeacherInterfaceDao teacherInterfaceDao = new TeacherInterfaceImplDao();
+		try {
+			System.out.println(msg+"  1111" + sf.getFileName()+"1111"+path);
+
+			teacherInterfaceDao.batchquestion(Integer.parseInt(msg),sf.getFileName(),path);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		}}

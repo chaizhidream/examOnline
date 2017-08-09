@@ -20,7 +20,7 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 	boolean b=false;
 	@Override
 	public boolean insert(Paper paper) {
-		 String sql="insert into  Paper values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		 String sql="insert into  Paper values (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	        try {
 				pst=con.prepareStatement(sql);			
 	        	pst.setDate(1, (java.sql.Date)paper.getStarttime());
@@ -33,14 +33,20 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 				pst.setInt(8, paper.getXzt4());
 				pst.setInt(9, paper.getXzt5());
 				pst.setInt(10, paper.getXzt6());
-				pst.setInt(11, paper.getTkt1());
-				pst.setInt(12, paper.getTkt2());
-				pst.setInt(13, paper.getTkt3());
-				pst.setInt(14, paper.getTkt4());
-				pst.setInt(15, paper.getTkt5());
-				pst.setInt(16, paper.getTkt6());
-				pst.setInt(17, paper.getBct1());
-				pst.setInt(18, paper.getBct2());				
+				pst.setInt(11, paper.getXzt7());
+				pst.setInt(12, paper.getXzt8());
+				pst.setInt(13, paper.getXzt9());
+				pst.setInt(14, paper.getXzt10());
+				
+				
+				pst.setInt(15, paper.getTkt1());
+				pst.setInt(16, paper.getTkt2());
+				pst.setInt(17, paper.getTkt3());
+				pst.setInt(18, paper.getTkt4());
+				pst.setInt(19, paper.getTkt5());
+				
+				pst.setInt(20, paper.getBct1());
+				pst.setInt(21, paper.getBct2());				
 				int n=pst.executeUpdate();		
 				if(n>0) {
 					b=true;
@@ -96,14 +102,21 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 				pap.setXzt4(rs.getInt(8));
 				pap.setXzt5(rs.getInt(9));
 				pap.setXzt6(rs.getInt(10));
-				pap.setTkt1(rs.getInt(11));
-				pap.setTkt2(rs.getInt(12));
-				pap.setTkt3(rs.getInt(13));
-				pap.setTkt4(rs.getInt(14));
-				pap.setTkt5(rs.getInt(15));
-				pap.setTkt6(rs.getInt(16));
-				pap.setBct1(rs.getInt(17));
-				pap.setBct2(rs.getInt(18));
+				pap.setXzt7(rs.getInt(11));
+				pap.setXzt8(rs.getInt(12));
+				pap.setXzt9(rs.getInt(13));
+				pap.setXzt10(rs.getInt(14));
+				
+				
+				pap.setTkt1(rs.getInt(15));
+				pap.setTkt2(rs.getInt(16));
+				pap.setTkt3(rs.getInt(17));
+				pap.setTkt4(rs.getInt(18));
+				pap.setTkt5(rs.getInt(19));
+			
+				pap.setBct1(rs.getInt(20));
+				pap.setBct2(rs.getInt(21));
+				
 				list.add(pap);
 		}} catch (SQLException e) {
 			e.printStackTrace();
@@ -133,14 +146,21 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 				pap.setXzt4(rs.getInt(8));
 				pap.setXzt5(rs.getInt(9));
 				pap.setXzt6(rs.getInt(10));
-				pap.setTkt1(rs.getInt(11));
-				pap.setTkt2(rs.getInt(12));
-				pap.setTkt3(rs.getInt(13));
-				pap.setTkt4(rs.getInt(14));
-				pap.setTkt5(rs.getInt(15));
-				pap.setTkt6(rs.getInt(16));
-				pap.setBct1(rs.getInt(17));
-				pap.setBct2(rs.getInt(18));
+				pap.setXzt7(rs.getInt(11));
+				pap.setXzt8(rs.getInt(12));
+				pap.setXzt9(rs.getInt(13));
+				pap.setXzt10(rs.getInt(14));
+				
+				
+				pap.setTkt1(rs.getInt(15));
+				pap.setTkt2(rs.getInt(16));
+				pap.setTkt3(rs.getInt(17));
+				pap.setTkt4(rs.getInt(18));
+				pap.setTkt5(rs.getInt(19));
+			
+				pap.setBct1(rs.getInt(20));
+				pap.setBct2(rs.getInt(21));
+				
 				list.add(pap);
 		}} catch (SQLException e) {
 			e.printStackTrace();
@@ -162,33 +182,40 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 		Connection con=DBUtil.getConnection();
 		PreparedStatement pr =null;
 		ResultSet rs =null;
-		Paper p=new Paper();
+		Paper pap=new Paper();
 		try {
 			 pr = con.prepareStatement(sql);
 			 rs = pr.executeQuery();
 			 while (rs.next()) {
 				//对象赋值
 				 //17个对象
-				 p.setId(rs.getInt(1));
-				 p.setStarttime(rs.getDate(2));
-				 p.setEndtime(rs.getDate(3));
-				 p.setPapername(rs.getString(4));
-				 p.setXzt1(rs.getInt(5));
-				 p.setXzt2(rs.getInt(6));
-				 p.setXzt3(rs.getInt(7));
-				 p.setXzt4(rs.getInt(8));
-				 p.setXzt5(rs.getInt(9));
-				 p.setXzt6(rs.getInt(10));
-				 p.setTkt1(rs.getInt(11));
-				 p.setTkt2(rs.getInt(12));
-				 p.setTkt3(rs.getInt(13));
-				 p.setTkt4(rs.getInt(14));
-				 p.setTkt5(rs.getInt(15));
-				 p.setTkt6(rs.getInt(16));
-				 p.setBct1(rs.getInt(17));
-				 p.setBct2(rs.getInt(18));
-				if (p.getStarttime().toString().compareTo(d)<0) {
-					before.add(p);
+					pap.setId(rs.getInt(1));
+					pap.setStarttime(rs.getDate(2));
+					pap.setEndtime(rs.getDate(3));
+					pap.setPapername(rs.getString(4));
+					pap.setXzt1(rs.getInt(5));
+					pap.setXzt2(rs.getInt(6));
+					pap.setXzt3(rs.getInt(7));
+					pap.setXzt4(rs.getInt(8));
+					pap.setXzt5(rs.getInt(9));
+					pap.setXzt6(rs.getInt(10));
+					pap.setXzt7(rs.getInt(11));
+					pap.setXzt8(rs.getInt(12));
+					pap.setXzt9(rs.getInt(13));
+					pap.setXzt10(rs.getInt(14));
+					
+					
+					pap.setTkt1(rs.getInt(15));
+					pap.setTkt2(rs.getInt(16));
+					pap.setTkt3(rs.getInt(17));
+					pap.setTkt4(rs.getInt(18));
+					pap.setTkt5(rs.getInt(19));
+				
+					pap.setBct1(rs.getInt(20));
+					pap.setBct2(rs.getInt(21));
+					
+				if (pap.getStarttime().toString().compareTo(d)<0) {
+					before.add(pap);
 				}
 			 }		 
 		} catch (SQLException e) {
@@ -198,6 +225,8 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 		}
 		return before;	
 	}
+	
+	
 	@Override
 	public List<Paper> showafterPaper() {
 		//未来的考试
@@ -210,33 +239,41 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 		Connection con=DBUtil.getConnection();
 		PreparedStatement pr =null;
 		ResultSet rs =null;
-		Paper p=new Paper();
+		Paper pap=new Paper();
 		try {
 			 pr = con.prepareStatement(sql);
 			 rs = pr.executeQuery();
 			 while (rs.next()) {
 				//对象赋值
 				 //17个对象
-				 p.setId(rs.getInt(1));
-				 p.setStarttime(rs.getDate(2));
-				 p.setEndtime(rs.getDate(3));
-				 p.setPapername(rs.getString(4));
-				 p.setXzt1(rs.getInt(5));
-				 p.setXzt2(rs.getInt(6));
-				 p.setXzt3(rs.getInt(7));
-				 p.setXzt4(rs.getInt(8));
-				 p.setXzt5(rs.getInt(9));
-				 p.setXzt6(rs.getInt(10));
-				 p.setTkt1(rs.getInt(11));
-				 p.setTkt2(rs.getInt(12));
-				 p.setTkt3(rs.getInt(13));
-				 p.setTkt4(rs.getInt(14));
-				 p.setTkt5(rs.getInt(15));
-				 p.setTkt6(rs.getInt(16));
-				 p.setBct1(rs.getInt(17));
-				 p.setBct2(rs.getInt(18));
-				 if (p.getStarttime().toString().compareTo(d)>0) {
-					after.add(p);
+					pap.setId(rs.getInt(1));
+					pap.setStarttime(rs.getDate(2));
+					pap.setEndtime(rs.getDate(3));
+					pap.setPapername(rs.getString(4));
+					pap.setXzt1(rs.getInt(5));
+					pap.setXzt2(rs.getInt(6));
+					pap.setXzt3(rs.getInt(7));
+					pap.setXzt4(rs.getInt(8));
+					pap.setXzt5(rs.getInt(9));
+					pap.setXzt6(rs.getInt(10));
+					pap.setXzt7(rs.getInt(11));
+					pap.setXzt8(rs.getInt(12));
+					pap.setXzt9(rs.getInt(13));
+					pap.setXzt10(rs.getInt(14));
+					
+					
+					pap.setTkt1(rs.getInt(15));
+					pap.setTkt2(rs.getInt(16));
+					pap.setTkt3(rs.getInt(17));
+					pap.setTkt4(rs.getInt(18));
+					pap.setTkt5(rs.getInt(19));
+				
+					pap.setBct1(rs.getInt(20));
+					pap.setBct2(rs.getInt(21));
+					
+				
+				 if (pap.getStarttime().toString().compareTo(d)>0) {
+					after.add(pap);
 				}}}	 
 		 catch (SQLException e) {
 			e.printStackTrace();
@@ -258,33 +295,40 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 		Connection con=DBUtil.getConnection();
 		PreparedStatement pr =null;
 		ResultSet rs =null;
-		Paper p=new Paper();
+		Paper pap=new Paper();
 		try {
 			 pr = con.prepareStatement(sql);
 			 rs = pr.executeQuery();
 			 while (rs.next()) {
 				//对象赋值
 				 //17个对象
-				 p.setId(rs.getInt(1));
-				 p.setStarttime(rs.getDate(2));
-				 p.setEndtime(rs.getDate(3));
-				 p.setPapername(rs.getString(4));
-				 p.setXzt1(rs.getInt(5));
-				 p.setXzt2(rs.getInt(6));
-				 p.setXzt3(rs.getInt(7));
-				 p.setXzt4(rs.getInt(8));
-				 p.setXzt5(rs.getInt(9));
-				 p.setXzt6(rs.getInt(10));
-				 p.setTkt1(rs.getInt(11));
-				 p.setTkt2(rs.getInt(12));
-				 p.setTkt3(rs.getInt(13));
-				 p.setTkt4(rs.getInt(14));
-				 p.setTkt5(rs.getInt(15));
-				 p.setTkt6(rs.getInt(16));
-				 p.setBct1(rs.getInt(17));
-				 p.setBct2(rs.getInt(18));				
-				if(p.getStarttime().toString().compareTo(d)<0&&p.getEndtime().toString().compareTo(d)>0) {
-					now.add(p);						 		 
+					pap.setId(rs.getInt(1));
+					pap.setStarttime(rs.getDate(2));
+					pap.setEndtime(rs.getDate(3));
+					pap.setPapername(rs.getString(4));
+					pap.setXzt1(rs.getInt(5));
+					pap.setXzt2(rs.getInt(6));
+					pap.setXzt3(rs.getInt(7));
+					pap.setXzt4(rs.getInt(8));
+					pap.setXzt5(rs.getInt(9));
+					pap.setXzt6(rs.getInt(10));
+					pap.setXzt7(rs.getInt(11));
+					pap.setXzt8(rs.getInt(12));
+					pap.setXzt9(rs.getInt(13));
+					pap.setXzt10(rs.getInt(14));
+					
+					
+					pap.setTkt1(rs.getInt(15));
+					pap.setTkt2(rs.getInt(16));
+					pap.setTkt3(rs.getInt(17));
+					pap.setTkt4(rs.getInt(18));
+					pap.setTkt5(rs.getInt(19));
+				
+					pap.setBct1(rs.getInt(20));
+					pap.setBct2(rs.getInt(21));
+						
+				if(pap.getStarttime().toString().compareTo(d)<0&&pap.getEndtime().toString().compareTo(d)>0) {
+					now.add(pap);						 		 
 		} }}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

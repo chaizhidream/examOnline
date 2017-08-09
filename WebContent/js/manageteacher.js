@@ -1,4 +1,4 @@
-//全选
+﻿//全选
 
 //button按钮点击事件
    window.onload=function(){

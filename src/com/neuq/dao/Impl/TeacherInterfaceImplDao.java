@@ -96,13 +96,14 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 	/**
 	 * É¾³ýÑ§Éú
 	 */
-	public boolean delete(Student s,String studentclass, Connection con) throws SQLException {
+	public boolean delete(Student s, Connection con) throws SQLException {
 		// TODO Auto-generated method stub
 		PreparedStatement pst=null;
 		boolean b = false;
-		String sql = "delete from Student  where username = ?";
+		String sql = "delete from Student  where username = ? and studentclass = ?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, s.getUsername());
+		pst.setString(2, s.getStudentclass());
 		int n = pst.executeUpdate();
 		if(n>0) {
 			b = true;
@@ -202,13 +203,13 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 
 
 @Override
-public boolean batchquestion(int questiontype) {
+public boolean batchquestion(int questiontype,String filename,String path) {
 	SaveData sd=new SaveData();
 	boolean b = false;
 	if(questiontype == 1) {
 		try {
 			try {
-				sd.savexcel("upload/", 1);
+				sd.savexcel(path+"\\upload\\"+filename, 1);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -220,7 +221,7 @@ public boolean batchquestion(int questiontype) {
 	if(questiontype == 2) {
 		try {
 			try {
-				sd.savexcel("upload/", 2);
+				sd.savexcel(path+"\\upload\\"+filename, 2);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -232,7 +233,7 @@ public boolean batchquestion(int questiontype) {
 	if(questiontype == 3) {
 		try {
 			try {
-				sd.savexcel("upload/", 3);
+				sd.savexcel(path+"\\upload\\"+filename, 3);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -273,9 +274,41 @@ public boolean correctPaper(int score) throws SQLException {
 }
 
 @Override
-public PaperString showPaper(Paper paper) throws SQLException {
-	// TODO Auto-generated method stub
-	return null;
+public PaperString showPaper(String papername) throws SQLException {
+	String sql = " select * from paper where papername = ?";
+	pst=con.prepareStatement(sql);
+	pst.setString(1, papername);
+	rs = pst.executeQuery();
+	Paper paper  = new Paper();
+	while(rs.next()) {
+		pst.setDate(1, (java.sql.Date)paper.getStarttime());
+		pst.setDate(2, (java.sql.Date)paper.getEndtime());
+		pst.setString(3, paper.getPapername());
+		pst.setInt(4, paper.getXzt1());
+		pst.setInt(5, paper.getXzt2());
+		pst.setInt(6, paper.getXzt3());
+		pst.setInt(7, paper.getXzt3());
+		pst.setInt(8, paper.getXzt4());
+		pst.setInt(9, paper.getXzt5());
+		pst.setInt(10, paper.getXzt6());
+		pst.setInt(11, paper.getXzt7());
+		pst.setInt(12, paper.getXzt8());
+		pst.setInt(13, paper.getXzt9());
+		pst.setInt(14, paper.getXzt10());
+		
+		
+		pst.setInt(15, paper.getTkt1());
+		pst.setInt(16, paper.getTkt2());
+		pst.setInt(17, paper.getTkt3());
+		pst.setInt(18, paper.getTkt4());
+		pst.setInt(19, paper.getTkt5());
+		
+		pst.setInt(20, paper.getBct1());
+		pst.setInt(21, paper.getBct2());	
+	}
+	PaperString ps=QuestionInstance.changeToPaperString(paper);
+	return ps;
+	
 }
 
 @Override
@@ -334,6 +367,29 @@ public List<Bct> showPaperbankbct() throws SQLException {
 	list.add(bct);
 	return list;
 }
+
+@Override
+public Teacher login(String username, String pwd) throws SQLException {
+	Connection con = DBUtil.getConnection();
+	Teacher info=null;
+	String sql = "select * from Teacher where username = ? and pwd=?";
+	pst = con.prepareStatement(sql);
+	pst.setString(1, username);
+	pst.setString(2,pwd);
+	rs = pst.executeQuery();
+	if(rs.next()) {
+		info=new Teacher();
+		info.setTeachername(rs.getString(2));
+		info.setPwd(rs.getString(3));
+		info.setName(rs.getString(4));
+		info.setSex(rs.getString(5));
+		info.setTelephone(rs.getString(6));
+		info.setEmail(rs.getString(7));
+	}
+	DBUtil.CloseConnection(rs, pst, con);
+	return info;
+}
+
 	
 }
 

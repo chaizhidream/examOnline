@@ -1,6 +1,6 @@
-<%@ page language="java" import="java.util.*" 
-pageEncoding="gbk"%>
-
+﻿<%@ page language="java" contentType="text/html" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://www.atg.com/taglibs/json" prefix="json"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <form action="Upload" 
 method="post" enctype="multipart/form-data">
 文件信息:<input type="text" name="msg">

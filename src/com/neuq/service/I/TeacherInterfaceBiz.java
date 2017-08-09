@@ -12,4 +12,5 @@ public interface TeacherInterfaceBiz {
 	public boolean insert(Student s)throws SQLException;
 	public boolean updata(Teacher t)throws SQLException;
 	public boolean delete(Student s)throws SQLException;
+	public Teacher login(String username,String password)throws SQLException;
 }

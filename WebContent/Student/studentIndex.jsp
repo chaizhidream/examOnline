@@ -1,15 +1,17 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html" import="java.util.*" import="com.neuq.bean.Student" pageEncoding="utf-8"%>
+<%@ taglib uri="http://www.atg.com/taglibs/json" prefix="json"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="utf-8" />   
 		<title>学生主页</title>
 		<link href="../css/slideshow.css" rel="stylesheet" />
 		<link href="../css/studentIndex.css" rel="stylesheet" />
 		<script src="../js/slideshow.js" type="text/javascript"></script>
 	</head>
 	<body>
+
 		<div class="header">
 			<p>在线考试系统</p>
 		</div>
@@ -17,7 +19,9 @@
 			<table id="tab1">
 				<tr>
 					<td id="td1">
-						欢迎学生xxx登陆
+						欢迎学生<%Student u = (Student)session.getAttribute("Student"); %>
+						<%=u.getUsername() %>登陆
+						
 					</td>
 				</tr>
 			</table>

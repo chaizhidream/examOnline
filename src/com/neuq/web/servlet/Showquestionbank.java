@@ -11,9 +11,6 @@ import javax.servlet.http.HttpSession;
 import com.neuq.dao.I.TeacherInterfaceDao;
 import com.neuq.dao.Impl.TeacherInterfaceImplDao;
 
-import atg.taglib.json.util.JSONArray;
-import atg.taglib.json.util.JSONException;
-import atg.taglib.json.util.JSONObject;
 
 public class Showquestionbank extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -31,17 +28,13 @@ public class Showquestionbank extends HttpServlet {
 			session.setAttribute("tkt",tid.showPaperbanktkt());		
 			session.setAttribute("bct",tid.showPaperbankbct());
 			
-			//json
-			JSONObject jsonObject = new JSONObject();
-			jsonObject.put("xzt", tid.showPaperbankxzt());
-			JSONArray jsonArray = new JSONArray();
-			jsonArray.add(jsonObject); 
-			System.out.println(jsonArray.toString());
+//			//json
+//			JSONObject jsonObject = new JSONObject();
+//			jsonObject.put("xzt", tid.showPaperbankxzt());
+//			JSONArray jsonArray = new JSONArray();
+//			jsonArray.add(jsonObject); 
+//			System.out.println(jsonArray.toString());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

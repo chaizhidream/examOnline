@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@page import="com.neuq.bean.Student"  import="java.util.*"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@page import="com.neuq.bean.Student"  %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -50,9 +50,7 @@
 		<title>个人中心</title>
 	</head>
 	<body>
-	<% 
-  		Student u = (Student) request.getAttribute("Student");
-  	%>
+	<%Student u = (Student)session.getAttribute("Student"); %>
 		<div class="naver"></div>
 		<div class="main">
 			<table class="m1">

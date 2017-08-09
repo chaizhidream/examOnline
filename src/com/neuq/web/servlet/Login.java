@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.neuq.bean.Manager;
 import com.neuq.bean.Student;
+import com.neuq.bean.Teacher;
 import com.neuq.service.I.StudentInterfaceBiz;
 import com.neuq.service.Impl.StudentInterfaceImplBiz;
 
@@ -53,8 +55,15 @@ public class Login extends HttpServlet {
 	
 		//用户登录
 		Student stu=null;
+		Teacher te=null;
+		Manager ma=null;
 		try {
+			System.out.println("即将进行登录检测");
 			stu = service.login(uname, upsw);
+			System.out.println(stu.toString());
+			System.out.println("登录检测完成");
+	//		te = service.login(uname, upsw);
+	//		ma = service.login(uname, upsw);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -73,10 +82,10 @@ public class Login extends HttpServlet {
 		}
 		
 		//登录成功后，就将用户存储到session中
-		request.getSession().setAttribute("user", stu);
+	//	request.getSession().setAttribute("Student", stu);
 		int r=stu.getRu();
         System.out.print(r);
-
+System.out.println("aaaaaaaaaaaaa");
 
 		if (r==1) {
 			//跳到管理员界面
@@ -95,12 +104,15 @@ public class Login extends HttpServlet {
 						request.getContextPath()+"/teacher/index.jsp");
 			 
 	}else {
+		System.out.println(stu.toString());
+		System.out.println("跳到学生登录成功页面");
 		//跳转到学生页面
 		 message1 = String.format(
 					"学生登陆成功！");
 		 message2 = String.format(
 					"<meta http-equiv='refresh' content='3;url=%s'", 
-					request.getContextPath()+"/user/index.jsp");
+					request.getContextPath()+"/student/studentIndex.jsp");
+		 request.getSession().setAttribute("Student",stu);
 		 
 	}
 		

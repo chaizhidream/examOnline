@@ -1,4 +1,4 @@
-function checkuname(){	
+﻿function checkuname(){	
 //判断用户名是否存在
 ///判断用户名是否合法
 	var uname=document.getElementById("username").value;
@@ -80,33 +80,32 @@ function checkpwd2(){
     
 function myCheck(){
 	
-          
-		if(document.getElementById("username").value==""){            
-		    alert("用户名不能为空");          
-			document.form-login.username.focus();            
-			return false;         
-		}  
-        if(document.getElementById("realname").value==""){            
-		    alert("请输入真实姓名");          
-			document.form-login.realname.focus();            
-			return false;         
-		}  
-		if(document.getElementById("clas").value==""){            
-		    alert("请输入所在班级");          
-			document.form-login.clas.focus();            
-			return false;         
-		}  
-		if(document.getElementById("pwd").value==""){            
-		    alert("请输入密码");          
-			document.form-login.pwd.focus();            
-			return false;         
-		}  
-		if(document.getElementById("pwd2").value==""){            
-		    alert("请输入密码进行确认");          
-			document.form-login.pwd2.focus();            
-			return false;         
-		}  
-     return true;       
+	if(document.getElementById("username").value==""){            
+	    alert("用户名不能为空");  
+	    document.formregister.username.focus();             
+		return false;         
+	} if(document.getElementById("realname").value==""){            
+	    alert("请输入真实姓名");          
+		document.formregister.realname.focus();            
+		return false;         
+	}  
+	if(document.getElementById("clas").value==""){            
+	    alert("请输入所在班级");          
+		document.formregister.clas.focus();            
+		return false;         
+	}  
+	if(document.getElementById("pwd").value==""){            
+	    alert("请输入密码");          
+		document.formregister.pwd.focus();            
+		return false;         
+	}  
+	if(document.getElementById("pwd2").value==""){            
+	    alert("请输入密码进行确认");          
+		document.formregister.pwd2.focus();            
+		return false;         
+	}    
+   
+ return true;      
 	
 }	
 //	//验证用户名是否被占用

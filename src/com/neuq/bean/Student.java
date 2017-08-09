@@ -18,7 +18,7 @@ public class Student implements Serializable{
 	private String studentclass;
 	private String telephone;
 	private String email;
-	private int ru;
+	private int ru = 3;
 	
 	public Student(String username, String psd, String realname, String studentclass) {
 		this.username = username;
@@ -28,7 +28,15 @@ public class Student implements Serializable{
 		this.ru = 3;
 	}
 		
-	
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", username=" + username + ", pwd=" + pwd + ", name=" + name + ", sex=" + sex
+				+ ", studentclass=" + studentclass + ", telephone=" + telephone + ", email=" + email + ", ru=" + ru
+				+ "]";
+	}
+
+
 	/**
 	 * @param username 学生用户名
 	 * @param pwd 学生密码

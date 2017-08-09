@@ -1,5 +1,6 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html" import="java.util.*" import="com.neuq.bean.Manager"pageEncoding="utf-8"%>
+<%@ taglib uri="http://www.atg.com/taglibs/json" prefix="json"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <meta charset="utf-8" />
@@ -8,7 +9,7 @@
 	</head>
 	<body class="b">
 		<% 
-  		Student u = (Student) request.getAttribute("Student");
+  		Manager u = (Manager) request.getAttribute("Manager");
   	%>
 		<div class="naver">
 			<p>在线考试系统</p>
@@ -28,7 +29,7 @@
 			  	<tr height="60px">
 			  		<td><p>用户名</p></td>
 			  		<td>
-			  		  <input type="text" name="username" value="<%=u.getUsername()%>" style="width:200px height: 100px;"/>
+			  		  <input type="text" name="username" value="<%=u.getManagername()%>" style="width:200px height: 100px;"/>
 			  		</td>
 			  	</tr>
 			  	<tr height="60px">
@@ -60,7 +61,7 @@
 			  	  <tr height="60px">
 			  		<td><p>邮箱</p></td>
 			  	  	<td>
-			  			<input type="text" value="<%=u.getEmail%>" name="email" />
+			  			<input type="text" value="<%=u.getEmail()%>" name="email" />
 			  		</td>
 			  	  </tr>
 			  	  <tr>

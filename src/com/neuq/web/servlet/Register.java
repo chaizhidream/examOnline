@@ -58,9 +58,9 @@ public class Register extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String password = request.getParameter("pwd");
 		String realname = request.getParameter("realname");
-		String studentclass = request.getParameter("studentclass");
+		String studentclass = request.getParameter("class");
 
 		Student s = new Student(username, password, realname, studentclass);
 		System.out.println(s.toString());
@@ -83,6 +83,7 @@ public class Register extends HttpServlet {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			//这里跳转到首页，有注册失败提醒
 		}
 	}
 

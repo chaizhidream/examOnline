@@ -15,6 +15,7 @@ import com.neuq.dao.BacthExcel;
 public class SaveData{
 	public void savexcel(String path,int questiontype) throws IOException, SQLException {
 		ReadExcel xlsMain = new ReadExcel();
+		System.out.println(path);
 		if(questiontype == 1) {
 			Xzt xzt = null;
 			List<Xzt> list = xlsMain.readExcelxzt(path);
@@ -38,10 +39,11 @@ public class SaveData{
 		if(questiontype == 2) {
 			Tkt tkt = null;
 			List<Tkt> list = xlsMain.readExceltkt(path);
-	
+			System.out.println("222"+path);
+
 			for (int i = 0; i < list.size(); i++) {
 				tkt = list.get(i);
-			
+				System.out.println("333  "+i);
 				BacthExcel.insert(tkt);			
 			}
 		}

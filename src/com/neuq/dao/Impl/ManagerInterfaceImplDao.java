@@ -125,5 +125,27 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 		}
 		return u;
 	}
+
+	@Override
+	public Manager login(String username, String pwd) throws SQLException {
+		Connection con = DBUtil.getConnection();
+		Manager info=null;
+		String sql = "select * from Manager where username = ? and pwd=?";
+		pst = con.prepareStatement(sql);
+		pst.setString(1, username);
+		pst.setString(2,pwd);
+		rs = pst.executeQuery();
+		if(rs.next()) {
+			info=new Manager();
+			info.setManagername(rs.getString(2));
+			info.setPwd(rs.getString(3));
+			info.setName(rs.getString(4));
+			info.setSex(rs.getString(5));
+			info.setTelephone(rs.getString(6));
+			info.setEmail(rs.getString(7));
+		}
+		DBUtil.CloseConnection(rs, pst, con);
+		return info;
+	}
 	
 }

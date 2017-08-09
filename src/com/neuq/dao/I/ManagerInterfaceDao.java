@@ -13,4 +13,5 @@ public interface ManagerInterfaceDao {
 	public boolean insert(Teacher t,Connection con)throws SQLException;
 	public boolean delete(Teacher t,Connection con)throws SQLException;
 	public Manager showManagerInfo(String parameter) throws SQLException; 
+	public Manager login(String username, String pwd) throws SQLException;
 }

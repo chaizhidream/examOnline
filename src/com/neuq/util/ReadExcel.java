@@ -22,6 +22,7 @@ import com.neuq.bean.Xzt;
 public class ReadExcel {
 
 	public List<Xzt> readExcelxzt(String path) throws IOException {
+		System.out.println(path);
 		InputStream is = new FileInputStream(path);
 		HSSFWorkbook hssfWorkbook = new HSSFWorkbook(is);
 		Xzt xzt = null;
@@ -106,11 +107,14 @@ public class ReadExcel {
 				HSSFRow hssfRow = hssfSheet.getRow(rowNum);
 				if (hssfRow != null) {
 					tkt = new Tkt();
+					System.out.println("444   "+rowNum);
 					HSSFCell question = hssfRow.getCell(0);
 					HSSFCell answer = hssfRow.getCell(1);
 					HSSFCell questionpoint = hssfRow.getCell(3);
 					tkt.setQuestion(getValue(question));
+					System.out.println("555   "+getValue(question));
 					tkt.setAnswer(getValue(answer));
+					System.out.println("666   "+getValue(answer));
 					//填空题种类为2
 					tkt.setQuestiontype(2);
 					tkt.setQuestionpoint(getValue(questionpoint));

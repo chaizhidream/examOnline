@@ -34,4 +34,9 @@ public class ManagerInterfaceImplBiz implements ManagerInterfaceBiz {
 		return mi.delete(t, con);
 	}
 
+	@Override
+	public Manager login(String username, String password) throws SQLException {
+		return mi.login(username, password);
+	}
+
 }

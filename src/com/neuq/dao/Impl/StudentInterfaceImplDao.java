@@ -49,10 +49,10 @@ public class StudentInterfaceImplDao implements StudentInterfaceDao{
 		pst.setString(1, s.getUsername());
 		pst.setString(2, s.getPwd());
 		pst.setString(3, s.getName());
-		pst.setString(4, s.getSex());
+		pst.setString(4, "ÄĞ");
 		pst.setString(5, s.getStudentclass());
-		pst.setString(6,s.getTelephone());
-		pst.setString(7,s.getEmail());
+		pst.setString(6,"00000000000");
+		pst.setString(7, "000@qq.com");
 		int n = pst.executeUpdate();
 		if(n>0) {
 			b = true;

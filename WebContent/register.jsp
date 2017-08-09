@@ -1,6 +1,7 @@
-
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+﻿
+<%@ page language="java" contentType="text/html" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://www.atg.com/taglibs/json" prefix="json"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html class="login-alone">
     <head>
@@ -18,7 +19,7 @@
 		</div>
         <div class="logina-main main clearfix">
             <div class="tab-con">
-                <form id="form-login" name="form-login" method="post" onSubmit="return myCheck()"action="Register" >
+                <form id="formregister" name="formregister" method="post" onSubmit="return myCheck()"action="Register" >
                 
                     <div id='login-error' class="error-tip"></div>
                     <table border="0" cellspacing="0" cellpadding="0">
