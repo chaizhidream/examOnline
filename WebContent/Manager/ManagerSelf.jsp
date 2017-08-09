@@ -1,15 +1,16 @@
-﻿<%@ page language="java" contentType="text/html" import="java.util.*" import="com.neuq.bean.Manager"pageEncoding="utf-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@page import="com.neuq.bean.Manager"  %>
 <%@ taglib uri="http://www.atg.com/taglibs/json" prefix="json"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <meta charset="utf-8" />
-		<link rel="stylesheet" href="../css/StudengtSelf.css" />
+		<link rel="stylesheet" href="../css/StudentSelf.css" />
 		<title>个人中心</title>
 	</head>
 	<body class="b">
 		<% 
-  		Manager u = (Manager) request.getAttribute("Manager");
+  		Manager u = (Manager) session.getAttribute("Manager");
   	%>
 		<div class="naver">
 			<p>在线考试系统</p>

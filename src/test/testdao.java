@@ -7,30 +7,36 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.apache.naming.java.javaURLContextFactory;
 
 import com.neuq.bean.Student;
 import com.neuq.bean.StudentGrade;
+import com.neuq.bean.Teacher;
 import com.neuq.bean.Xzt;
 import com.neuq.dao.I.ManagerInterfaceDao;
 import com.neuq.dao.I.StudentGradeInterfaceDao;
 import com.neuq.dao.I.StudentInterfaceDao;
+import com.neuq.dao.I.TeacherInterfaceDao;
 import com.neuq.dao.Impl.ManagerInterfaceImplDao;
 import com.neuq.dao.Impl.StudentGradeInterfaceImplDao;
 import com.neuq.dao.Impl.StudentInterfaceImplDao;
+import com.neuq.dao.Impl.TeacherInterfaceImplDao;
 import com.neuq.db.DBUtil;
 import com.neuq.util.ReadExcel;
 import com.neuq.util.SaveData;
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 import com.neuq.util.SaveData;
 
 public class testdao {
 
 	public static void main(String[] args) throws SQLException, IOException {
 //		// TODO Auto-generated method stub
-		Connection con = DBUtil.getConnection();
-//		Student s=new Student("mary", "aaa", "ÕÅÈý", "21424");
+//		Connection con = DBUtil.getConnection();
+//	Student s=new Student();
+//	String b = s.aaa();
 //		StudentInterfaceDao studentInterfaceDao=new StudentInterfaceImplDao();
 //		try {
 //			studentInterfaceDao.insert(s, con);
@@ -70,8 +76,20 @@ public class testdao {
 //}
 //		SaveData sd=new SaveData();
 //		sd.save(null);
+//		String a = "xzt";
+//		if(a == b){
+//			System.out.println("afsaf");
+//		}
+		ManagerInterfaceDao teacherInterfaceDao= new ManagerInterfaceImplDao();
+//		Teacher t = new Teacher("chai","aaa","chaizhi","ÄÐ","18833501280","464@ab.com");
+//		teacherInterfaceDao.insert(t, DBUtil.getConnection());
+		java.util.List<Teacher> tea= teacherInterfaceDao.select(DBUtil.getConnection());
+		System.out.println(tea.get(0).getTeachername());
+		System.out.println(tea.get(1).getTeachername());
+		System.out.println(tea.get(2).getTeachername());
+		System.out.println(tea.get(4).getTeachername());
+		System.out.println(tea.get(5).getTeachername());
 		
-		
-	}
-
-}
+//		
+//	}
+	}}

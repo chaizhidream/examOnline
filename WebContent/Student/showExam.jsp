@@ -1,7 +1,6 @@
-﻿<%@page contentType="text/html"%>
+<%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,9 +15,9 @@
 	 <div class="naver">
 	 	<table class="t1">
 	 				<tr style=" height: 40px;">
-	 					<td width="200px"><center><a href="beforeExam.jsp" target="if"><p class="t11">已结束的考试</p></center></a></td>
+	 					<td width="200px"><center><a href="beforeExam.jsp" target="if"><p class="t11">已结束的考试</p></a></center></td>
 	 					<td width="200px"><center><a href="nowExam.jsp" target="if"><p class="t11">正在进行的考试</p></a></center></td>
-	 					<td width="200px"><center><a href="afterExam.jsp" target="if"><p class="t11">即将进行的考试</p></center></a></td>
+	 					<td width="200px"><center><a href="afterExam.jsp" target="if"><p class="t11">即将进行的考试</p></a></center></td>
 	 				</tr>
 	 			</table>
 	 </div>

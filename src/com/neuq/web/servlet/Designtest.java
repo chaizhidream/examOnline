@@ -3,23 +3,15 @@ package com.neuq.web.servlet;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.neuq.bean.Bct;
 import com.neuq.bean.Paper;
-import com.neuq.bean.PaperString;
-import com.neuq.bean.Tkt;
-import com.neuq.bean.Xzt;
-import com.neuq.service.I.PaperInterfaceBiz;
-import com.neuq.service.Impl.PaperInterfaceImplBiz;
-import com.neuq.util.QuestionInstance;
+import com.neuq.dao.I.PaperInterfaceDao;
+import com.neuq.dao.Impl.PaperInterfaceImplDao;
 
 public class Designtest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -75,7 +67,8 @@ public class Designtest extends HttpServlet {
 	
 	Paper paper=new Paper(starttime,endtime,papername,a[0],a[1],a[2],a[3],a[4],
 			a[5],a[6],a[7],a[8],a[9],b[0],b[1],b[2],b[3],b[4],c[0],c[1]);
-	
+	 PaperInterfaceDao p = new PaperInterfaceImplDao();
+	 p.insert(paper);
 		
 		
 		

@@ -73,19 +73,19 @@ public class StudentGradeInterfaceImplDao implements StudentGradeInterfaceDao {
 	 * @return
 	 */
 	@Override
-	public boolean update(StudentGrade studentGrade) {
+	public boolean update(int bctscore,String username,String papername) {
 		int row=0;
         con=DBUtil.getConnection();
         //题目种类不会变
-        String sql="update studentGrade set  username=?,xzscore=?, tktscore=?,bctscore=?,papername=? where id=?";
+        String sql="update studentGrade set  bctscore=? where username=? and papername=?";
         try {
 			pr=con.prepareStatement(sql);	
-			pr.setString(1, studentGrade.getUsername());
-			pr.setInt(2, studentGrade.getXztscore());
-			pr.setInt(3, studentGrade.getTktscore());
-			pr.setInt(4, studentGrade.getBctscore());
-			pr.setString(5, studentGrade.getPapername());
-			pr.setInt(6, studentGrade.getId());
+			
+			pr.setInt(1, bctscore);
+			pr.setString(2,username );
+		
+			pr.setString(3, papername);
+
 			row=pr.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

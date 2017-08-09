@@ -47,10 +47,26 @@ public interface PaperInterfaceDao {
 	 * @return  Paper 试卷集合
 	 */
 	public List<Paper> select(String questionpoint);
-	
+	/**
+	 * 之前已经结束的考试
+	 * @return
+	 */
 	public List<Paper> showbeforePaper();
+	/**
+	 * 将要进行的考试
+	 * @return
+	 */
 	public List<Paper> showafterPaper();
+	/**
+	 * 正在进行的考试
+	 * @return
+	 */
 	public List<Paper> shownowPaper();
 	
-	
+	/**
+	 * 根据试卷名查找当前对应的试卷对象
+	 * @param papername
+	 * @return  Paper 对象
+	 */
+	public Paper selectInstance(String papername);
 }

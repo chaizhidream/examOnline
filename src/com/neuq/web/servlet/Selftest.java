@@ -52,9 +52,10 @@ public class Selftest extends HttpServlet {
 				listx.get(4), listx.get(5), listx.get(6), listx.get(7), listx.get(8), listx.get(9),
 				listt.get(4), listt.get(0), listt.get(1), listt.get(2), listt.get(3), listb.get(1), 
 				listb.get(0));
-		request.setAttribute("paper", paperString);
+		request.getSession().setAttribute("selftest", paperString);
 	
-		//将list数据发送到.jsp文件中
+		//将list数据发送到.jsp文件中,考虑重定向
+		//区别于考试用的试卷，不计算成绩，直接点击查看正确答案
 		request.getRequestDispatcher("selftest.jsp").forward(request, response);
 	}
 

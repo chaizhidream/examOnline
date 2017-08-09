@@ -337,4 +337,47 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 		return now;	
 	}
 
+	@Override
+	public Paper selectInstance(String papername) {
+		Paper pap=new Paper();
+		String sql = "select * from Paper where papername=?";
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, papername);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				pap.setId(rs.getInt(1));
+				pap.setStarttime(rs.getDate(2));
+				pap.setEndtime(rs.getDate(3));
+				pap.setPapername(rs.getString(4));
+				pap.setXzt1(rs.getInt(5));
+				pap.setXzt2(rs.getInt(6));
+				pap.setXzt3(rs.getInt(7));
+				pap.setXzt4(rs.getInt(8));
+				pap.setXzt5(rs.getInt(9));
+				pap.setXzt6(rs.getInt(10));
+				pap.setXzt7(rs.getInt(11));
+				pap.setXzt8(rs.getInt(12));
+				pap.setXzt9(rs.getInt(13));
+				pap.setXzt10(rs.getInt(14));
+				
+				
+				pap.setTkt1(rs.getInt(15));
+				pap.setTkt2(rs.getInt(16));
+				pap.setTkt3(rs.getInt(17));
+				pap.setTkt4(rs.getInt(18));
+				pap.setTkt5(rs.getInt(19));
+			
+				pap.setBct1(rs.getInt(20));
+				pap.setBct2(rs.getInt(21));
+				
+				
+		}} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.CloseConnection(rs, pst, con);
+		}
+		return pap;
+	}
+
 }

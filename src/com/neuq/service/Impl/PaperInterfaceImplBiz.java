@@ -43,6 +43,12 @@ PaperInterfaceDao pif=new PaperInterfaceImplDao();
 	public List<Paper> shownowPaper() {
 		return pif.shownowPaper();
 	}
+
+	@Override
+	public Paper selectInstance(String papername) {
+
+		return pif.selectInstance(papername);
+	}
 	
 
 }

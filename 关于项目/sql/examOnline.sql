@@ -83,6 +83,17 @@ create table bct(
     primary key(id)
 );
 
+/*编程题答案表*/
+create table bctanswer(
+    id int not null auto_increment,
+    username varchar(100) not null,
+	papername varchar(16),
+    answerpath1 varchar(100),
+    answerpath2 varchar(100),
+    primary key(id)
+);
+
+
 /*试卷表*/
 create table paper(
     id int not null auto_increment,
@@ -115,7 +126,9 @@ create table paper(
 create table studentgrade(
     id int not null auto_increment,
     username varchar(16) not null,
-    score int default 0,
+	xztscore int default 0,
+	tktscore int default 0,
+	bctscore int ,
 	papername varchar(16) not null,
     primary key(id)
 );
@@ -130,6 +143,7 @@ create table mistakes(
 	questionpoint int,
     primary key(id)
 );
+
 
 
 

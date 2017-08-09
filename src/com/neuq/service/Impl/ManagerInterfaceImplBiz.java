@@ -30,8 +30,8 @@ public class ManagerInterfaceImplBiz implements ManagerInterfaceBiz {
 	}
 
 	@Override
-	public boolean delete(Teacher t) throws SQLException {
-		return mi.delete(t, con);
+	public boolean delete(String teachername) throws SQLException {
+		return mi.delete(teachername, con);
 	}
 
 	@Override

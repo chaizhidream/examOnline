@@ -35,8 +35,8 @@ public class TeacherInterfaceImplBiz implements TeacherInterfaceBiz {
 	}
 
 	@Override
-	public boolean delete(Student s) throws SQLException {
-		return ti.delete(s, con);
+	public boolean delete(String studentname,String studentclass) throws SQLException {
+		return ti.delete(studentname,studentclass, con);
 	}
 
 	@Override

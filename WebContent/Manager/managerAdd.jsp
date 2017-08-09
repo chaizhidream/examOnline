@@ -1,5 +1,4 @@
-﻿<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 	<head>

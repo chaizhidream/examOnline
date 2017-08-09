@@ -5,20 +5,12 @@ import java.io.Serializable;
 /**
  * —ß…˙¿‡
  */
-public class Student implements Serializable{
+public class Student extends User implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	
-	
-	private int id;
-	private String username;
-	private String pwd;
-	private String name;
-	private String sex;
+
 	private String studentclass;
-	private String telephone;
-	private String email;
-	private int ru = 3;
+	private int ru=3;
 	
 	public Student(String username, String psd, String realname, String studentclass) {
 		this.username = username;
@@ -64,59 +56,13 @@ public class Student implements Serializable{
 	}
 
 
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPwd() {
-		return pwd;
-	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
+
 	public String getStudentclass() {
 		return studentclass;
 	}
 	public void setStudentclass(String studentclass) {
 		this.studentclass = studentclass;
 	}
-	public String getTelephone() {
-		return telephone;
-	}
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public int getRu() {
-		return ru;
-	}
-	public void setRu(int ru) {
-		this.ru = ru;
-	}
+	
 
 }

@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.neuq.bean.Bct;
-import com.neuq.bean.Paper;
 import com.neuq.bean.PaperString;
 import com.neuq.bean.Student;
 import com.neuq.bean.StudentGrade;
@@ -53,7 +52,7 @@ public interface TeacherInterfaceDao   {
 	 * @return
 	 * @throws SQLException
 	 */
-	public boolean delete(Student s,Connection con)throws SQLException;
+	public boolean delete(String studentname,String studentclass,Connection con)throws SQLException;
 	/**
 	 * 更据试卷名字和班级查学生成绩
 	 * @param studentclass

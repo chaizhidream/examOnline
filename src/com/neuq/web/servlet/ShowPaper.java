@@ -8,34 +8,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.neuq.dao.I.PaperInterfaceDao;
 import com.neuq.dao.Impl.PaperInterfaceImplDao;
 
-
-/**
- * Servlet implementation class ShowPaper
- */
-
 public class ShowPaper extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public ShowPaper() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
                  doPost(request, response);
                  
 	}
 
-	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PaperInterfaceDao pif=new PaperInterfaceImplDao();
 		request.setAttribute("PaperBefore",pif.showbeforePaper());

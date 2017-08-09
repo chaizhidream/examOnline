@@ -20,8 +20,8 @@ StudentGradeInterfaceDao sgi=new StudentGradeInterfaceImplDao();
 	}
 
 	@Override
-	public boolean update(StudentGrade studentGrade) {
-		return sgi.update(studentGrade);
+	public boolean update(int bctscore,String username,String papername) {
+		return sgi.update(bctscore,username,papername);
 	}
 
 	@Override

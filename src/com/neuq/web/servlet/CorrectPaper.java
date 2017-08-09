@@ -14,24 +14,15 @@ import com.neuq.bean.BctAnswer;
 import com.neuq.service.I.BctAnswerInterfaceBiz;
 import com.neuq.service.Impl.BctAnswerInterfaceImplBiz;
 
-/**
- * Servlet implementation class CorrectPaper
- */
-
 public class CorrectPaper extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public CorrectPaper() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String studentclass=request.getParameter("studentclass");
@@ -46,6 +37,8 @@ public class CorrectPaper extends HttpServlet {
 		}
 		
 		request.getSession().setAttribute("Bctanwser", bca);
+		//重定向
+		response.sendRedirect("/student/paper.jsp");
 		
 //向前端传递数据
 		

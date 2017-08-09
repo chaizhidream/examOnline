@@ -1,4 +1,4 @@
-ï»¿*{
+*{
 				margin: 0px;
 				padding: 0px;
 			}
@@ -37,7 +37,7 @@
 				
 			}
 			#fp{
-				font-family: "å¾®è½¯é›…é»‘";
+				font-family: "Î¢ÈíÑÅºÚ";
 				font-size: 30px;
 				margin-bottom: 5px;
 				color: black;
@@ -56,7 +56,7 @@
 				margin-left: 200px;
 			}
 			.m2 p{
-				font-family: "å¾®è½¯é›…é»‘";
+				font-family: "Î¢ÈíÑÅºÚ";
 				font-size: 20px;
 			}
 			input{
@@ -68,12 +68,12 @@
 				height: 50px;
 				/*border: 1px black  solid;*/
 				background-image: url(../images/logo.jpg);
-				position: absolute;
+				margin-top:80px;
 				
 			}
 			.copyright{
 	           text-align: center;
 				line-height: 50px;
-				font-family: "å¾®è½¯é›…é»‘";
+				font-family: "Î¢ÈíÑÅºÚ";
 				color: white;
 			}

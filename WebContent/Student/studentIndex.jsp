@@ -1,7 +1,8 @@
-﻿<%@ page language="java" contentType="text/html" import="java.util.*" import="com.neuq.bean.Student" pageEncoding="utf-8"%>
-<%@ taglib uri="http://www.atg.com/taglibs/json" prefix="json"%>
+﻿<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+
 <html>
 	<head>
 		<meta charset="utf-8" />   
@@ -19,9 +20,7 @@
 			<table id="tab1">
 				<tr>
 					<td id="td1">
-						欢迎学生<%Student u = (Student)session.getAttribute("Student"); %>
-						<%=u.getUsername() %>登陆
-						
+					欢迎学生${sessionScope.Student.username }登陆						
 					</td>
 				</tr>
 			</table>
@@ -73,7 +72,7 @@
     					</a>
     				</td>
     				<td class="tdd1">
-    					<a href="seeResult.jsp">
+    					<a href="../ShowStudentgrade">
     						<img src="../images/stu3.jpg" />
     					</a>
     				</td>
@@ -96,7 +95,7 @@
     					<a href="showExam.jsp">查看考试</a>
     				</td>
     				<td class="tdd2">
-    					<a href="seeResult.jsp">查看成绩</a>
+    					<a href="../ShowStudentgrade">查看成绩</a>
     				</td>
     				<td class="tdd2">
     					<a href="selfTest0.jsp">自测</a>

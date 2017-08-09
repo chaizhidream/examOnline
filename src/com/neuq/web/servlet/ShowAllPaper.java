@@ -37,6 +37,9 @@ public class ShowAllPaper extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/**
+		 * 全部或按知识点显示试卷，返回paperlist
+		 */
 		List<Paper> lista   = new ArrayList<Paper>();
 		List<Paper> listb   = new ArrayList<Paper>();
 		lista = null;
@@ -56,17 +59,7 @@ public class ShowAllPaper extends HttpServlet {
 			//按知识点显示试卷名称等信息
 			request.getRequestDispatcher("/teacher/showpaper.jsp").forward(request, response);
 		}
-		String papername = request.getParameter("papername");
-		TeacherInterfaceDao teacherInterfaceDao = new TeacherInterfaceImplDao();
-		try {
-			PaperString pString =teacherInterfaceDao.showPaper(papername);
-			request.setAttribute("paper",pString);
-			//显示所选的试卷内容，jsp待定
-			request.getRequestDispatcher("/teacher/XXXX.jsp").forward(request, response);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		
 		doGet(request, response);
 	}

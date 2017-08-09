@@ -21,7 +21,6 @@ import com.neuq.util.QuestionInstance;
 import com.neuq.util.SaveData;
 
 public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
-	@SuppressWarnings("unused")
 	private static Connection con = DBUtil.getConnection();
 	private static PreparedStatement pst = null;
 	private static ResultSet rs = null;
@@ -34,10 +33,10 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		Teacher info=new Teacher();
 		String sql = "select * from Teacher where username = ?";
 		pst = con.prepareStatement(sql);
-		pst.setString(1, t.getTeachername());
+		pst.setString(1, t.getUsername());
 		rs = pst.executeQuery();
 		while(rs.next()) {
-			info.setTeachername(rs.getString(2));
+			info.setUsername(rs.getString(2));
 			info.setPwd(rs.getString(3));
 			info.setName(rs.getString(4));
 			info.setSex(rs.getString(5));
@@ -83,7 +82,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		String sql = "updata Teacher set pwd = ? where username = ?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, t.getPwd());
-		pst.setString(2, t.getTeachername());
+		pst.setString(2, t.getUsername());
 		int n = pst.executeUpdate();
 		if(n>0) {
 			b = true;
@@ -96,14 +95,14 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 	/**
 	 * É¾³ýÑ§Éú
 	 */
-	public boolean delete(Student s, Connection con) throws SQLException {
+	public boolean delete(String studentname,String studentclass, Connection con) throws SQLException {
 		// TODO Auto-generated method stub
 		PreparedStatement pst=null;
 		boolean b = false;
 		String sql = "delete from Student  where username = ? and studentclass = ?";
 		pst = con.prepareStatement(sql);
-		pst.setString(1, s.getUsername());
-		pst.setString(2, s.getStudentclass());
+		pst.setString(1, studentname);
+		pst.setString(2, studentclass);
 		int n = pst.executeUpdate();
 		if(n>0) {
 			b = true;
@@ -189,7 +188,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		while (rs.next()) {
 
 			u.setId(rs.getInt("id"));
-			u.setTeachername(rs.getString("username"));
+			u.setUsername(rs.getString("username"));
 			u.setName(rs.getString("name"));
 			u.setSex(rs.getString("sex"));
 			u.setEmail(rs.getString("email"));
@@ -210,6 +209,7 @@ public boolean batchquestion(int questiontype,String filename,String path) {
 		try {
 			try {
 				sd.savexcel(path+"\\upload\\"+filename, 1);
+				b = true;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -222,6 +222,7 @@ public boolean batchquestion(int questiontype,String filename,String path) {
 		try {
 			try {
 				sd.savexcel(path+"\\upload\\"+filename, 2);
+				b = true;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -234,6 +235,7 @@ public boolean batchquestion(int questiontype,String filename,String path) {
 		try {
 			try {
 				sd.savexcel(path+"\\upload\\"+filename, 3);
+				b = true;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -379,7 +381,7 @@ public Teacher login(String username, String pwd) throws SQLException {
 	rs = pst.executeQuery();
 	if(rs.next()) {
 		info=new Teacher();
-		info.setTeachername(rs.getString(2));
+		info.setUsername(rs.getString(2));
 		info.setPwd(rs.getString(3));
 		info.setName(rs.getString(4));
 		info.setSex(rs.getString(5));

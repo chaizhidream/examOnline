@@ -1,12 +1,11 @@
-﻿<%@ page language="java" 
+<%@ page language="java" 
     pageEncoding="utf-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>现在的考试</title>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
         <style type="text/css">
       	.tt{
       		margin: 0 auto;
@@ -18,17 +17,24 @@
     <body>
     	<div>
 	 			<table class="tt">
+	 				<tr>
+	 					<th>考试号</th>
+	 					<th>开始时间</th>
+	 					<th>结束时间</th>
+	 					<th>试卷名</th>
+	 					<th>操作</th>
+	 				</tr>
 	 				<!--获取将来考试信息的集合 -->
-	 			
-	 				  <c:forEach var="pn" items="${sessionScope.PaperNow }">
-	 				  <tr>
-	 				  <td>${pn.Id }</td>
-	 				  <td>${pn.Starttime }</td>
-	 				  <td>${pn.Endtime }</td>
-	 				  <td>${pn.Papername }</td>
+	 				<c:forEach items="${sessionScope.paperNow }" var="pn">
+	 				<tr>
+	 				  <td>${pn.id }</td>
+	 				  <td>${pn.starttime }</td>
+	 				  <td>${pn.endtime }</td>
+	 				  <td>${pn.papername }</a></td>
+	 				  <td><a href=" ">加入考试</a><td>
 	 				  </c:forEach>
 	 				</tr>
 	 			</table>
 	 		</div>
-</body>
+ 	</body>
 </html>

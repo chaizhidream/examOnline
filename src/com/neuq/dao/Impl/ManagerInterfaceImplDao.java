@@ -30,7 +30,7 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 		rs = pst.executeQuery();
 		while(rs.next()) {
 			info.setId(rs.getInt(1));
-			info.setTeachername(rs.getString(2));
+			info.setUsername(rs.getString(2));
 			info.setName(rs.getString(4));
 			info.setSex(rs.getString(5));
 			info.setTelephone(rs.getString(6));
@@ -48,7 +48,7 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 	public boolean insert(Teacher t, Connection con) throws SQLException {
 		String sql = "insert into Teacher values (null,?,?,?,?,?,?,2)";
 		pst=con.prepareStatement(sql);
-		pst.setString(1, t.getTeachername());
+		pst.setString(1, t.getUsername());
 		pst.setString(2, t.getPwd());
 		pst.setString(3, t.getName());
 		pst.setString(4, t.getSex());
@@ -62,21 +62,7 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 		return b;
 	}
 
-	/**
-	 * 删除教师
-	 */
-	@Override
-	public boolean delete(Teacher t, Connection con) throws SQLException {
-		String sql = "delete from Student  where username = ?";
-		pst=con.prepareStatement(sql);
-		pst.setString(1, t.getTeachername());
-		int n = pst.executeUpdate();
-		if(n>0) {
-			b = true;
-		}
-		DBUtil.CloseConnection(rs, pst, con);
-		return b;
-	}
+
 	
 	/**
 	 * 查询管理员个人信息
@@ -115,7 +101,7 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 		while (rs.next()) {
 
 			u.setId(rs.getInt("id"));
-			u.setManagername(rs.getString("username"));
+			u.setUsername(rs.getString("username"));
 			u.setName(rs.getString("name"));
 			u.setSex(rs.getString("sex"));
 			u.setEmail(rs.getString("email"));
@@ -137,7 +123,7 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 		rs = pst.executeQuery();
 		if(rs.next()) {
 			info=new Manager();
-			info.setManagername(rs.getString(2));
+			info.setUsername(rs.getString(2));
 			info.setPwd(rs.getString(3));
 			info.setName(rs.getString(4));
 			info.setSex(rs.getString(5));
@@ -146,6 +132,24 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 		}
 		DBUtil.CloseConnection(rs, pst, con);
 		return info;
+	}
+	/**
+	 * 删除教师
+	 */
+	@Override
+	public boolean delete(String teachername, Connection con) throws SQLException {
+		// TODO Auto-generated method stub
+				PreparedStatement pst=null;
+				boolean b = false;
+				String sql = "delete from Teacher  where username = ?";
+				pst = con.prepareStatement(sql);
+				pst.setString(1, teachername);
+				int n = pst.executeUpdate();
+				if(n>0) {
+					b = true;
+				}
+				DBUtil.CloseConnection(rs, pst, con);
+				return b;
 	}
 	
 }

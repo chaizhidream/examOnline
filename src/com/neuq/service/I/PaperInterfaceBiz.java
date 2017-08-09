@@ -42,4 +42,11 @@ public interface PaperInterfaceBiz {
 	public List<Paper> showbeforePaper();
 	public List<Paper> showafterPaper();
 	public List<Paper> shownowPaper();
+	
+	/**
+	 * 根据试卷名查找当前对应的试卷对象
+	 * @param papername
+	 * @return  Paper 对象
+	 */
+	public Paper selectInstance(String papername);
 }

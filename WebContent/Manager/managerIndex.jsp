@@ -17,7 +17,7 @@
 			<table id="tab1">
 				<tr>
 					<td id="td1">
-						欢迎管理员xxx登陆
+						欢迎管理员${Manager.managername }登陆
 					</td>
 				</tr>
 			</table>
@@ -59,17 +59,17 @@
     		<table id="tab2">
     			<tr>
     				<td class="tdd1">
-    					<a href="">
+    					<a href="managerTeacher.jsp">
     						<img src="../images/stu1.jpg" />
     					</a>
     				</td>
     				<td class="tdd1">
-    					<a href="">
+    					<a href="managerAdd.jsp">
     						<img src="../images/stu2.jpg" />
     					</a>
     				</td>
     				<td class="tdd1">
-    					<a href="">
+    					<a href="managerSelf.jsp">
     						<img src="../images/stu3.jpg" />
     					</a>
     				</td>
