@@ -124,13 +124,14 @@ public class StudentInterfaceImplDao implements StudentInterfaceDao{
 		ResultSet rs = null;
 		con = DBUtil.getConnection();
 		
-		Student u=new Student();
+		
 		String sql="select * from student where username = ?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, username);
 		rs = pst.executeQuery(sql);
+		Student u=null;
 		while (rs.next()) {
-
+			 u=new Student();
 			u.setId(rs.getInt("id"));
 			u.setUsername(rs.getString("username"));
 			u.setName(rs.getString("name"));

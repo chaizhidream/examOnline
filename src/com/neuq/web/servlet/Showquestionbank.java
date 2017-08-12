@@ -12,10 +12,10 @@ import com.neuq.dao.I.TeacherInterfaceDao;
 import com.neuq.dao.Impl.TeacherInterfaceImplDao;
 
 
-public class Showquestionbank extends HttpServlet {
+public class ShowQuestionBank extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public Showquestionbank() {
+    public ShowQuestionBank() {
         super();
         // TODO Auto-generated constructor stub
     }

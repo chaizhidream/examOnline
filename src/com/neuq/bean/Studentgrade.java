@@ -77,4 +77,12 @@ public class StudentGrade implements Serializable{
 	public void setPapername(String papername) {
 		this.papername = papername;
 	}
+
+	@Override
+	public String toString() {
+		return "StudentGrade [id=" + id + ", username=" + username + ", xztscore=" + xztscore + ", tktscore=" + tktscore
+				+ ", bctscore=" + bctscore + ", papername=" + papername + "]";
+	}
+	
+	
 }

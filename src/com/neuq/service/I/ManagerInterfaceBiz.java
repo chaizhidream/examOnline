@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.neuq.bean.Manager;
-import com.neuq.bean.Student;
 import com.neuq.bean.Teacher;
 
 public interface ManagerInterfaceBiz {

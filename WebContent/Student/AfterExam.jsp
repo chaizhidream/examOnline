@@ -11,21 +11,21 @@
         		
         		margin: 0 auto;
         		margin-top: 40px;
+        		border-color: gainsboro;
         	}
         </style>
     </head>
     <body>
     	<div>
-	 			<table class="tt">
+	 			<table class="tt" border="1px solid" cellspacing="0">
 	 				<!--获取后台 将来的考试信息-->
 	 				<tr>
 	 					<th>考试号</th>
 	 					<th>开始时间</th>
 	 					<th>结束时间</th>
 	 					<th>试卷名</th>
-	 					<th>操作</th>
 	 				</tr>
-	 				<c:forEach items="${sessionScope.paperAfter }" var="pf">
+	 				<c:forEach items="${PaperAfter}" var="pf">
 	 				<tr>
 	 				  <td>${pf.id }</td>
 	 				  <td>${pf.starttime }</td>

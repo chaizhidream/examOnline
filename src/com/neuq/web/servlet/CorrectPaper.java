@@ -1,7 +1,6 @@
 package com.neuq.web.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.neuq.bean.BctAnswer;
-import com.neuq.service.I.BctAnswerInterfaceBiz;
-import com.neuq.service.Impl.BctAnswerInterfaceImplBiz;
+import com.neuq.dao.I.BctAnswerInterfaceDao;
+import com.neuq.dao.Impl.BctAnswerInterfaceImplDao;
+
 
 public class CorrectPaper extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,32 +22,36 @@ public class CorrectPaper extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-
+ 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String studentclass=request.getParameter("studentclass");
-		String papername=request.getParameter("papername");
-		BctAnswerInterfaceBiz bf=new BctAnswerInterfaceImplBiz();
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>"+"123");
+		//String studentname=request.getParameter("username");
+		//String papername=request.getParameter("papername");
+		String studentname=request.getParameter("fang");
+		String papername=request.getParameter("测试试卷二");
+		studentname="fang";
+		papername="测试试卷二";
+		BctAnswerInterfaceDao bf=new BctAnswerInterfaceImplDao();
 		List<BctAnswer> bca=new ArrayList<BctAnswer>();
-		
-		try {
-			bca=bf.select(studentclass, papername);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		request.getSession().setAttribute("Bctanwser", bca);
+		List<BctAnswer> bcw=new ArrayList<BctAnswer>();
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>"+"456");
+		bca=bf.select(studentname, papername);//wp
+		bcw=bf.selectwp(studentname, papername);//yp
+		System.out.println(bca.toString());
+		System.out.println(bcw.toString());
+		bca.forEach(i->System.out.println(i.toString()+"123"));
+		bcw.forEach(i->System.out.println(i.toString()+"456"));
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>"+"789");
+		request.getSession().setAttribute("Bctanwseryp", bcw);
+		request.getSession().setAttribute("Bctanwserwp", bca);
 		//重定向
-		response.sendRedirect("/student/paper.jsp");
+		response.sendRedirect("teacher/uncompletePaper2.jsp");
 		
 //向前端传递数据
 		
 	
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

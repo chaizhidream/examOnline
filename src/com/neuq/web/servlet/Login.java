@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.Cookie;
 import com.neuq.bean.Manager;
 import com.neuq.bean.Student;
 import com.neuq.bean.Teacher;
@@ -76,6 +76,11 @@ public class Login extends HttpServlet {
 		if(stu != null) {
 			 r=stu.getRu();
 	        System.out.print(r);
+			//登录成功后，就将用户存储到session中
+	        Cookie c1 = new Cookie("username",uname);
+	        Cookie c2 = new Cookie("password",upsw);
+			response.addCookie(c1);
+			response.addCookie(c2);
 		}
 		else if(te != null) {
 			 r=te.getRu();
@@ -97,8 +102,7 @@ public class Login extends HttpServlet {
 			request.getRequestDispatcher("/message.jsp").forward(request, response);
 			return;
 		}
-		//登录成功后，就将用户存储到session中
-	//	request.getSession().setAttribute("Student", stu);
+
 		
 System.out.println("aaaaaaaaaaaaa");
 
@@ -107,8 +111,8 @@ System.out.println("aaaaaaaaaaaaa");
 			 message1 = String.format(
 						"管理员登陆成功！");
 			 message2 = String.format(
-						"<meta http-equiv='refresh' content='3;url=%s'", 
-						request.getContextPath()+"/manager/managerIndex.jsp");
+						"<meta http-equiv='refresh' content='0;url=%s'", 
+						request.getContextPath()+"/manager/index.jsp");
 			 			request.getSession().setAttribute("Manager",ma);
 
 		}
@@ -117,7 +121,7 @@ System.out.println("aaaaaaaaaaaaa");
 			 message1 = String.format(
 						"教师登陆成功！");
 			 message2 = String.format(
-						"<meta http-equiv='refresh' content='3;url=%s'", 
+						"<meta http-equiv='refresh' content='0;url=%s'", 
 						request.getContextPath()+"/teacher/index.jsp");
 			
 			  request.getSession().setAttribute("Teacher",te);
@@ -129,8 +133,8 @@ System.out.println("aaaaaaaaaaaaa");
 			 message1 = String.format(
 						"学生登陆成功！");
 			 message2 = String.format(
-						"<meta http-equiv='refresh' content='3;url=%s'", 
-						request.getContextPath()+"/student/studentIndex.jsp");
+						"<meta http-equiv='refresh' content='0;url=%s'", 
+						request.getContextPath()+"/student/index.jsp");
 			
 		  request.getSession().setAttribute("Student",stu);
 	}

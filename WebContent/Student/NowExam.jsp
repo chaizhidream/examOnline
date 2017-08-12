@@ -10,13 +10,25 @@
       	.tt{
       		margin: 0 auto;
       		margin-top: 40px;
+      		border-color: gainsboro;
+      	}
+      	#href{
+      		text-decoration: none;
       	}
       </style>
+   		<script type="text/javascript">
+   			window.onload=function(){
+   				var href=document.getElementById("href");
+   				href.onclick=function(){
+   					//top.location.reload();
+   				}
+   			}
+   		</script>
     </head>
       
     <body>
     	<div>
-	 			<table class="tt">
+	 			<table class="tt" border="1px solid" cellspacing="0">
 	 				<tr>
 	 					<th>考试号</th>
 	 					<th>开始时间</th>
@@ -25,15 +37,17 @@
 	 					<th>操作</th>
 	 				</tr>
 	 				<!--获取将来考试信息的集合 -->
-	 				<c:forEach items="${sessionScope.paperNow }" var="pn">
+	 			
+	 					<c:forEach items="${PaperNow}" var="pn">
 	 				<tr>
-	 				  <td>${pn.id }</td>
-	 				  <td>${pn.starttime }</td>
-	 				  <td>${pn.endtime }</td>
-	 				  <td>${pn.papername }</a></td>
-	 				  <td><a href=" ">加入考试</a><td>
-	 				  </c:forEach>
+	 				  <td>${pn.id}</td>
+	 				  <td>${pn.starttime}</td>
+	 				  <td>${pn.endtime}</td>
+	 				  <td>${pn.papername}</a></td>
+	 					<!--  <td><a href="DoExam?papername=+${pn.papername}">加入考试</a><td> -->
+	 				 <td><a href="../DoExam?papername=${pn.papername}" id="href" target="top">加入考试</a><td>  	
 	 				</tr>
+	 			    </c:forEach>
 	 			</table>
 	 		</div>
  	</body>

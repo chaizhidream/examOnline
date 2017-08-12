@@ -1,6 +1,5 @@
-﻿<%@ page language="java" contentType="text/html" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib uri="http://www.atg.com/taglibs/json" prefix="json"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!--<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>-->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,6 +7,9 @@
 		<title>主页</title>
 		<link href="css/slideshow.css" rel="stylesheet" />
 		<link href="css/index.css" rel="stylesheet" />
+		<link href="css/basic.css" type="text/css" rel="stylesheet" />
+		<link href="css/style.css" type="text/css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/5imoban.css" type="text/css">
 		<script src="js/slideshow.js" type="text/javascript"></script>
 	</head>
 	<body>
@@ -19,7 +21,7 @@
 				<tr>
 					<td id="td1"></td>
 					<td id="td2">
-						<a href="login.jsp">登陆</a>
+						<a href="login.jsp">登录</a>
 					</td>
 					<td width="5px"style="text-align: center;">|</td>
 					<td id="td3">
@@ -60,12 +62,70 @@
         	SlideShow(3000);
     	</script>
     	<!--图片轮播结束-->
-    	<!--新闻-->
+    	<!--公告-->
     	<div id="main">
-    		这里是新闻
+    	<div id="index_newslist" class="pc_overflow mt10 w980">
+    	<div id="company_info_gsgg" class="fl pc_overflow">
+        <dl>
+            <dt class="pc_overflow"><b>最新公告</b><span>more+</span></dt>
+            <dd>
+            	<ul>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+    <div id="company_info_yyys" class="fl pc_overflow">
+        <dl>
+            <dt class="pc_overflow"><b>复习攻略</b><span>more+</span></dt>
+            <dd>
+            	<ul>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                	<li><a href="#" title="">这里是在线考试系统</a></li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+    <div id="company_info_zxrx" class="fl pc_overflow">
+        <dl>
+            <dt class="pc_overflow"><b>考试动态</b><span>more+</span></dt>
+            <dd>
+            	<ul>
+                	<li><a href="#" title="">这里是在线考试系统 </a></li>
+                	<li><a href="#" title="">这里是在线考试系统 </a></li>
+                	<li><a href="#" title="">这里是在线考试系统 </a></li>
+                	<li><a href="#" title="">这里是在线考试系统 </a></li>
+                	<li><a href="#" title="">这里是在线考试系统 </a></li>
+                	<li><a href="#" title="">这里是在线考试系统 </a></li>
+                	<li><a href="#" title="">这里是在线考试系统 </a></li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+</div>
+<div class="border_bottom clear">&nbsp;</div>	
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
     	</div>
 		<div id="footer">
-            <div class="copyright">Copyright © 1996-2017. All Rights Reserved. 版权所有</div>
+            <div class="copyright">Copyright © 1996-2017. All Rights Reserved. 版权所有    冀ICP备16013410号</div>
         </div>
 	</body>
 </html>

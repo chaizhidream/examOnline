@@ -53,7 +53,7 @@ public class BacthExcel {
 		PreparedStatement ps = con.prepareStatement(sql);
         ps = con.prepareStatement(sql);
 		ps.setString(1, bct.getQuestion());	
-		ps.setString(7, bct.getQuestionpoint());
+		ps.setString(2, bct.getQuestionpoint());
          boolean flag = ps.execute();
 		if(!flag){
 			System.out.println("Save data : No. = " + bct.toString()+ " succeed!");

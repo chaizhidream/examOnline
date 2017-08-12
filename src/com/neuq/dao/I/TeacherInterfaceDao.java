@@ -94,4 +94,6 @@ public interface TeacherInterfaceDao   {
 	 * login
 	 */
 	public Teacher login(String username, String pwd) throws SQLException;
+	public String[] selectclass()throws SQLException;
+	public String[] selectpaper()throws SQLException;
 }

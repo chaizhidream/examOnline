@@ -61,6 +61,12 @@ public class BctAnswer implements Serializable {
 	public void setAnswerpath2(String answerpath2) {
 		this.answerpath2 = answerpath2;
 	}
+	@Override
+	public String toString() {
+		return "BctAnswer [id=" + id + ", username=" + username + ", papername=" + papername + ", answerpath1="
+				+ answerpath1 + ", answerpath2=" + answerpath2 + "]";
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

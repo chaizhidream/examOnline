@@ -1,23 +1,21 @@
 package com.neuq.web.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.neuq.bean.Paper;
-import com.neuq.bean.PaperString;
-import com.neuq.dao.I.TeacherInterfaceDao;
-import com.neuq.dao.Impl.TeacherInterfaceImplDao;
+
 import com.neuq.service.I.PaperInterfaceBiz;
 import com.neuq.service.Impl.PaperInterfaceImplBiz;
-import com.neuq.util.QuestionInstance;
+
 
 /**
  * Servlet implementation class ShowAllPaper
@@ -49,7 +47,7 @@ public class ShowAllPaper extends HttpServlet {
 		if(Integer.parseInt(selectpoint) == 1) {
 			lista = pif.select();
 			request.setAttribute("list",lista);
-			request.getRequestDispatcher("/teacher/showpaper.jsp").forward(request, response);
+			request.getRequestDispatcher("/teacher/getAllPaper.jsp").forward(request, response);
 		}
 		else {
 			lista = pif.select("java");
@@ -57,7 +55,8 @@ public class ShowAllPaper extends HttpServlet {
 			request.setAttribute("java",lista);
 			request.setAttribute("c++",listb);
 			//按知识点显示试卷名称等信息
-			request.getRequestDispatcher("/teacher/showpaper.jsp").forward(request, response);
+			response.sendRedirect("/teacher/showpaper.jsp");
+			request.getRequestDispatcher("/teacher/seepaper.jsp").forward(request, response);
 		}
 		
 		

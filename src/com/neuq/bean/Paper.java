@@ -15,18 +15,23 @@ public class Paper implements Serializable{
 	private Date starttime;
 	private Date endtime;
 	private String papername;
+	
 	private int xzt1;
 	private int xzt2;
 	private int xzt3;
+	
 	private int xzt4;
 	private int xzt5;
 	private int xzt6;
+	
 	private int xzt7;
 	private int xzt8;
 	private int xzt9;
+	
 	private int xzt10;
 	private int tkt1;
 	private int tkt2;
+	
 	private int tkt3;
 	private int tkt4;
 	private int tkt5;

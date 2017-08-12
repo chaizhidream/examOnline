@@ -2,6 +2,13 @@
 	margin:0;
 	padding:0;
 }
+a{
+	text-decoration: none;
+	color: black;
+}
+a:hover{
+	color: lightblue;
+}
 .header{
 		width:100%;
 		height: 80px;
@@ -23,6 +30,15 @@
 	margin: 0 auto;
 	position: relative;
 }
+#nave .td0{
+	width: 250px;
+	/*border: 1px black solid;*/
+	text-align: center;
+	line-height: 50px;
+}
+
+
+
 #nave #tr1{
 	text-align: center;
 	line-height: 50px;
@@ -31,18 +47,15 @@
 	width: 350px;
 	/*border: 1px solid black;*/	
 }
-.td1 select,.td1 option{
-	width: 100px;
-	height: 30px;
-}
+
 #nave .td2{
 	width: 50px;
-	text-align: left;
+	text-align: right;
 }
-#nave .td2 button{
+/*#nave .td2 button{
 	width: 50px;
 	background-color: deepskyblue;
-}
+}*/
 #main{
 	height: 800px;
 	width: 70%;
@@ -59,7 +72,7 @@
 	
 }
 
-#xz,.tk,.bc{
+.xz,.tk,.bc{
 	height: 50px;
 	/*border: 1px solid red;*/
 	font-size: 20px;
@@ -87,6 +100,7 @@
 	margin-left: 20px;
 	border-spacing: 10px;
 	border: 1px solid gainsboro;
+	width:850px;
 }
 .tk_title,.bc_title{
 	width: 880px;
@@ -97,6 +111,7 @@
 	margin-left: 20px;
 	border-spacing: 10px;
 	border: 1px solid gainsboro;
+	width:850px;
 }
 #footer{
 	width:100%;

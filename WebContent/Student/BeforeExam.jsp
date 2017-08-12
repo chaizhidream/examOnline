@@ -8,26 +8,28 @@
      	.tt{
      		margin: 0 auto;
      		margin-top: 40px;
+     		border-color: gainsboro;
      	}
      </style>
     </head>
     <body>
     	<div>   		  
-	 			<table class="tt">
+	 			<table class="tt" border="1px solid" cellspacing="0">
 	 				<tr>
 	 					<th>考试号</th>
 	 					<th>开始时间</th>
 	 					<th>结束时间</th>
 	 					<th>试卷名</th>
-	 					<th>操作</th>
 	 				</tr>
 	 				<!--获取后台 过去的考试信息-->
-	 				 <c:forEach items="${sessionScope.paperBefore }" var="pb">
+	 				<%int a=1;%>
+	 				 <c:forEach items="${PaperBefore}" var="pb">
 	 				<tr>
-	 				  <td>${pb.id }</td>
+	 				
+	 				  <td><%out.println(a++ +". ");%>${pb.id }</td>
 	 				  <td>${pb.starttime }</td>
-	 				  <td>${pb.endtime }</td>
-	 				  <td>${pb.papername }</td>
+	 				  <td>${pb.endtime}</td>
+	 				  <td>${pb.papername}</td>
 	 				</tr>
 	 				</c:forEach>
 	 			</table>

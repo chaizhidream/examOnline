@@ -34,6 +34,12 @@ public class Bct implements Serializable {
 
 
 
+	@Override
+	public String toString() {
+		return "Bct [id=" + id + ", question=" + question + ", questiontype=" + questiontype + ", questionpoint="
+				+ questionpoint + "]";
+	}
+
 	public int getId() {
 		return id;
 	}

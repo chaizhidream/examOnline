@@ -1,0 +1,12 @@
+/*banner*/
+.banner_index{height:582px;position: relative;overflow:hidden;width: 1200px;margin:0;}
+.banner_index .btn,.banner_pro .bBtn{position: absolute;top:235px;width: 56px;height: 78px;display: block;z-index: 3;}
+.banner_index .btnPre,.banner_pro .bPre{background: url(../images/bg_btnPre_index.png) no-repeat 0 0;left:20px;}
+.banner_index .btnPre:hover,.banner_pro .bPre:hover{background: url(../images/bg_btnPre_index_hover.png) no-repeat 0 0;}
+.banner_index .btnNext,.banner_pro .bNext{background: url(../images/bg_btnNext_index.png) no-repeat 0 0;right: 20px;}
+.banner_index .btnNext:hover,.banner_pro .bNext:hover{background: url(../images/bg_btnNext_index_hover.png) no-repeat 0 0;}
+.banner_index .banner_wrap{position: absolute;left:0px;top: 0px; z-index: 2;}
+.banner_index .banner_wrap li{width: 1230px;float: left;}
+.indexBanner_num{width:1000px;margin: 0 auto;padding:10px 0;text-align: center;} 
+.indexBanner_num a{width: 8px;height: 8px;display: inline-block;_zoom:1;background: url(../images/bg_num.png) no-repeat 0 0;font-size: 0px;line-height: 0px;margin:0 1px;}
+.indexBanner_num a.on,.indexBanner_num a:hover{background: url(../images/bg_num_on.png) no-repeat 0 0;}

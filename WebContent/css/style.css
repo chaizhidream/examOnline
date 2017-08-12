@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* CSS Document */
+/*design by zk*/
+/*top*/
+#top{background:url(../images/nav_bg.png) repeat-x; height:72px;}
+#top #nav_logo #logo{}
+#top #nav_logo #nav{}
+#top #nav_logo #nav li{float:left; display:inline;}
+#top #nav_logo #nav li a{display:block; height:72px; line-height:72px; font-size:14px; font-family:"微软雅黑"; color:#fff; width:75px; text-align:center;}
+#top #nav_logo #nav li a:hover,#top #nav_logo #nav li a.nav_current{background:#CCC; color:black; border-top:10px solid #383838; height:62px; line-height:52px; font-weight:bold}
+/*banner*/
+#banner_wrap{background:#000; height:582px;}
+/*game version*/
+#game_version{margin-top:30px;}
+#game_version ul li{float:left; display:inline; overflow:hidden; _zoom:1; _position:relative; width:150px; height:235px; _height:250px; background:url(../images/ico_shadow.png) no-repeat center 120px; margin:0 45px 20px 45px;}
+#game_version ul li a{text-align:center; font-size:14px; font-family:"微软雅黑";}
+#game_version ul li a.gameview_ico{display:block; height:134px; width:134px; margin:0 auto 10px auto;}
+#game_version ul li a.gameview_ico1{background:url(../images/ico_viewgame.png) no-repeat 0 0;}
+#game_version ul li a.gameview_ico1:hover{background-position:-134px 0;}
+#game_version ul li a.gameview_ico2{background:url(../images/ico_viewgame.png) no-repeat 0 -134px;}
+#game_version ul li a.gameview_ico2:hover{background-position:-134px -134px;}
+#game_version ul li a.gameview_ico3{background:url(../images/ico_viewgame.png) no-repeat 0 -268px;}
+#game_version ul li a.gameview_ico3:hover{background-position:-134px -268px;}
+#game_version ul li a.gameview_ico4{background:url(../images/ico_viewgame.png) no-repeat 0 -402px;}
+#game_version ul li a.gameview_ico4:hover{background-position:-133px -402px;}
+#game_version ul li a h3{margin:10px; margin-top:15px; text-align:center}
+#game_version ul li p{width:150px; text-align:center; line-height:16px; color:#999;}
+/*Company Information*/
+#company_info div{width:325px; background:url(../images/index_line.png) no-repeat center right; height:240px;}
+#company_info div#company_info_zxrx{background:none;}
+#company_info div dl,#company_info div dl dd{width:285px; overflow:hidden; _position:relative; margin:0 auto;}
+#company_info div dl dt{margin:15px 0px;}
+#company_info div dl dd{line-height:20px;}
+#company_info div dl dd p{text-indent:2em;}
+#company_info div dl dd img{margin:5px 0 0 10px;}
+#company_info div dl dd #company_info_zxrx_phonenumber{height:27px; line-height:27px; background:url(../images/ico_phone.png) no-repeat left center; font-family:Arial, Helvetica, sans-serif; padding-left:35px; font-size:22px;}
+/*最新游戏 合作客户*/
+#index_anli{padding-bottom:20px;}
+#index_anli dt{text-align:left; height:49px; line-height:49px;}
+#index_anli dt b{_float:left;}
+#index_anli dt span{float:right; font-weight:bold; font-size:14px; color:#999;}
+#index_anli dd{float:left; display:inline; width:303px; overflow:hidden; _zoom:1; _position:relative; margin:0 10px;}
+#index_anli dd a{display:block; background:url(../images/case_bg.png); text-align:center; width:303px; height:200px;}
+#index_anli dd a:hover{background:url(../images/case_hover_bg.png);}
+#index_anli dd a img{width:273px; height:160px; margin:15px auto;}
+#index_anli dd p{line-height:18px; margin:5px auto; text-indent:2em; height:60px; overflow:hidden; _position:relative; color:#999;}
+/*Company Information*/
+#index_newslist div{width:325px; background:url(../images/index_line.png) no-repeat center right; height:240px;}
+#index_newslist div#company_info_zxrx{background:none;}
+#index_newslist div dl,#company_info div dl dd{width:285px; overflow:hidden; _position:relative; margin:0 auto;}
+#index_newslist div dl dt{margin:15px 0px; color:#70B607; background:url(../images/newslist_title_bottom_border.png) no-repeat center bottom; line-height:30px;}
+#index_newslist div dl dt b{text-align:left; _float:left; font-size:16px; font-weight:bold; font-family:"微软雅黑";}
+#index_newslist div dl dt span{float:right; font-family:Arial, Helvetica, sans-serif; font-size:14px;}
+#index_newslist li{background:url(../images/index_news_list_ico.jpg) no-repeat left center; padding-left:15px; line-height:25px;}
+/*flinks*/
+#flinks{margin-top:15px; margin-bottom:15px;}
+#flinks li{float:left; display:inline; line-height:25px; margin-right:10px;}
+#flinks li b{color:#444;}
+/*footer*/
+#footer_wraper{background:#1C1C1C; height:120px;}
+#footer_wraper #footer_nav{margin:15px auto; width:815px;}
+#footer_wraper #footer_nav li{float:left; display:inline; border-right:1px solid #597659; padding-right:10px; margin-right:10px;}
+#footer_wraper #footer_nav li a{color:#fff;}
+#footer_wraper #footer_nav li a:hover{color:#FF9E1F;}
+#footer_wraper p{text-align:center; margin-bottom:15px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

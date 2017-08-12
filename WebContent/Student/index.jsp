@@ -17,8 +17,10 @@
 			<table id="tab1">
 				<tr>
 					<td id="td1">
-						欢迎学生xxx登录
+						欢迎学生${sessionScope.Student.username}登录
 					</td>
+					<td style="text-align: center;">|</td>
+					<td id="td11"><a href="../Logout"><p style="font-size:17px">退出</p></a></td>
 				</tr>
 			</table>
 		</div>
@@ -59,12 +61,12 @@
     		<table id="tab2">
     			<tr>
     				<td class="tdd1">
-    					<a href="seeFaults.jsp">
+    					<a href="../MistakeCollect">
     						<img src="../images/stu1.jpg" />
     					</a>
     				</td>
     				<td class="tdd1">
-    					<a href="showExam.jsp">
+    					<a href="../ShowPaper">
     						<img src="../images/stu2.jpg" />
     					</a>
     				</td>
@@ -75,7 +77,7 @@
     				</td>
     				<td class="tdd1">
     					<a href="selfTest0.jsp">
-    						<img src="../images/stu4.jpg" />
+    						<img src="../images/stu5.jpg" style="width:100px;height:100px"/>
     					</a>
     				</td>
     				<td class="tdd1">
@@ -86,13 +88,13 @@
     			</tr>
     			<tr>
     				<td class="tdd2">
-    					<a href="seeFaults.jsp">我的错题</a>
+    					<a href="../MistakeCollect">我的错题</a>
     				</td>
     				<td class="tdd2">
-    					<a href="showExam.jsp">查看考试</a>
+    					<a href="../ShowPaper">查看考试</a>
     				</td>
     				<td class="tdd2">
-    					<a href="seeResult.jsp">查看成绩</a>
+    					<a href="../ShowMygrade">查看成绩</a>
     				</td>
     				<td class="tdd2">
     					<a href="selfTest0.jsp">自测</a>
@@ -106,7 +108,8 @@
     	
     	
 		<div id="footer">
-            <div class="copyright">Copyright © 1996-2017. All Rights Reserved. 版权所有</div>
+            <div class="copyright">Copyright © 1996-2017. All Rights Reserved.  版权所有    冀ICP备16013410号
+</div>
         </div>
 	</body>
 </html>

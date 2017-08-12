@@ -39,9 +39,9 @@ public interface PaperInterfaceBiz {
 	 * @return  Paper 试卷集合
 	 */
 	public List<Paper> select(String questionpoint);
-	public List<Paper> showbeforePaper();
-	public List<Paper> showafterPaper();
-	public List<Paper> shownowPaper();
+	public List<Paper> showbeforePaper(String username);
+	public List<Paper> showafterPaper(String username);
+	public List<Paper> shownowPaper(String username);
 	
 	/**
 	 * 根据试卷名查找当前对应的试卷对象

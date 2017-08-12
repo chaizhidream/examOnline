@@ -1,4 +1,4 @@
-﻿*{
+*{
 	margin:0;
 	padding:0;
 }
@@ -33,7 +33,7 @@
 	
 }
 #main{
-	height: 800px;
+	height: 2300px;
 	width: 70%;
 	border: 1px solid cornflowerblue;
 	margin: 0 auto;
@@ -54,22 +54,25 @@
 	font-size: 20px;
 	font-weight: 500;
 }
-#xz_title,.tk_title{
+#xztitle,.tktitle{
 	/*border: 1px solid red;*/
 	/*border: 1px solid red;*/
 	font-size: 18px;
 	height: 20px;
 }
 #inputFile{
-	background-color: deepskyblue;
+	border: none;
+	background-color: lightblue;
+	width: 100px;
+	height: 30px;
 }
-.xz_choose{
+.xzchoose{
 	width: 50px;
 	/*border: 1px solid red;*/
 	height: 20px;
 	font-size: 16px;
 }
-.xz_con{
+.xzcon{
 	/*border: 1px solid red;*/
 	width: 820px;
 }
@@ -80,7 +83,7 @@
 	border-spacing: 10px;
 	border: 1px solid gainsboro;
 }
-.tk_title,.bc_title{
+.tktitle,.bctitle{
 	width: 880px;
 }
 /*编程*/
@@ -90,12 +93,12 @@
 	border-spacing: 10px;
 	border: 1px solid gainsboro;
 }
-.bc_title{
+.bctitle{
 	/*border: 1px solid red;*/
 	font-size: 18px;
 	height: 20px;
 }
-.bc_con{
+.bccon{
 	/*border: 1px solid red;*/
 	font-size: 16px;
 	height: 20px;

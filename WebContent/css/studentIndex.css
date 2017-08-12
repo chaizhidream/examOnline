@@ -1,4 +1,4 @@
-﻿*{
+*{
 	margin:0;
 	padding:0;
 }
@@ -18,12 +18,16 @@
 	height: 50px;
 	width: 75%;
 	margin: 0 auto;
+	font-size: 17px;
 	/*border: 1px red solid;*/
 }
 #td1{
 	line-height: 50px;
 	text-align: right;
 	font-size: 17px;
+}
+#td11 p{
+	font-size: 18px;
 }
 #tab2{
 	width: 78%;

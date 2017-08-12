@@ -1,29 +1,4 @@
 ﻿ # （必填）开发记录（时间倒序排列）
-  
-### 8/10 03：30
-方娇：完成了教师批阅完编程题后的更新分数servlet。
-
-### 8/10 03：00
-柴智：查看自己的全部成绩；新建showStudentgrade 老师查看学生成绩
-
-### 8/10 02：30
-方娇：完成了管理员增删教师用户和教师增删学生用户的servlet，精简到一个servlet里。
-
-### 8/10 02：00
-柴智：修改ManagerInterfaceImplDao，TeacherfaceImplDao，selftest.java，login.java ；ShowStudentgrade  重命名为showmygrade
-
-### 8/10 01：00
-柴智：新建updateselfinfo，新建user；修改student.java，teacher.java，manager.java
-
-### 8/10 00：30
-方娇：将教师端单个添加题库和批量添加题库servlet和dao层逻辑补全。完善了教师查看试卷的servlet。
-
-### 8/10 00：00
-柴智：新建DoExam.java，修改 PaperInterfaceImplDao与PaperInterfaceDao；修改service 层  paper I与IMPL
-
-
- ---
-
 
 ### 8/9 14：30
 梁净净：修正考试页面，将编程题与选择填空题界面分隔开

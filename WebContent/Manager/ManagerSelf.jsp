@@ -1,17 +1,14 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@page import="com.neuq.bean.Manager"  %>
-<%@ taglib uri="http://www.atg.com/taglibs/json" prefix="json"%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <meta charset="utf-8" />
-		<link rel="stylesheet" href="../css/StudentSelf.css" />
+		<link rel="stylesheet" href="css/managerSelf.css" />
 		<title>个人中心</title>
 	</head>
 	<body class="b">
-		<% 
-  		Manager u = (Manager) session.getAttribute("Manager");
-  	%>
+
 		<div class="naver">
 			<p>在线考试系统</p>
 		</div>
@@ -25,44 +22,44 @@
 				</tr>
 			</table>
 			<hr class="h" color="grey"/>
-			<form action=" " method="post">
+			<form action="../UploadSelfInfo?usertype=1" method="post">
 			  <table class="m2">
 			  	<tr height="60px">
 			  		<td><p>用户名</p></td>
 			  		<td>
-			  		  <input type="text" name="username" value="<%=u.getManagername()%>" style="width:200px height: 100px;"/>
+			  		  <input type="text" name="username" value="${Manager.username}" style="width:200px height: 100px;"/>
 			  		</td>
 			  	</tr>
 			  	<tr height="60px">
 			  		<td><p>密码</p></td>
 			  		<td>
-			  		  <input type="password" value="<%=u.getPwd()%>" name="pwd" />
+			  		  <input type="password" value="${Manager.pwd}" name="pwd" />
 			  		</td>
 			  	</tr>
 			  	<tr height="60px">
 			  		<td><p>姓名</p></td>
 			  		<td>
-			  		  <input type="text" value="<%=u.getName()%>" name="name" />
+			  		  <input type="text" value="${Manager.name}" name="name" />
 			  		</td>
 			  	</tr>
 			  	
 			  	<tr height="20px">
 			  		<td><p>性别</p></td>
 			  		<td>
-			  		  男<input type="radio" name="usex"  value="<%=u.getSex()%>=1" checked style="height: 20px; width: 100px;">&nbsp;
-			  		 女<input type="radio" name="usex"  value="<%=u.getSex()%>=2" style="height: 20px; width: 100px;">
+			  		  男<input type="radio" name="usex"  value="${Manager.sex}" checked style="height: 20px; width: 100px;">&nbsp;
+			  		 女<input type="radio" name="usex"  value="${Manager.sex}" style="height: 20px; width: 100px;">
 			  		</td>
 			  	</tr>
 			  	  <tr height="60px">
 			  		<td><p>手机号</p></td>
 			  	  	<td>
-			  			<input type="text" value="<%=u.getTelephone()%>" name="num" />
+			  			<input type="text" value="${Manager.telephone}" name="telephone" />
 			  		</td>
 			  	  </tr>
 			  	  <tr height="60px">
 			  		<td><p>邮箱</p></td>
 			  	  	<td>
-			  			<input type="text" value="<%=u.getEmail()%>" name="email" />
+			  			<input type="text" value="${Manager.email}" name="email" />
 			  		</td>
 			  	  </tr>
 			  	  <tr>

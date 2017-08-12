@@ -23,12 +23,13 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 	 */
 	@Override
 	public List<Teacher> select(Connection con) throws SQLException {
-		Teacher info = new Teacher();
+		Teacher info = null;
 		List<Teacher> list  = new ArrayList<Teacher>();	
 		String sql = "select * from Teacher ";
 		pst = con.prepareStatement(sql);
 		rs = pst.executeQuery();
 		while(rs.next()) {
+			 info = new Teacher();
 			info.setId(rs.getInt(1));
 			info.setUsername(rs.getString(2));
 			info.setName(rs.getString(4));
@@ -69,12 +70,13 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 	 */
 	@Override
 	public Manager select(Manager m, Connection con) throws SQLException {
-		Manager info=new Manager();
+		Manager info=null;
 		String sql = "select * from Manager where username = ?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, m.getName());
 		rs = pst.executeQuery();
 		if(rs.next()) {
+		    info = new Manager();
 			info.setName(rs.getString(2));
 			info.setPwd(rs.getString(3));
 			info.setName(rs.getString(4));
@@ -93,13 +95,13 @@ public class ManagerInterfaceImplDao implements ManagerInterfaceDao {
 		ResultSet rs = null;
 		con = DBUtil.getConnection();
 		
-		Manager u=new Manager();
+		Manager u=null;
 		String sql="select * from Manager where username = ?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, username);
 		rs = pst.executeQuery(sql);
 		while (rs.next()) {
-
+			 u=new Manager();
 			u.setId(rs.getInt("id"));
 			u.setUsername(rs.getString("username"));
 			u.setName(rs.getString("name"));

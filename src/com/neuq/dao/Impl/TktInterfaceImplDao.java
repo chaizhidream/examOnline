@@ -20,7 +20,7 @@ public class TktInterfaceImplDao implements TktInterfaceDao {
 	public boolean insert(Tkt tkt) {
 		int row = 0;
 		con = DBUtil.getConnection();
-		String sql = "insert into bct values (null,?,?,?,?)";
+		String sql = "insert into tkt values (null,?,?,?,?)";
 		try {
 			pr = con.prepareStatement(sql);
 			pr.setString(1, tkt.getQuestion());

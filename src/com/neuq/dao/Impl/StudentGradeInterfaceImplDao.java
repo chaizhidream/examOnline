@@ -112,9 +112,9 @@ public class StudentGradeInterfaceImplDao implements StudentGradeInterfaceDao {
 				StudentGrade sgrade=new StudentGrade();
 				sgrade.setId(rs.getInt("id"));
 				sgrade.setUsername(username);
-				sgrade.setXztscore(rs.getInt("xzscore"));
-				sgrade.setTktscore(rs.getInt("tkscore"));
-				sgrade.setBctscore(rs.getInt("bcscore"));
+				sgrade.setXztscore(rs.getInt("xztscore"));
+				sgrade.setTktscore(rs.getInt("tktscore"));
+				sgrade.setBctscore(rs.getInt("bctscore"));
 				sgrade.setPapername(rs.getString("papername"));
 				list.add(sgrade);
 			}
@@ -134,17 +134,19 @@ public class StudentGradeInterfaceImplDao implements StudentGradeInterfaceDao {
  */
 	@Override
 	public List<StudentGrade> select(String studentclass, String papername) {
+		System.out.println("<<<<<<<<<<<<<<<,");
 		List<StudentGrade> list=new ArrayList<StudentGrade>();
-		String sql="select * from StudentGrade where studentclass=? and papername=?";
+		//String sql="select * from StudentGrade where username =(select username  from student where studentclass=? and papername=?";
 		  con=DBUtil.getConnection();
 		  try {
-			pr=con.prepareStatement(sql);
-			pr.setString(1, studentclass);
-			pr.setString(2, papername);
+			pr=con.prepareStatement("select * from StudentGrade ");
+		//	pr.setString(1, studentclass);
+			//pr.setString(2, papername);
 			rs=pr.executeQuery();
 			while (rs.next()) {
 				StudentGrade sgrade=new StudentGrade();
 				sgrade.setId(rs.getInt("id"));
+				System.out.println(rs.getInt("id")+"<<<<<<<<<<<<<<<,");
 				sgrade.setUsername(rs.getString("username"));
 				sgrade.setXztscore(rs.getInt("xztscore"));
 				sgrade.setTktscore(rs.getInt("tktscore"));
@@ -155,8 +157,10 @@ public class StudentGradeInterfaceImplDao implements StudentGradeInterfaceDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
+			  System.out.println(list);
 			DBUtil.CloseConnection(rs, pr, con);
 		}	
+		
 		return list;
 	}
 

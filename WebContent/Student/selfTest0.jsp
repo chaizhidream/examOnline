@@ -31,13 +31,25 @@
     <body>
     	<div id="div1">
     		<div id="div2">
-    				<span>请选择你要测试的知识点类型：</span>
-    				<select name="">
-    					<option value=""></option>
-    				</select><br />
-    				<span>请输入试卷名称：</span>
-    				<input type="text" value=""id="" /><br />
-    				<a href="selfTest.jsp">提交</a>
+    			<table>
+    				<tr>
+    					<td>
+    						<span>请选择你要测试的知识点类型：</span>
+    					</td>
+    					<td>
+    						<select name="">
+    						<option value="">C++</option>
+    						<option value="">Java</option>
+    						</select>
+    					</td>
+    				</tr>
+    				<tr>
+    					<td colspan="2" style="text-align: center;">
+    						<a href="../SelfTest">提交</a>
+    					</td>
+    				</tr>
+    			</table>
+    				
     		</div>
     	</div>
  	</body>

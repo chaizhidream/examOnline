@@ -7,6 +7,7 @@
 package com.neuq.web.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -65,25 +66,42 @@ public class Register extends HttpServlet {
 		Student s = new Student(username, password, realname, studentclass);
 		System.out.println(s.toString());
 
-		String message = null;
+		String message1 = null;
+		String message2 = null;
 		try {
 			con = DBUtil.getConnection();
 			if (new StudentInterfaceImplDao().insert(s, con)) {
-				System.out.println("学生注册成功");
-				message = String.format("恭喜：%s,注册成功！本页将在3秒后跳到首页！！<meta http-equiv='refresh' content='3;url=%s'",
-						s.getUsername(), request.getContextPath() + "/index.jsp");
+				 message1 = String.format(
+							"恭喜！注册成功");
+				 
+				 message2 = String.format(
+						"<meta http-equiv='refresh' content='0;url=%s'", 
+						request.getContextPath()+"/login.jsp");
 			} else {
-				System.out.println("注册失败，请重新注册");
-				message = String.format("sorry：%s,注册失败！本页将在3秒后跳到注册页！！<meta http-equiv='refresh' content='3;url=%s'",
-						s.getUsername(), request.getContextPath() + "/register.jsp");
+				 message1 = String.format(
+							"对不起，注册失败！请重新尝试");
+				 
+				 message2 = String.format(
+						"<meta http-equiv='refresh' content='0;url=%s'", 
+						request.getContextPath()+"/login.jsp");
+				
 			}
-
-			request.setAttribute("message", message);
-			request.getRequestDispatcher("/message.jsp").forward(request, response);
-
+                request.setAttribute("message1",message1);
+				request.setAttribute("message2",message2);
+				request.getRequestDispatcher("/message.jsp").forward(request, response);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			//这里跳转到首页，有注册失败提醒
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<html><head></head><body>");
+			out.print("<script type=\"text/javascript\" language=\"javascript\">");
+			out.print("alert('注册失败，请重新尝试');");
+			out.print("window.location='index.jsp';");
+			out.print("</script>");
+			out.print("</body></html>");
+
 		}
 	}
 

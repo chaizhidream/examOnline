@@ -68,7 +68,7 @@ public class DBUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			System.out.println("已经关闭数据库连接");
+			//System.out.println("已经关闭数据库连接");
 		}
 		
 	}

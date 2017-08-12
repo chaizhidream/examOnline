@@ -15,6 +15,23 @@
 		<script type="text/javascript" src="js/checkCode.js"></script>
     </head>
     <body>
+    <% Cookie[] cs = request.getCookies();
+    String username="";
+    String password="";
+    if(cs.length != 0){
+    	for(int i = 0;i < cs.length;i++){
+    		Cookie c  = cs[i];
+    		if("un".equals(c.getName())){
+    			username = c.getValue();
+    		}
+    		 if("password".equals(c.getName()))
+    	       {
+    	         password=c.getValue();
+    	       }
+    	}
+    }
+    
+    %>
         <div class="header">
 			<p>在线考试系统</p>
 		</div>
@@ -27,14 +44,14 @@
                             <tr>
                                 <th>用户名</th>
                                 <td width="245">
-                                    <input id="username" type="text" name="username" placeholder="请输入用户名" autocomplete="off" value=""></td>
+                                    <input id="username" type="text" name="username" placeholder="请输入用户名" autocomplete="off" value="${cookie.username.value }"></td>
                                 <td>
                                 </td>
                             </tr>
                             <tr>
                                 <th>密码</th>
                                 <td width="245">
-                                    <input id="password" type="password" name="password" placeholder="请输入密码" autocomplete="off">
+                                    <input id="password" type="password" name="password" placeholder="请输入密码" autocomplete="off" value="${cookie.password.value }">
                                 </td>
                                 <td>
                                 </td>

@@ -19,7 +19,7 @@ public class XztInterfaceImplDao implements XztInterfaceDao {
 	public boolean insert(Xzt xzt) {
 		int row=0;
         con=DBUtil.getConnection();
-        String sql="insert into bct values (null,?,?,?,?,?,?,?,?)";
+        String sql="insert into xzt values (null,?,?,?,?,?,?,?,?)";
         try {
 			pr=con.prepareStatement(sql);
 			pr.setString(1, xzt.getQuestion());
@@ -28,7 +28,7 @@ public class XztInterfaceImplDao implements XztInterfaceDao {
 			pr.setString(4, xzt.getOptionB());
 			pr.setString(5, xzt.getOptionC());
 			pr.setString(6, xzt.getOptionD());
-			pr.setInt(7, 1);
+			pr.setInt(7, xzt.getQuestiontype());
 			pr.setString(8, xzt.getQuestionpoint());
 			row=pr.executeUpdate();
 		} catch (SQLException e) {

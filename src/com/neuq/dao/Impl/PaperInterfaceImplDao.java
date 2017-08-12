@@ -85,13 +85,15 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 
 	@Override
 	public List<Paper> select() {
-		Paper pap=new Paper();
+		Paper pap=null;
 		List<Paper> list  = new ArrayList<Paper>();	
 		String sql = "select * from Paper";
 		try {
+			
 			pst = con.prepareStatement(sql);
 			rs = pst.executeQuery();
 			while(rs.next()) {
+				pap=new Paper();
 				pap.setId(rs.getInt(1));
 				pap.setStarttime(rs.getDate(2));
 				pap.setEndtime(rs.getDate(3));
@@ -128,7 +130,7 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 
 	@Override
 	public List<Paper> select(String questionpoint) {
-		Paper pap=new Paper();
+		Paper pap=null;
 		List<Paper> list  = new ArrayList<Paper>();	
 		String sql = "select * from Paper where questionpoint=?";
 		try {
@@ -136,6 +138,7 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 			pst.setString(1, questionpoint);
 			rs = pst.executeQuery();
 			while(rs.next()) {
+				pap=new Paper();
 				pap.setId(rs.getInt(1));
 				pap.setStarttime(rs.getDate(2));
 				pap.setEndtime(rs.getDate(3));
@@ -171,7 +174,7 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 	}
 
 	@Override
-	public List<Paper> showbeforePaper() {
+	public List<Paper> showbeforePaper(String username) {
 		//已经结束的考试
 		List<Paper> before=new ArrayList<Paper>();
 		//设置日期格式
@@ -182,13 +185,14 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 		Connection con=DBUtil.getConnection();
 		PreparedStatement pr =null;
 		ResultSet rs =null;
-		Paper pap=new Paper();
+		Paper pap=null;
 		try {
 			 pr = con.prepareStatement(sql);
 			 rs = pr.executeQuery();
 			 while (rs.next()) {
 				//对象赋值
 				 //17个对象
+				 pap=new Paper();
 					pap.setId(rs.getInt(1));
 					pap.setStarttime(rs.getDate(2));
 					pap.setEndtime(rs.getDate(3));
@@ -214,7 +218,7 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 					pap.setBct1(rs.getInt(20));
 					pap.setBct2(rs.getInt(21));
 					
-				if (pap.getStarttime().toString().compareTo(d)<0) {
+				if (pap.getEndtime().toString().compareTo(d) < 0||IsDone(username,pap.getPapername())) {
 					before.add(pap);
 				}
 			 }		 
@@ -228,7 +232,7 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 	
 	
 	@Override
-	public List<Paper> showafterPaper() {
+	public List<Paper> showafterPaper(String username) {
 		//未来的考试
 		List<Paper> after=new ArrayList<Paper>();
 		//设置日期格式
@@ -239,13 +243,14 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 		Connection con=DBUtil.getConnection();
 		PreparedStatement pr =null;
 		ResultSet rs =null;
-		Paper pap=new Paper();
+		Paper pap=null;
 		try {
 			 pr = con.prepareStatement(sql);
 			 rs = pr.executeQuery();
 			 while (rs.next()) {
 				//对象赋值
 				 //17个对象
+				pap= new Paper();
 					pap.setId(rs.getInt(1));
 					pap.setStarttime(rs.getDate(2));
 					pap.setEndtime(rs.getDate(3));
@@ -272,7 +277,7 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 					pap.setBct2(rs.getInt(21));
 					
 				
-				 if (pap.getStarttime().toString().compareTo(d)>0) {
+				 if (pap.getStarttime().toString().compareTo(d)>0||!IsDone(username,pap.getPapername())) {
 					after.add(pap);
 				}}}	 
 		 catch (SQLException e) {
@@ -284,7 +289,7 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 	}
 	
 	@Override
-	public List<Paper> shownowPaper() {
+	public List<Paper> shownowPaper(String username) {
 		//当前可以进行的考试
 		List<Paper> now=new ArrayList<Paper>();
 		//设置日期格式
@@ -295,13 +300,14 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 		Connection con=DBUtil.getConnection();
 		PreparedStatement pr =null;
 		ResultSet rs =null;
-		Paper pap=new Paper();
+		Paper pap=null;
 		try {
 			 pr = con.prepareStatement(sql);
 			 rs = pr.executeQuery();
 			 while (rs.next()) {
 				//对象赋值
 				 //17个对象
+				 pap=new Paper();
 					pap.setId(rs.getInt(1));
 					pap.setStarttime(rs.getDate(2));
 					pap.setEndtime(rs.getDate(3));
@@ -327,7 +333,7 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 					pap.setBct1(rs.getInt(20));
 					pap.setBct2(rs.getInt(21));
 						
-				if(pap.getStarttime().toString().compareTo(d)<0&&pap.getEndtime().toString().compareTo(d)>0) {
+				if(pap.getStarttime().toString().compareTo(d)<0&&pap.getEndtime().toString().compareTo(d)>0&&!IsDone(username, pap.getPapername())) {
 					now.add(pap);						 		 
 		} }}catch (SQLException e) {
 			e.printStackTrace();
@@ -341,7 +347,9 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 	public Paper selectInstance(String papername) {
 		Paper pap=new Paper();
 		String sql = "select * from Paper where papername=?";
+		Connection con=null;
 		try {
+			con=DBUtil.getConnection();
 			pst = con.prepareStatement(sql);
 			pst.setString(1, papername);
 			rs = pst.executeQuery();
@@ -378,6 +386,27 @@ public class PaperInterfaceImplDao implements PaperInterfaceDao{
 			DBUtil.CloseConnection(rs, pst, con);
 		}
 		return pap;
+	}
+
+	@Override
+	public boolean IsDone(String username, String papername) {
+	
+		String sql="select * from StudentGrade where username=? and papername=?";
+		  con=DBUtil.getConnection();
+		  try {
+			pst=con.prepareStatement(sql);
+			pst.setString(1, username);
+			pst.setString(2, papername);
+			rs=pst.executeQuery();
+			if (rs.next()) {
+			     return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.CloseConnection(rs, pst, con);
+		}	
+		return false;
 	}
 
 }

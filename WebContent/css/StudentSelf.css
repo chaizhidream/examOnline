@@ -1,4 +1,4 @@
-﻿*{
+*{
 				margin: 0px;
 				padding: 0px;
 			}
@@ -67,7 +67,7 @@
 				height: 50px;
 				/*border: 1px black  solid;*/
 				background-image: url(../images/logo.jpg);
-				margin-top:80px;
+				margin-top: 80px;
 				
 			}
 			.copyright{

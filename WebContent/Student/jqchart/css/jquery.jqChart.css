@@ -1,0 +1,11 @@
+.ui-jqchart { position: relative; }
+
+.ui-jqchart .ui-jqchart-toolbar { position: absolute; margin: 0; padding: 2px; list-style-type: none; white-space: nowrap; }
+.ui-jqchart .ui-jqchart-toolbar li { display: inline; margin: 0 2px; padding: 2px 0; cursor: pointer; float: left; }
+.ui-jqchart .ui-jqchart-toolbar span.ui-icon { float: left; margin: 0 2px; }
+.ui-jqchart .ui-jqchart-toolbar-separator { height: 16px; width: 1px; }
+
+.ui-jqchart .ui-jqchart-tooltip { position: absolute; white-space: nowrap; padding: .2em .4em; z-index: 9999; border: 1px solid #dddddd; color: #333333; background: white; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; -o-box-shadow: 0 0 5px #aaa; -moz-box-shadow: 0 0 5px #aaa; -webkit-box-shadow: 0 0 5px #aaa; box-shadow: 0 0 5px #aaa; }
+
+* html .ui-jqchart .ui-jqchart-tooltip { background-image: none; }
+body .ui-jqchart .ui-jqchart-tooltip { border-width: 2px; }

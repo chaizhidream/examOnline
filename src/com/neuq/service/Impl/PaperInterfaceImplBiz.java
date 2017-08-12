@@ -30,18 +30,18 @@ PaperInterfaceDao pif=new PaperInterfaceImplDao();
 	}
 
 	@Override
-	public List<Paper> showbeforePaper() {
-		return pif.showbeforePaper();
+	public List<Paper> showbeforePaper(String username) {
+		return pif.showbeforePaper(username);
 	}
 
 	@Override
-	public List<Paper> showafterPaper() {
-		return pif.showafterPaper();
+	public List<Paper> showafterPaper(String username) {
+		return pif.showafterPaper(username);
 	}
 
 	@Override
-	public List<Paper> shownowPaper() {
-		return pif.shownowPaper();
+	public List<Paper> shownowPaper(String username) {
+		return pif.shownowPaper(username);
 	}
 
 	@Override

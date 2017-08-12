@@ -30,13 +30,17 @@ public class DoExam extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String papername=request.getParameter("papername");
+		papername="test1";
 		PaperInterfaceBiz pf=new PaperInterfaceImplBiz();
 		Paper p=pf.selectInstance(papername);
 		PaperString ps=QuestionInstance.changeToPaperString(p);
 		//把ps转发回考页面显示，进行考试
 		request.getSession().setAttribute("ps", ps);
 		//重定向
-		response.sendRedirect("/student/paper.jsp");
+	//	response.sendRedirect("../examOnline/paper.jsp");
+		
+		//request.getRequestDispatcher("paperXzTk.jsp").forward(request, response);
+		request.getRequestDispatcher("paper.jsp").forward(request, response);
 		
 	}
 

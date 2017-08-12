@@ -1,6 +1,5 @@
-﻿<%@ page language="java" contentType="text/html" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib uri="http://www.atg.com/taglibs/json" prefix="json"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,6 +7,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>试卷页</title>
 <link rel="stylesheet" type="text/css" href="css/paper.css"/>
+<script type="text/javascript">
+		function subChecked(){
+			var sub=document.getElementById("sub");
+			if(sub.value=="提交并进入编程题"){
+				if(confirm("是否确认提交？")){
+				//获取选择填空题,返回选择题和填空题数组
+				var xztkan=document.getElementsByTagName("input");
+				//在原页面打开编程题
+				window.open("paperBct.jsp","if");
+				sub.type="hidden";
+				}	
+			}
+		}
+</script>
 </head>
 <body>
 	<div class="header">
@@ -17,8 +30,9 @@
 	<div id="nave">
 		<table>
 			<tr id="tr1">
-				<td class="td1">考试开始时间</td>
-				<td class="td1">考试结束时间</td>
+						
+				<td class="td1">考试开始时间${ps.starttime}</td>
+				<td class="td1">考试结束时间${ps.endtime}</td>
 				<td class="td1">倒计时</td>
 			</tr>
 		</table>
@@ -26,101 +40,26 @@
 	<!--nave结束-->
 	
 	<!--main开始-->
+	<!--框架-->
+	
 	<div id="main">
 		<form action="" method="post">
-		<!--选择题-->
-		<table id="tab1">
-			
-			<tr >
-				<td colspan="2" id="xz">一、选择题</td>
-			</tr>
-			<tr>
-				<td colspan="2" id="xz_title">
-					1.题目
-				</td>
-			</tr>
-			<tr>
-				<td class="xz_choose">
-					<input type="radio" value="" name="xz1"/>&nbsp;&nbsp;&nbsp;A
-				</td>
-				<td class="xz_con">
-					选项A内容
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="radio" value="" name="xz1"/>&nbsp;&nbsp;&nbsp;B
-				</td>
-				<td>选项B内容</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="radio" value="" name="xz1"/>&nbsp;&nbsp;&nbsp;C
-				</td>
-				<td>选项C内容</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="radio" value="" name="xz1"/>&nbsp;&nbsp;&nbsp;D
-				</td>
-				<td>选项D内容</td>
-			</tr>
-		</table>
+		<iframe src="paperXzTk.jsp" width="900px" height="3000px" frameborder="0" scrolling="no" name="if" target="top"></iframe>
 		
-		<!--填空题-->
-		<table id="tab2">
-			<tr>
-				<td class="tk">二、填空题</td>
-			</tr>
-			<tr>
-				<td class="tk_title">
-					1.题目
-				</td>
-			</tr>
-			<tr>
-				<!--文本框改下划线-->
-				<td class="tk_con">
-					请输入你的答案:
-					<input type="text" style="border-bottom: 1px solid black;" />
-				</td>
-			</tr>
-		</table>
-		
-		<!--编程题-->
-		<table id="tab3">
-			<tr>
-				<td class="bc" colspan="2">三、编程题</td>
-			</tr>
-			<tr>
-				<td class="bc_title"colspan="2">
-					1.题目
-				</td>
-			</tr>
-			<tr>
-				<td class="bc_con">
-					请上传你的答案（文件格式jpg,png,jpeg,pdf,gif）	
-				</td>
-				<td>
-					<form action="doUpload.jsp" method="post" enctype="multipart/form-data">
-						<input type="file" name="file" >
-						<input type="submit"  value="确定上传" id="inputFile">
-					</form>
-				</td>
-			</tr>
-		</table>
-		<!--提交试卷-->
+		</form>
+	</div>
+	<!--main结束-->
+	<!--提交试卷-->
 		<table id="tab4">
 			<tr>
 				<td style="width: 770px; text-align: center;"></td>
 				<td style="width: 100px; text-align: center;">
-					<input type="submit" value="提交试卷" style=""/>
+					<input type="submit" id="sub" value="提交并进入编程题" onclick="subChecked()"
+					style="border: none;background-color: lightblue; 
+					width: 200px;height: 50px;margin-right: 15px;"/>
 				</td>
 			</tr>
 		</table>
-		</form>
-	</div>
-	<!--main结束-->
-	
 	
 	<div id="footer">
         <div class="copyright">Copyright © 1996-2017. All Rights Reserved. 版权所有</div>

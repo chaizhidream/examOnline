@@ -30,12 +30,13 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 	 * 教师查询个人信息
 	 */
 	public Teacher select(Teacher t, Connection con) throws SQLException {
-		Teacher info=new Teacher();
+		Teacher info=null;
 		String sql = "select * from Teacher where username = ?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, t.getUsername());
 		rs = pst.executeQuery();
 		while(rs.next()) {
+			 info=new Teacher();
 			info.setUsername(rs.getString(2));
 			info.setPwd(rs.getString(3));
 			info.setName(rs.getString(4));
@@ -117,7 +118,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 	 */
 	public List<Student> select(String sc, Connection con) throws SQLException {
 		// TODO Auto-generated method stub
-		Student info = new Student();
+		Student info =null;
 		PreparedStatement pst=null;
 		List<Student> list  = new ArrayList<Student>();	
 		ResultSet rs = null;
@@ -126,6 +127,7 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		pst.setString(1, sc);
 		rs = pst.executeQuery();
 		while(rs.next()) {
+			info = new Student();
 			info.setId(rs.getInt(1));
 			info.setUsername(rs.getString(2));
 			info.setName(rs.getString(4));
@@ -180,12 +182,13 @@ public class TeacherInterfaceImplDao implements TeacherInterfaceDao{
 		ResultSet rs = null;
 		con = DBUtil.getConnection();
 		
-		Teacher u=new Teacher();
+		Teacher u=null;
 		String sql="select * from teacher where username = ?";
 		pst = con.prepareStatement(sql);
 		pst.setString(1, username);
 		rs = pst.executeQuery(sql);
 		while (rs.next()) {
+		 u=new Teacher();
 
 			u.setId(rs.getInt("id"));
 			u.setUsername(rs.getString("username"));
@@ -281,8 +284,9 @@ public PaperString showPaper(String papername) throws SQLException {
 	pst=con.prepareStatement(sql);
 	pst.setString(1, papername);
 	rs = pst.executeQuery();
-	Paper paper  = new Paper();
+	Paper paper  = null;
 	while(rs.next()) {
+	    paper  = new Paper();
 		pst.setDate(1, (java.sql.Date)paper.getStarttime());
 		pst.setDate(2, (java.sql.Date)paper.getEndtime());
 		pst.setString(3, paper.getPapername());
@@ -316,11 +320,12 @@ public PaperString showPaper(String papername) throws SQLException {
 @Override
 public List<Xzt> showPaperbankxzt() throws SQLException {
 	List<Xzt> list = new ArrayList<Xzt>();
-	Xzt xzt= new Xzt();
+	Xzt xzt= null;
 	String sql = " select * from xzt";
 	pst=con.prepareStatement(sql);
 	rs = pst.executeQuery();
 	while(rs.next()) {
+		xzt= new Xzt();
 		xzt.setId(rs.getInt(1));
 		xzt.setQuestion(rs.getString(2));
 		xzt.setAnswer(rs.getString(3));
@@ -338,11 +343,12 @@ public List<Xzt> showPaperbankxzt() throws SQLException {
 @Override
 public List<Tkt> showPaperbanktkt() throws SQLException {
 	List<Tkt> list = new ArrayList<Tkt>();
-	Tkt tkt= new Tkt();
+	Tkt tkt= null;
 	String sql = " select * from tkt";
 	pst=con.prepareStatement(sql);
 	rs = pst.executeQuery();
 	while(rs.next()) {
+		 tkt= new Tkt();
 		tkt.setId(rs.getInt(1));
 		tkt.setQuestion(rs.getString(2));
 		tkt.setAnswer(rs.getString(3));
@@ -390,6 +396,53 @@ public Teacher login(String username, String pwd) throws SQLException {
 	}
 	DBUtil.CloseConnection(rs, pst, con);
 	return info;
+}
+
+@Override
+public String[] selectclass() throws SQLException {
+	Connection con = DBUtil.getConnection();
+	String sql = "select distinct studentclass from student";
+	String[] studentclass = null;
+	int i =0;
+	pst = con.prepareStatement(sql);
+	rs = pst.executeQuery();
+	studentclass=new String[5];
+while(rs.next()){
+	
+		studentclass[i]= rs.getString(1);
+		System.out.println(studentclass[i]);
+		i++;
+}
+	DBUtil.CloseConnection(rs, pst, con);
+	return studentclass;
+}
+public static void main(String[] args) {
+	TeacherInterfaceDao a=new TeacherInterfaceImplDao();
+	try {
+		a.selectclass();
+		a.selectpaper();
+	} catch (SQLException e) {
+		// TODO 自动生成的 catch 块
+		e.printStackTrace();
+	}
+}
+@Override
+public String[] selectpaper() throws SQLException {
+		Connection con = DBUtil.getConnection();
+		String sql = "select  papername from Paper";
+		String[] papername=null;
+		int i =0;
+		pst = con.prepareStatement(sql);
+		rs = pst.executeQuery();
+		papername = new String[10];
+		while(rs.next()) {	
+			papername[i]= rs.getString(1);
+		
+			System.out.println(papername[i]);
+			i++;
+		}
+		DBUtil.CloseConnection(rs, pst, con);
+		return papername;
 }
 
 	

@@ -9,6 +9,9 @@
 		background-image: url('../../images/logo.jpg');
 		position:relative;
 }
+.header a{
+	text-decoration: none;
+}
 .header p{
 		font-size: 30px;
 		color: white;
@@ -29,11 +32,11 @@
 }
 #nave .td1{
 	width: 360px;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	
 }
 #main{
-	height: 800px;
+	height: 3000px;
 	width: 70%;
 	border: 1px solid cornflowerblue;
 	margin: 0 auto;
@@ -112,6 +115,7 @@
 #footer{
 	width:100%;
 	height:50px;
+	margin-top: 20px;
 	background-image: url('../../images/logo.jpg');
 	position:relative;
 	

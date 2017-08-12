@@ -15,11 +15,11 @@ import com.neuq.bean.Tkt;
 import com.neuq.bean.Xzt;
 import com.neuq.util.QuestionInstance;
 
-public class Selftest extends HttpServlet {
+public class SelfTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
-    public Selftest() {
+    public SelfTest() {
         super();
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
@@ -53,11 +53,13 @@ public class Selftest extends HttpServlet {
 				listt.get(4), listt.get(0), listt.get(1), listt.get(2), listt.get(3), listb.get(1), 
 				listb.get(0));
 		request.getSession().setAttribute("selftest", paperString);
-	
+	System.out.println(paperString.toString());
 		//将list数据发送到.jsp文件中,考虑重定向
 		//区别于考试用的试卷，不计算成绩，直接点击查看正确答案
-		request.getRequestDispatcher("selftest.jsp").forward(request, response);
-	}
+	//	request.getRequestDispatcher("student/selfTest.jsp").forward(request, response);
+
+		response.sendRedirect("student/selfTest.jsp");
+		}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

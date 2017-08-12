@@ -1,4 +1,4 @@
-﻿.margin_configurator{border:dashed 1px #222;position:relative;height:80px;padding:40px 70px}.margin_configurator .input_left{position:absolute;top:40%;left:5px}.margin_configurator .input_top{position:absolute;top:5px;left:50%;margin-left:-23px}.margin_configurator .input_right{position:absolute;top:40%;right:5px}.margin_configurator .input_bottom{position:absolute;bottom:5px;left:50%;margin-left:-23px}.margin_configurator .inner_box{width:100%;height:100%;border:solid 1px #000}.margin_configurator input[type="text"]{width:24px;text-align:center}
+.margin_configurator{border:dashed 1px #222;position:relative;height:80px;padding:40px 70px}.margin_configurator .input_left{position:absolute;top:40%;left:5px}.margin_configurator .input_top{position:absolute;top:5px;left:50%;margin-left:-23px}.margin_configurator .input_right{position:absolute;top:40%;right:5px}.margin_configurator .input_bottom{position:absolute;bottom:5px;left:50%;margin-left:-23px}.margin_configurator .inner_box{width:100%;height:100%;border:solid 1px #000}.margin_configurator input[type="text"]{width:24px;text-align:center}
 body{line-height:1.5;
 width:100%;
 height:600px;

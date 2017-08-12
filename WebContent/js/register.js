@@ -3,7 +3,7 @@
 ///判断用户名是否合法
 	var uname=document.getElementById("username").value;
 	var sp1=document.getElementsByTagName("span")[0];
-  	var unameReg = /^[a-zA-Z][a-zA-Z0-9_]{5,15}$/g;
+  	var unameReg = /^[a-zA-Z][a-zA-Z0-9_]{2,15}$/g;
   	var result1=unameReg.test(uname);
   	if(uname==""){
   		sp1.innerHTML="用户名不能为空";

@@ -2,7 +2,10 @@ package com.neuq.service.I;
 
 import java.util.List;
 
+import com.neuq.bean.Bct;
 import com.neuq.bean.Mistakes;
+import com.neuq.bean.Tkt;
+import com.neuq.bean.Xzt;
 
 public interface MistakesInterfaceBiz {
 		/**
@@ -17,12 +20,12 @@ public interface MistakesInterfaceBiz {
 		 * 查询某个学生的全部错题  
 		 */
 		public List<Mistakes> select(String username);		
-		public List<Mistakes> selectbct(String username);	
-		public List<Mistakes> selecttkt(String username);	
-		
+		public List<Bct> selectbct(String username);	
+		public List<Tkt> selecttkt(String username);	
+		public List<Xzt> selectxzt(String username);
 		/**
 		 * 按知识点查询某个学生的全部错题
 		 */
 		public List<Mistakes> select(String username,String questionpoint);
-		List<Mistakes> selectxzt(String username);
+		
 }

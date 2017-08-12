@@ -40,6 +40,14 @@ public class Tkt implements Serializable{
 
 
 
+	@Override
+	public String toString() {
+		return "Tkt [id=" + id + ", question=" + question + ", answer=" + answer + ", questiontype=" + questiontype
+				+ ", questionpoint=" + questionpoint + "]";
+	}
+
+
+
 	public int getId() {
 		return id;
 	}

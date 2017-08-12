@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, p, ul, li, h1, h2, h3, h4, h5, h6,dl,dd,dt,form, input, select, button, textarea, iframe, table, th, td {margin: 0px;padding: 0px;}
+html{overflow-x:hidden; overflow-y:scroll;}
+body{font:12px "宋体","Arial Narrow",HELVETICA;text-align:center; color:#666; background:#F7F7F7;}
+a{text-decoration:none; color:#666;}
+a:hover{color:#FF9E1F;}
+ul,li{list-style-type:none;}
+img,a{border:0 none;}
+#wrap{text-align:left;}
+em,i{font-style:normal;}
+strong,b{font-weight:normal;}
+.fl,.fr{float:left;display:inline;} /*防止出现双边距*/
+.fr{float:right;}
+.clear{clear:both;}
+.w980{width:980px;overflow:hidden; _zoom:1; margin:0 auto;}
+.w1230{width:1230px; height:582px; overflow:hidden; _zoom:1; margin:0 auto;}
+.pc_overflow{overflow:hidden; _zoom:1;}/*防止浮动塌陷*/
+.mt10{margin-top:10px;}
+.mb20{margin-bottom:20px;}
+.mr10{margin-right:10px;}
+.mr30{margin-right:30px;}
+.pl61{padding-left:61px;}
+.border_bottom{background:url(../images/line_heibai.png) repeat-x center bottom;}
+.index_title{font-size:18px; font-weight:bold; font-family:"微软雅黑"; color:#444;}
+.coloryellow{color:#FF9E1F;}
