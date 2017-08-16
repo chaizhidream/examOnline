@@ -30,7 +30,7 @@ public interface StudentGradeInterfaceDao {
 	 * @param studentGrade
 	 * @return
 	 */
-	public boolean update(StudentGrade studentGrade);
+	public boolean update(int bctscore,String username,String papername);
 	
 	/**
 	 * 查询某个学生的全部成绩记录

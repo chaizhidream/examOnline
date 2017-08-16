@@ -1,0 +1,48 @@
+*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.naver{
+				width: 100%;
+				height: 80px;
+				background-color:  gainsboro;
+				border: 1px solid black;
+				background-image: url(../images/logo.jpg);
+			}
+			.naver p{
+				font-size: 30px;
+				color: white;
+				text-align: center;
+				line-height: 80px;
+				
+			}
+			#b1{
+				width: 85px;
+				height: 30px;
+				color: orangered
+			}
+
+			.main{
+				margin: 0 auto;
+				width: 100%;
+				height: 483px;
+				background-color: gainsboro;
+			}
+			.t1{
+				margin: 0 auto;
+				width:80%;
+			}
+			.footer{
+				width: 100%;
+				height: 50px;
+				/*border: 1px black  solid;*/
+				background-image: url(../images/logo.jpg);
+				
+			}
+			.copyright{
+	           text-align: center;
+				line-height: 50px;
+				font-family: "微软雅黑";
+				color: white;
+			}

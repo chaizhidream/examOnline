@@ -11,7 +11,7 @@ public class Mistakes implements Serializable {
 	
 	private int id;
 	private String username;
-	private String questiontype;
+	private int questiontype;
 	private int questionid;
 	
 	
@@ -25,7 +25,7 @@ public class Mistakes implements Serializable {
 	 * @param questiontype 题目类型（选择题、填空题、编程题）
 	 * @param questionid 问题ID
 	 */
-	public Mistakes(String username, String questiontype, int questionid) {
+	public Mistakes(String username, int questiontype, int questionid) {
 		super();
 		this.username = username;
 		this.questiontype = questiontype;
@@ -46,10 +46,10 @@ public class Mistakes implements Serializable {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getQuestiontype() {
+	public int getQuestiontype() {
 		return questiontype;
 	}
-	public void setQuestiontype(String questiontype) {
+	public void setQuestiontype(int questiontype) {
 		this.questiontype = questiontype;
 	}
 	public int getQuestionid() {

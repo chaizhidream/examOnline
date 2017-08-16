@@ -12,7 +12,7 @@ create table student(
     username varchar(16) not null,
     pwd varchar(16) not null,
     name varchar(16) not null,
-    sex char(2),
+    sex varchar(4),
 	studentclass  varchar(16) not null,
     telephone varchar(50),
     email varchar(100),
@@ -27,7 +27,7 @@ create table teacher(
     username varchar(16) not null,
     pwd varchar(16) not null,
     name varchar(16) not null,
-    sex char(2),
+    sex varchar(4),
     telephone varchar(50),
     email varchar(100),
     ru int default 2,
@@ -40,7 +40,7 @@ create table manager(
     username varchar(16) not null,
     pwd varchar(16) not null,
     name varchar(16) not null,
-    sex char(2),
+    sex varchar(4),
     telephone varchar(50),
     email varchar(100),
     ru int default 1,
@@ -53,7 +53,7 @@ create table manager(
 create table xzt(
     id int not null auto_increment,
     question varchar(1000) not null,
-	answer char(2) not null,
+	answer varchar(4) not null,
 	optionA varchar(100) not null,
 	optionB varchar(100) not null,
 	optionC varchar(100) ,
@@ -82,6 +82,17 @@ create table bct(
     questionpoint varchar(16),	
     primary key(id)
 );
+
+/*编程题答案表*/
+create table bctanswer(
+    id int not null auto_increment,
+    username varchar(100) not null,
+	papername varchar(16),
+    answerpath1 varchar(100),
+    answerpath2 varchar(100),
+    primary key(id)
+);
+
 
 /*试卷表*/
 create table paper(
@@ -115,7 +126,9 @@ create table paper(
 create table studentgrade(
     id int not null auto_increment,
     username varchar(16) not null,
-    score int default 0,
+	xztscore int default 0,
+	tktscore int default 0,
+	bctscore int ,
 	papername varchar(16) not null,
     primary key(id)
 );
@@ -130,6 +143,7 @@ create table mistakes(
 	questionpoint int,
     primary key(id)
 );
+
 
 
 

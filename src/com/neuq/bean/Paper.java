@@ -1,7 +1,7 @@
 package com.neuq.bean;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * 试卷类
@@ -12,26 +12,35 @@ public class Paper implements Serializable{
 	
 	
 	private int id;
-	private java.sql.Date starttime;
-	private java.sql.Date endtime;
+	private Date starttime;
+	private Date endtime;
 	private String papername;
+	
 	private int xzt1;
 	private int xzt2;
 	private int xzt3;
+	
 	private int xzt4;
 	private int xzt5;
 	private int xzt6;
+	
+	private int xzt7;
+	private int xzt8;
+	private int xzt9;
+	
+	private int xzt10;
 	private int tkt1;
 	private int tkt2;
+	
 	private int tkt3;
 	private int tkt4;
 	private int tkt5;
-	private int tkt6;
+	
 	private int bct1;
 	private int bct2;
 
 	public Paper() {
-		// TODO 自动生成的构造函数存根
+
 	}
 	
 	
@@ -46,6 +55,10 @@ public class Paper implements Serializable{
 	 * @param xzt4 选择题4
 	 * @param xzt5 选择题5 
 	 * @param xzt6 选择题6
+	 * @param xzt3 选择题7
+	 * @param xzt4 选择题8
+	 * @param xzt5 选择题9 
+	 * @param xzt6 选择题10
 	 * @param tkt1 填空题1
 	 * @param tkt2 填空题2
 	 * @param tkt3 填空题3
@@ -56,7 +69,7 @@ public class Paper implements Serializable{
 	 * @param bct2 编程题2
 	 */
 	public Paper(Date starttime, Date endtime, String papername, int xzt1, int xzt2, int xzt3, int xzt4, int xzt5,
-			int xzt6, int tkt1, int tkt2, int tkt3, int tkt4, int tkt5, int tkt6, int bct1, int bct2) {
+			int xzt6, int xzt7,int xzt8,int xzt9,int xzt10,int tkt1, int tkt2, int tkt3, int tkt4, int tkt5, int bct1, int bct2) {
 		super();
 		this.starttime = starttime;
 		this.endtime = endtime;
@@ -67,12 +80,15 @@ public class Paper implements Serializable{
 		this.xzt4 = xzt4;
 		this.xzt5 = xzt5;
 		this.xzt6 = xzt6;
+		this.xzt7 = xzt7;
+		this.xzt8 = xzt8;
+		this.xzt9 = xzt9;
+		this.xzt10 = xzt10;
 		this.tkt1 = tkt1;
 		this.tkt2 = tkt2;
 		this.tkt3 = tkt3;
 		this.tkt4 = tkt4;
 		this.tkt5 = tkt5;
-		this.tkt6 = tkt6;
 		this.bct1 = bct1;
 		this.bct2 = bct2;
 	}
@@ -85,16 +101,16 @@ public class Paper implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public java.sql.Date getStarttime() {
+	public java.util.Date getStarttime() {
 		return starttime;
 	}
-	public void setStarttime(java.sql.Date starttime) {
+	public void setStarttime(Date starttime) {
 		this.starttime = starttime;
 	}
-	public java.sql.Date getEndtime() {
+	public Date getEndtime() {
 		return endtime;
 	}
-	public void setEndtime(java.sql.Date endtime) {
+	public void setEndtime(Date endtime) {
 		this.endtime = endtime;
 	}
 	public String getPapername() {
@@ -139,6 +155,52 @@ public class Paper implements Serializable{
 	public void setXzt6(int xzt6) {
 		this.xzt6 = xzt6;
 	}
+	
+	public int getXzt7() {
+		return xzt7;
+	}
+
+
+
+	public void setXzt7(int xzt7) {
+		this.xzt7 = xzt7;
+	}
+
+
+
+	public int getXzt8() {
+		return xzt8;
+	}
+
+
+
+	public void setXzt8(int xzt8) {
+		this.xzt8 = xzt8;
+	}
+
+
+
+	public int getXzt9() {
+		return xzt9;
+	}
+
+
+
+	public void setXzt9(int xzt9) {
+		this.xzt9 = xzt9;
+	}
+
+
+
+	public int getXzt10() {
+		return xzt10;
+	}
+
+
+
+	public void setXzt10(int xzt10) {
+		this.xzt10 = xzt10;
+	}
 	public int getTkt1() {
 		return tkt1;
 	}
@@ -169,12 +231,7 @@ public class Paper implements Serializable{
 	public void setTkt5(int tkt5) {
 		this.tkt5 = tkt5;
 	}
-	public int getTkt6() {
-		return tkt6;
-	}
-	public void setTkt6(int tkt6) {
-		this.tkt6 = tkt6;
-	}
+
 	public int getBct1() {
 		return bct1;
 	}

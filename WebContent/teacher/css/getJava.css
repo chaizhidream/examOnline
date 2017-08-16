@@ -1,0 +1,11 @@
+.main{
+	margin: 0 auto;
+}
+.t{
+	margin: 0 auto;
+	margin-top: 30px;
+	border-color: gainsboro;
+}
+.t a{
+	text-decoration: none;
+}

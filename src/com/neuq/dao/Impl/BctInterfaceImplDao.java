@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.neuq.bean.Bct;
-import com.neuq.dao.GetLastInsertId;
 import com.neuq.dao.I.BctInterfaceDao;
 import com.neuq.db.DBUtil;
 

@@ -1,0 +1,84 @@
+           *{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.header{
+				width: 100%;
+				height: 80px;
+				/*background-color: blue;*/
+				/*border: 1px solid black;*/
+				background-image: url(../../images/logo.jpg);
+			}
+			.header p{
+				font-size: 30px;
+				color: white;
+				text-align: center;
+				line-height:80px;
+				}
+				.main{
+					width: 80%;
+					height: 800px;
+					margin: 0 auto;
+					/*border: 1px solid black;*/
+				}
+				.main #left{
+					width: 150px;
+					height: 100%;
+					/*border: 1px solid black;*/
+					float: left;
+				}
+				#dt1 p{
+					line-height: 50px;
+					padding-top: 30px;
+					font-family: "微软雅黑";
+					font-size: 20px;
+				}
+				#dd1 li{
+					list-style-type: none;
+				}
+				#dd1 li p{
+					font-family: "微软雅黑";
+					font-size: 20px;
+				}
+				#dd1 a{
+					text-decoration: none;
+					color: black;
+				}
+				#dd1 a:hover{
+					color: lightseagreen;
+				}
+				.al{
+					padding-top: 50px;
+				}
+				.al li{
+					list-style-type: none;
+				}
+				#left .al p{
+					font-family: "微软雅黑";
+					font-size: 20px;
+					color: black;
+				}
+				#left .al a {
+					text-decoration: none;
+				}
+				.main #right{
+					width: 900px;
+					height: 100%;
+					/*border: 1px solid black;*/
+					float: left;
+				}
+				.clear{
+					clear: both;
+				}
+				.footer{
+				width: 100%;
+				height: 50px;
+				/*border: 1px black  solid;*/
+				background-image: url(../../images/logo.jpg);
+				
+			}
+			.copyright{
+	           text-align: center;
+				line-height: 50px;
+			}

@@ -13,12 +13,13 @@ public class Tkt implements Serializable{
 	
 	private int id;	
 	private String question;
-	private char answer;
+	private String answer;
 	private int questiontype;
 	private String questionpoint;
 	
 	public Tkt() {
 		// TODO 自动生成的构造函数存根
+		this.questiontype = 2;
 	}
 	
 	
@@ -29,12 +30,20 @@ public class Tkt implements Serializable{
 	 * @param questiontype  题目类型（填空题）
 	 * @param questionpoint  题目知识点
 	 */
-	public Tkt(String question, char answer, int questiontype, String questionpoint) {
+	public Tkt(String question, String answer, String questionpoint) {
 		super();
 		this.question = question;
 		this.answer = answer;
-		this.questiontype = questiontype;
+		this.questiontype = 2;
 		this.questionpoint = questionpoint;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Tkt [id=" + id + ", question=" + question + ", answer=" + answer + ", questiontype=" + questiontype
+				+ ", questionpoint=" + questionpoint + "]";
 	}
 
 
@@ -51,10 +60,10 @@ public class Tkt implements Serializable{
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public char getAnswer() {
+	public String getAnswer() {
 		return answer;
 	}
-	public void setAnswer(char answer) {
+	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
 	public int getQuestiontype() {

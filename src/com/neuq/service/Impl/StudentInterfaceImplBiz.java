@@ -2,8 +2,10 @@ package com.neuq.service.Impl;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.neuq.bean.Student;
+import com.neuq.bean.StudentGrade;
 import com.neuq.dao.I.StudentInterfaceDao;
 import com.neuq.dao.Impl.StudentInterfaceImplDao;
 import com.neuq.db.DBUtil;
@@ -31,6 +33,22 @@ public class StudentInterfaceImplBiz implements StudentInterfaceBiz{
 	@Override
 	public boolean delete(Student s) throws SQLException {
 		return stu.delete(s, con);
+	}
+
+	@Override
+	public Student showuserinfo(String username) throws SQLException {
+		return stu.showuserinfo(username);
+	}
+
+	@Override
+	public List<StudentGrade> stucj(String username) throws SQLException {
+		return stu.stucj(username);
+	}
+
+	@Override
+	public Student login(String username, String password) throws SQLException {
+		
+		return stu.login(username, password);
 	}
 
 }

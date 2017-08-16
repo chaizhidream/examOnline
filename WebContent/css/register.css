@@ -1,0 +1,99 @@
+﻿
+*{
+	margin:0;
+	padding:0;
+}
+.header{
+		width:100%;
+		height:80px;
+		background-image: url('../images/logo.jpg');
+		position:relative;
+	}
+	.header p{
+		font-size: 30px;
+		color: white;
+		text-align: center;
+		line-height: 80px;
+	}
+
+.main{width:820px; margin:100px auto 0;}
+.main .login-tab{height:46px;}
+.main .login-tab li{float:left; width:98px; height:46px; line-height:46px; border-radius:3px 3px 0 0; background-color:#e0f3ff; border:1px solid #c3dff0; border-bottom:none; margin-right:8px; color:#116ea9; font-size:16px; text-align:center; cursor:pointer;list-style: none;}
+.main .login-tab .cur{position:relative; background-color:#fff; border-color:#dcdcdc; color:#333; z-index:6; cursor:default;margin-bottom: -1px;}
+.main .login-tab .login{float:right; font-size:13px; color:#116ea9; margin-top:15px;}
+.main .tab-con{position:relative;marin-top:20px; min-height:300px; background-color:#fff; border:1px solid #dcdcdc; border-radius:0 3px 3px 3px; box-shadow:0 2px 5px 0 #dcdcdc; font-size:14px; padding:50px 0; z-index:5;}
+.main .tab-con th{width:100px; padding-right:20px; text-align:right; font-weight:normal; color:#333;}
+.main .tab-con td{padding:12px 0;}
+.main .tab-con input{border-radius:3px; width:300px; height:35px; box-sizing:border-box;}
+
+.main .tab-con .tip img{display:none; margin:-7px 8px 0 0;}
+.main .tab-con .tip{display: block;width:160px; height:50px; color:#666; line-height:24px; padding:0 0 0 25px; margin:0 0 -30px 0;}
+.main .tab-con .tip-error{background:url(../images/tip-error.png) no-repeat 0 5px;}
+.main .tab-con .tip-right{background:url(../images/tip-right.png) no-repeat 0 5px;}
+
+.main .tab-con .test input:first-child{width:170px; margin-right:5px;}
+.main .tab-con .test input:last-child{width:151px; font-size:12px;}
+.main .tab-con .confirm{height:40px; line-height:40px; font-size:16px;font-family: "΢���ź�"}
+.main .tab-con .vd input{width:205px; margin-right:10px;}
+
+.main .reg-tip{width: 288px;margin-left: 44px;margin-top: -15px;margin-bottom: 10px;}
+
+.login-alone{background:url(../images/login-al.png);}
+.logina-logo{text-align:center; padding:55px 0;}
+.logina-main{position:relative; z-index:5; width:820px;
+			 margin:0 auto; background:#fff; 
+			     margin-top: 20px;
+			 border-radius:3px; border:1px solid #c4c4c4;}
+.logina-main .tab-con{float:left; border-radius:3px; box-shadow:none; border:none; }
+.logina-main .tab-con input{width:230px;}
+.logina-main .tab-con input[type=radio]{width:auto;}
+.logina-main .tab-con tr .valid input {width: 50%;margin-right: 5%;}
+.logina-main .find{font-size:12px;}
+.logina-main .find td{padding:0;}
+.logina-main .find input{width:auto; margin:-3px 8px 0 0;}
+.logina-main .find label{ margin-right:85px;}
+.logina-main .reg{float:right; min-height:290px; padding:120px 40px 0; background:url(../images/login-sep.png) no-repeat 0 50%;}
+.logina-main .reg p{font-size:17px; font-style:italic; line-height:30px; padding-bottom:30px;}
+.logina-main .reg .reg-btn{display: block;width:172px; height:40px; line-height:38px; border:1px solid #ff7607;  border-radius:2px; background: #ff8c2f; background: -moz-linear-gradient(#ff8c2f, #ff7607); background: -webkit-linear-gradient(#ff8c2f, #ff7607); background: -o-linear-gradient(#ff8c2f, #ff7607); background: linear-gradient(#ff8c2f, #ff7607); color:#fff; text-decoration:none; vertical-align:top; text-align:center; -moz-box-sizing: border-box; box-sizing:border-box; cursor:pointer; color:#fff; font-size:16px; box-shadow:1px 1px 2px 1px #cfcfcf;}
+.logina-main .reg .reg-btn:hover{background: #ff7607; background: -moz-linear-gradient(#ff7607, #ff8c2f); background: -webkit-linear-gradient(#ff7607, #ff8c2f); background: -o-linear-gradient(#ff7607, #ff8c2f); background: linear-gradient(#ff7607, #ff8c2f);}
+.logina-main .error-tip{
+    color: #DC0000;
+    font-size: 14px;
+    height: 22px;
+    line-height: 22px;
+    padding: 7px 0 3px;
+    text-align: center;
+    margin-top: -60px;
+}
+.rg-con{margin-top:0;}
+.rg-con .login-tab .cur{border-color:#C4C4C4;}
+.rg-con .tab-con .test input:first-child{width:70px;}
+.rg-con .tab-con .vd input{width:135px;}
+.rg-con .tab-con{padding-top:50px;}
+
+.client-from label{
+    font-weight: normal;
+    width: 100px;
+    margin: 0 5px 12px 0;
+}
+#footer{
+	width:100%;
+	height:50px;
+	position:relative;
+	background-image: url('../images/logo.jpg');
+	margin-top: 20px;
+}
+.copyright{
+	position:absolute;
+	top:20px;
+	left:500px;
+}
+#tab1{
+	height:150px;
+	border-color:gainsboro;
+    border-left-style:solid;
+    border-width:1px;
+    margin-left:-15px;
+    position:absolute;
+    left:600px;   
+}

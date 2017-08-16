@@ -31,7 +31,9 @@ public interface MistakesInterfaceDao {
 	 * @param username 学生姓名
 	 * @return 错题集合
 	 */
-	public List<Mistakes> select(String username);
+	public List<Mistakes> selectxzt(String username);
+	public List<Mistakes> selecttkt(String username);
+	public List<Mistakes> selectbct(String username);
 	
 	/**
 	 * 按知识点查询某个学生的全部错题
