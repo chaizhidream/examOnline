@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmmm.mapper.ExamMapper">
+	<resultMap id="BaseResultMap" type="com.mmmm.entity.Exam">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="EXAM_ID" property="examId" jdbcType="VARCHAR" />
+		<result column="EXAM_NAME" property="examName" jdbcType="VARCHAR" />
+		<result column="EXAM_GRADE" property="examGrade" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="INTEGER" />
+	</resultMap>
+	<resultMap id="BaseResultMapExamQuestion" type="com.mmmm.entity.ExamQuestion">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="exam_id" property="examId" jdbcType="VARCHAR" />
+		<result column="question_id" property="questionId" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="BaseResultMapQuestion" type="com.mmmm.entity.Questions">
+		<id column="QUES_ID" property="quesId" jdbcType="VARCHAR" />
+		<result column="QUES_LEVEL" property="quesLevel" jdbcType="VARCHAR" />
+		<result column="QUES_CONTENT" property="quesContent" jdbcType="VARCHAR" />
+		<result column="CH_OPTIONA" property="chOptiona" jdbcType="VARCHAR" />
+		<result column="CH_OPTIONB" property="chOptionb" jdbcType="VARCHAR" />
+		<result column="CH_OPTIONC" property="chOptionc" jdbcType="VARCHAR" />
+		<result column="CH_OPTIOND" property="chOptiond" jdbcType="VARCHAR" />
+		<result column="JU_ANSWER" property="juAnswer" jdbcType="VARCHAR" />
+		<result column="CH_ANSWER" property="chAnswer" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="BaseResultMapExamList" type="com.mmmm.entity.ExamList">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="USERID" property="userId" jdbcType="INTEGER" />
+		<result column="SCORE" property="score" jdbcType="VARCHAR" />
+		<result column="EXAMDATE" property="examDate" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="INTEGER" />
+	</resultMap>
+	<select id="selectByExamGrade" resultMap="BaseResultMap"
+		parameterType="string">
+		select
+		t.EXAM_ID, t.EXAM_NAME, t.EXAM_GRADE, t.STATE
+		from
+		mm_exam t
+		where t.EXAM_GRADE = #{_parameter}
+	</select>
+
+
+	<select id="getQuestionsID" resultMap="BaseResultMapExamQuestion"
+		parameterType="string">
+		select
+		t.EXAM_ID, t.question_id, t.STATE
+		from
+		mm_exam_question t
+		where t.EXAM_ID = #{_parameter}
+	</select>
+
+
+	<select id="getQuestionContent" resultMap="BaseResultMapQuestion"
+		parameterType="string">
+		select
+		*
+		from
+		mm_questions t
+		where t.QUES_ID = #{_parameter}
+	</select>
+
+	<update id="updateByPrimaryKey" parameterType="com.mmmm.entity.Grade" >
+    update mm_grade
+    set LAST_SCORE = #{lastScore,jdbcType=INTEGER},
+      LAST_EXAM_DATE = #{lastExamDate,jdbcType=VARCHAR},
+      BEST_SCORE = #{bestScore,jdbcType=INTEGER},
+      BEST_EXAM_DATE = #{bestExamDate,jdbcType=VARCHAR},
+      GRADE = #{grade,jdbcType=VARCHAR},
+      EXAM_GRADE = #{examGrade,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+      and USERID = #{userId,jdbcType=INTEGER}
+  </update>
+  
+  <insert id="insertExamToExamList" parameterType="com.mmmm.entity.ExamList" >
+    insert into mm_examlist (ID, USERID, SCORE, 
+      EXAMDATE, STATE)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{score,jdbcType=VARCHAR}, 
+      #{examDate,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
+  </insert>
+  
+  <select id="getExamListByUserId" resultMap="BaseResultMapExamList" parameterType="java.lang.Integer" >
+    select 
+    *
+    from mm_examlist
+    where USERID = #{userId,jdbcType=INTEGER}
+  </select>
+  
+   <select id="getExamId" resultType="string" >
+    select 
+    formalExamId 
+    from mm_formalExamId where ID = 1
+  </select>
+</mapper> 

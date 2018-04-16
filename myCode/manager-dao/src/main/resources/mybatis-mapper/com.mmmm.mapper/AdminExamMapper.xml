@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmmm.mapper.AdminExamMapper">
+	<resultMap id="BaseResultMap" type="com.mmmm.entity.Exam">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="EXAM_ID" property="examId" jdbcType="VARCHAR" />
+		<result column="EXAM_NAME" property="examName" jdbcType="VARCHAR" />
+		<result column="EXAM_GRADE" property="examGrade" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="BaseResultMapQuestion" type="com.mmmm.entity.Questions">
+		<id column="QUES_ID" property="quesId" jdbcType="VARCHAR" />
+		<result column="QUES_LEVEL" property="quesLevel" jdbcType="VARCHAR" />
+		<result column="QUES_CONTENT" property="quesContent" jdbcType="VARCHAR" />
+		<result column="CH_OPTIONA" property="chOptiona" jdbcType="VARCHAR" />
+		<result column="CH_OPTIONB" property="chOptionb" jdbcType="VARCHAR" />
+		<result column="CH_OPTIONC" property="chOptionc" jdbcType="VARCHAR" />
+		<result column="CH_OPTIOND" property="chOptiond" jdbcType="VARCHAR" />
+		<result column="JU_ANSWER" property="juAnswer" jdbcType="VARCHAR" />
+		<result column="CH_ANSWER" property="chAnswer" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="showExam" resultMap="BaseResultMap">
+		select
+		t.EXAM_ID, t.EXAM_NAME,
+		t.EXAM_GRADE, t.STATE
+		from
+		mm_exam t
+		where t.EXAM_GRADE != 'Z' ORDER BY
+		t.EXAM_GRADE
+	</select>
+
+	<select id="showFormalExam" resultMap="BaseResultMap">
+		select
+		t.EXAM_ID,
+		t.EXAM_NAME,
+		t.EXAM_GRADE, t.STATE
+		from
+		mm_exam t
+		where t.EXAM_GRADE = 'Z'
+		ORDER BY
+		t.EXAM_ID
+	</select>
+
+	<select id="showQuestions" resultMap="BaseResultMapQuestion">
+		select
+		QUES_ID, QUES_LEVEL,
+		QUES_CONTENT,
+		CH_OPTIONA,CH_OPTIONB,CH_OPTIONC,CH_OPTIOND,
+		JU_ANSWER,CH_ANSWER, CASE WHEN t.STATE = '1' THEN '正常' ELSE t.STATE
+		END AS STATE
+		from
+		mm_questions t
+		ORDER BY t.QUES_ID,t.QUES_LEVEL
+	</select>
+
+	<insert id="addQuestions" parameterType="com.mmmm.entity.Questions">
+		insert into mm_questions
+		(QUES_ID, QUES_LEVEL, QUES_CONTENT,
+		CH_OPTIONA,CH_OPTIONB,CH_OPTIONC,CH_OPTIOND,
+		JU_ANSWER,CH_ANSWER,
+		STATE)
+		values (#{quesId,jdbcType=VARCHAR},
+		#{quesLevel,jdbcType=VARCHAR},
+		#{quesContent,jdbcType=VARCHAR},
+		#{chOptiona,jdbcType=VARCHAR}, #{chOptionb,jdbcType=VARCHAR},
+		#{chOptionc,jdbcType=VARCHAR},
+		#{chOptiond,jdbcType=VARCHAR},
+		#{juAnswer,jdbcType=VARCHAR},
+		#{chAnswer,jdbcType=VARCHAR},
+		#{state,jdbcType=VARCHAR})
+	</insert>
+
+	<delete id="deleteQuestion" parameterType="string">
+		delete from
+		mm_questions
+		where
+		QUES_ID = #{quesId,jdbcType=VARCHAR}
+	</delete>
+
+	<insert id="addExam" parameterType="com.mmmm.entity.Exam">
+		insert into mm_exam (EXAM_ID,
+		EXAM_NAME, EXAM_GRADE, STATE)
+		values (#{examId,jdbcType=VARCHAR},
+		#{examName,jdbcType=VARCHAR},
+		#{examGrade,jdbcType=VARCHAR},
+		#{state,jdbcType=INTEGER})
+	</insert>
+
+	<delete id="deleteExam" parameterType="string">
+		delete from mm_exam
+		where
+		EXAM_ID = #{id,jdbcType=VARCHAR}
+	</delete>
+	<delete id="deleteExamQuestion" parameterType="string">
+		delete from
+		mm_exam_question
+		where
+		exam_id = #{id,jdbcType=VARCHAR}
+	</delete>
+
+	<select id="getExam" resultType="com.mmmm.entity.Exam"
+		parameterType="string">
+		select
+		t.EXAM_ID examId, t.EXAM_NAME examName,
+		t.EXAM_GRADE examGrade, t.STATE
+		from
+		mm_exam t
+		where t.EXAM_ID =
+		#{examid,jdbcType=VARCHAR}
+	</select>
+
+
+	<select id="getQuestion" resultMap="BaseResultMapQuestion">
+		select
+		QUES_ID, QUES_LEVEL,
+		QUES_CONTENT,
+		CH_OPTIONA,CH_OPTIONB,CH_OPTIONC,CH_OPTIOND,
+		JU_ANSWER,CH_ANSWER, t.STATE
+		from
+		mm_questions t
+		WHERE
+		t.QUES_ID IN (
+		SELECT
+		a.question_id
+		FROM
+		mm_exam_question a
+		WHERE
+		a.exam_id =
+		#{id,jdbcType=VARCHAR}
+		)
+	</select>
+
+	<insert id="linkQuestions" parameterType="string">
+		insert into
+		mm_exam_question (exam_id,
+		question_id, STATE)
+		values (#{0},
+		#{1},'1')
+	</insert>
+
+	<update id="exitformalExamId" parameterType="string">
+		update mm_formalExamId
+		set formalExamId = #{examid,jdbcType=VARCHAR}
+		WHERE ID = 1
+
+	</update>
+</mapper> 

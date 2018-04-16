@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmmm.mapper.AdminScoreMapper">
+	<resultMap id="BaseResultMapShowScore" type="com.mmmm.entity.ShowScore">
+		<id column="NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="USERID" property="userId" jdbcType="INTEGER" />
+		<result column="SCORE" property="score" jdbcType="VARCHAR" />
+		<result column="EXAMDATE" property="examDate" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="showScore" resultMap="BaseResultMapShowScore">
+		SELECT
+		t.USERID,
+		a.`NAME`,
+		t.SCORE,
+		t.EXAMDATE,
+		CASE WHEN t.STATE = '1' THEN '正常' ELSE t.STATE END AS STATE
+		FROM
+		mm_examlist t
+		LEFT JOIN mm_user a ON t.USERID = a.ID ORDER BY t.USERID,t.EXAMDATE
+	</select>
+	
+	<select id="showFormalScore" resultMap="BaseResultMapShowScore">
+		SELECT
+		t.USERID,
+		a.`NAME`,
+		t.SCORE,
+		t.EXAMDATE,
+		CASE WHEN t.STATE = '1' THEN '正常' ELSE t.STATE END AS STATE
+		FROM
+		mm_formalexam t
+		LEFT JOIN mm_user a ON t.USERID = a.ID ORDER BY t.SCORE DESC
+	</select>
+
+
+</mapper> 

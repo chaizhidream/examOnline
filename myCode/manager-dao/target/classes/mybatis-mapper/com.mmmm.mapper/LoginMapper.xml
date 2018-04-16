@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmmm.mapper.LoginMapper">
+	<resultMap id="BaseResultMap" type="com.mmmm.entity.Grade">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<id column="USERID" property="userId" jdbcType="INTEGER" />
+		<result column="LAST_SCORE" property="lastScore" jdbcType="INTEGER" />
+		<result column="LAST_EXAM_DATE" property="lastExamDate"
+			jdbcType="VARCHAR" />
+		<result column="BEST_SCORE" property="bestScore" jdbcType="INTEGER" />
+		<result column="BEST_EXAM_DATE" property="bestExamDate"
+			jdbcType="VARCHAR" />
+		<result column="GRADE" property="grade" jdbcType="VARCHAR" />
+		<result column="EXAM_GRADE" property="examGrade" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="getUserByUsername" resultType="com.mmmm.entity.User"
+		parameterType="string">
+		select
+		*
+		from mm_user t
+		where t.loginname = #{_parameter}
+	</select>
+
+	<select id="getGradeByUserId" resultMap="BaseResultMap"
+		parameterType="int">
+		select
+		*
+		from mm_grade t
+		where t.USERID = #{userId}
+	</select>
+	
+	<select id="getFormalExamByUserId" resultType="com.mmmm.entity.FormalExam"
+		parameterType="int">
+		select
+		*
+		from mm_formalExam t
+		where t.USERID = #{userId}
+	</select>
+</mapper> 

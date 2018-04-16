@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmmm.mapper.FormalExamMapper">
+	<select id="getFormalExamByUserId" resultType="com.mmmm.entity.FormalExam"
+		parameterType="int">
+		select
+		*
+		from
+		mm_formalExam t
+		where t.USERID = #{id}
+	</select>
+
+	<insert id="insertFormalExam" parameterType="com.mmmm.entity.FormalExam" >
+    insert into mm_formalExam (ID, USERID, SCORE, 
+      EXAMDATE,EXAMTYPE,STATE)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{score,jdbcType=VARCHAR}, 
+      #{examDate,jdbcType=VARCHAR},#{examType,jdbcType=INTEGER}, #{state,jdbcType=INTEGER})
+  </insert>
+</mapper> 

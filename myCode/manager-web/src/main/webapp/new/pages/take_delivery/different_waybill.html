@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>异调运单</title>
+		<!-- 导入jquery核心类库 -->
+		<script type="text/javascript" src="../../js/jquery-1.8.3.js"></script>
+		<!-- 导入easyui类库 -->
+		<link rel="stylesheet" type="text/css" href="../../js/easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="../../js/easyui/themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="../../js/easyui/ext/portal.css">
+		<link rel="stylesheet" type="text/css" href="../../css/default.css">
+		<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+		<script type="text/javascript" src="../../js/easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../js/easyui/ext/jquery.portal.js"></script>
+		<script type="text/javascript" src="../../js/easyui/ext/jquery.cookie.js"></script>
+		<script src="../../js/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("body").css({
+					visibility: "visible"
+				});
+
+				// 对save按钮条件 点击事件
+				$('#save').click(function() {
+					// 对form 进行校验
+					if($('#orderForm').form('validate')) {
+						$('#orderForm').submit();
+					}
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="datagrid-toolbar">
+			<a id="save" icon="icon-add" href="#" class="easyui-linkbutton" plain="true">新增</a>
+			<a id="edit" icon="icon-save" href="#" class="easyui-linkbutton" plain="true">保存</a>
+			<a id="no" icon="icon-no" href="#" class="easyui-linkbutton" plain="true">取消</a>
+		</div>
+		<div style="width:95%;margin:10px auto">
+		<div class="table-top">
+			<table class="table-edit">
+				<tr>
+					<td>运单号</td>
+					<td><input type="text" /> 
+					<td>订单号</td>
+					<td><input type="text" /></td>
+					<td>客户单号</td>
+					<td><input type="text" /></td>
+					<td>虚拟号</td>
+					<td><input type="text" /></td>
+
+				</tr>
+				<tr>
+					<td>到达地</td>
+					<td><input type="text" name="address" required="true" /></td>
+					<td>产品时限</td>
+					<td><input type="text" name="address" required="true" /></td>
+					<td>标准时限</td>
+					<td><input type="text" name="address" required="true" /></td>
+					<td><input type="checkbox">COD</td>
+				</tr>
+				<tr>
+					<td>取件人</td>
+					<td><input type="text" name="unit" required="true" /></td>
+					<td>受理单位</td>
+					<td><input type="text" name="address" required="true" /></td>
+					<td>配载要求</td>
+					<td><input type="text" name="address" required="true" /></td>
+					<td><input type="checkbox">返单</td>
+				</tr>
+			</table>
+		</div>
+<div class="table-center" style="margin-top:15px">
+		<div class="col-md-5">
+			<table class="table-edit send">
+				<tr>
+					<td>编码</td>
+					<td><input type="text" name="code" required="true" /></td>
+					<td>寄件人</td>
+					<td><input type="text" name="sender" required="true" /></td>
+				</tr>
+				<tr>
+					<td>地址</td>
+					<td><input type="text" name="address" required="true" /></td>
+				</tr>
+				<tr>
+					<td>单位</td>
+					<td><input type="text" name="unit" required="true" /></td>
+				</tr>
+				<tr>
+					<td>电话</td>
+					<td><input type="text" name="telphone" required="true" /></td>
+					<td>手机</td>
+					<td><input type="text" name="mobile" required="true" /></td>
+				</tr>
+				<tr>
+					<td>传真</td>
+					<td><input type="text" name="senderfax" required="true" /></td>
+					<td>专项价格编码</td>
+					<td><input type="text" name="pricecode" required="true" /></td>
+				</tr>
+			</table>
+
+			<table class="table-edit receiver">
+				<tr>
+					<td>收件人</td>
+					<td><input type="text" name="receiver" required="true" /></td>
+					<td>传真</td>
+					<td><input type="text" name="receiverfax" required="true" /></td>
+				</tr>
+				<tr>
+					<td>地址</td>
+					<td><input type="text" name="receiveaddress" required="true" /></td>
+					<td>单位</td>
+					<td><input type="text" name="receiveunit" required="true" /></td>
+				</tr>
+				
+				<tr>
+					<td>电话</td>
+					<td><input type="text" name="receivetelphone" required="true" /></td>
+					<td>手机</td>
+					<td><input type="text" name="receivemobile" required="true" /></td>
+				</tr>
+				<tr>
+					<td>传真</td>
+					<td><input type="text" name="fax" required="true" /></td>
+					<td>专项价格编码</td>
+					<td><input type="text" name="pricecode" required="true" /></td>
+				</tr>
+			</table>
+			<table class="table-edit number">
+				<tr>
+					<td>原件数</td>
+					<td><input type="text" name="oldNum" required="true" /></td>
+					<td>实际重量</td>
+					<td><input type="text" name="realweight" required="true" /></td>
+
+				</tr>
+
+				<tr>
+					<td>品名</td>
+					<td><input type="text" name="goodsname" required="true" /></td>
+					<td>体积</td>
+					<td><input type="text" name="volume" required="true" /></td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="col-md-7">
+			<table class="table-edit security">
+				<tr>
+					<td>保险类型</td>
+					<td>
+						<select class="easyui-combobox">
+							<option value="">0-不保险</option>
+							<option value="">1-委托投保</option>
+							<option value="">2-自带投保</option>
+							<option value="">3-保价</option>
+						</select>
+					</td>
+					<td>保险费</td>
+					<td><input type="text" name="secuityprice" required="true" /></td>
+					<td>声明价值</td>
+					<td><input type="text" name="value" required="true" /></td>
+				</tr>
+
+				<tr>
+					<td>原包装</td>
+					<td>
+						<select class="easyui-combobox">
+							<option value="">0-木箱</option>
+							<option value="">1-纸箱</option>
+							<option value="">2-快递袋</option>
+							<option value="">3-其他</option>
+						</select>
+					</td>
+					<td>实际包装</td>
+					<td>
+						<select class="easyui-combobox">
+							<option value="">0-木箱</option>
+							<option value="">1-纸箱</option>
+							<option value="">2-快递袋</option>
+							<option value="">3-其他</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>包装费</td>
+					<td><input type="text" name="packageprice" required="true" /></td>
+					<td>包装要求</td>
+					<td><input type="text" name="packageprice" required="true" /></td>
+				</tr>
+			</table>
+			
+			<table class="table-edit max">
+							<tr>
+								<td>实际件数</td>
+								<td><input type="text" name="realNum" required="true" /></td>
+								<td>计费重量</td>
+								<td><input type="text" name="priceWeight" required="true" /></td>
+							</tr>
+							<tr>
+								<td>预收费</td>
+								<td><input type="text" name="planprice" required="true" /></td>
+								<td><button class="btn btn-default">计算</button></td>
+							</tr>
+						</table>
+						
+						<table class="table-edit money">
+							<tr>
+								<td>结算方式</td>
+								<td><input type="text" name="realNum" required="true" /></td>
+								<td>代收款</td>
+								<td><input type="text" name="priceWeight" required="true" /></td>
+								<td>到付款</td>
+								<td><input type="text" name="priceWeight" required="true" /></td>
+							</tr>
+							
+						</table>
+						<table class="table-edit feedback">
+							<tr>
+								<td><input type="checkbox">反馈签收</td>
+								<td><input type="checkbox">节假日可收货</td>
+								<td>送达时限</td>
+								<td><input type="text" class="easyui-datebox" name="pickdate" data-options="required:true, editable:false" /></td>
+							</tr>
+							
+							<tr>
+								<td>处理方式</td>
+								<td><select class="easyui-combobox">
+										<option value="">0-无</option>
+										<option value="">1-不可开箱验货</option>
+										<option value="">2-开开箱单不可开内包</option>
+										<option value="">3-可开箱和内包</option>
+									</select></td>
+									<td>签单返回</td>
+								<td><select class="easyui-combobox">
+										<option value="">0-箱单</option>
+										<option value="">1-原单</option>
+										<option value="">2-附原单</option>
+										<option value="">3-网络派送单</option>
+									</select></td>
+							</tr>
+						</table>
+						<table class="table-edit tips">
+							<tr>
+								
+								<td>重要提示</td>
+								<td><textarea style="width:250px;height: 80px;"></textarea></td>
+							</tr>
+							
+							
+						</table>
+		</div>
+</div>
+<div class="clearfix"></div>
+<div class="table-bottom" style="margin-top:15px">
+	<table class="table-edit unit">
+							<tr>
+								<td>取货单位</td>
+								<td><input type="text" name="code" required="true" /></td>
+								<td>取货地址</td>
+								<td><input type="text" name="sender" required="true" /></td>
+							</tr>
+							<tr>
+								<td>联系人</td>
+								<td><input type="text" name="address" required="true" /></td>
+								<td>联系电话</td>
+								<td><input type="text" name="unit" required="true" /></td>
+								<td>联系人手机</td>
+								<td><input type="text" name="unit" required="true" /></td>
+								<td>单位</td>
+								<td><input type="text" name="unit" required="true" /></td>
+							</tr>
+														
+						</table>
+						
+						
+						<table class="table-edit port">
+							<tr>
+								<td>出口口岸</td>
+								<td><select class="easyui-combobox">
+									<option value="">北京口岸</option>
+									<option value="">上海口岸</option>
+									<option value="">山东口岸</option>
+									<option value="">深圳口岸</option>
+								</select>
+								</td>
+								<td>快递物品类别</td>
+								<td><select class="easyui-combobox">
+									<option value="">文件快递</option>
+									<option value="">包裹快递</option>									
+								</select>
+								</td>
+								<td>预计离港时间</td>
+								<td><input type="text" class="easyui-datebox" name="leaveTime" data-options="required:true, editable:false" />
+								</td>
+							</tr>
+							<tr>
+								<td>运输方式</td>
+								<td><select class="easyui-combobox">
+									<option value="">空运</option>
+									<option value="">航空</option>									
+								</select>
+								</td>
+								<td>海关申报价值</td>
+								<td><input type="text"  name="value"  /></td>
+								<td>币种</td>
+								<td><select class="easyui-combobox">
+									<option value="">文件快递</option>
+									<option value="">包裹快递</option>									
+								</select>
+								</td>
+								<td>预计进港时间</td>
+								<td><input type="text" class="easyui-datebox" name="comeinTime" data-options="required:true, editable:false" />
+								</td>
+							</tr>
+						</table>
+</div>
+	</div>
+	</body>
+
+</html>

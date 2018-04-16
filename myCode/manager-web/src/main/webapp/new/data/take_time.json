@@ -1,0 +1,6 @@
+{                                                      
+	"total":100,	
+	"rows":[ 
+		{"id":"111","name":"北京早班","normalWorkTime":"上午8点","normalDutyTime":"下午2点","satWorkTime":"上午8点","satDutyTime":"下午2点","sunWorkTime":"上午8点","sunDutyTime":"下午2点","status":"正常","company":"顺丰快递","operator":"张三","operatingTime":"2016-08-18","operatingCompany":"杭州分部"}
+	]
+}

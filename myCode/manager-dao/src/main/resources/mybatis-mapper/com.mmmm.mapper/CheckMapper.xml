@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmmm.mapper.CheckMapper">
+	<resultMap id="BaseResultMapUser" type="com.mmmm.entity.User">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="NAME" property="name" jdbcType="VARCHAR" />
+		<result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+		<result column="LOGINNAME" property="loginName" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<resultMap id="BaseResultMapQuestion" type="com.mmmm.entity.Questions">
+		<id column="QUES_ID" property="quesId" jdbcType="VARCHAR" />
+		<result column="QUES_LEVEL" property="quesLevel" jdbcType="VARCHAR" />
+		<result column="QUES_CONTENT" property="quesContent" jdbcType="VARCHAR" />
+		<result column="CH_OPTIONA" property="chOptiona" jdbcType="VARCHAR" />
+		<result column="CH_OPTIONB" property="chOptionb" jdbcType="VARCHAR" />
+		<result column="CH_OPTIONC" property="chOptionc" jdbcType="VARCHAR" />
+		<result column="CH_OPTIOND" property="chOptiond" jdbcType="VARCHAR" />
+		<result column="JU_ANSWER" property="juAnswer" jdbcType="VARCHAR" />
+		<result column="CH_ANSWER" property="chAnswer" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<resultMap id="BaseResultMapExam" type="com.mmmm.entity.Exam">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="EXAM_ID" property="examId" jdbcType="VARCHAR" />
+		<result column="EXAM_NAME" property="examName" jdbcType="VARCHAR" />
+		<result column="EXAM_GRADE" property="examGrade" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="INTEGER" />
+	</resultMap>
+
+	<select id="checkQuestionId" resultMap="BaseResultMapQuestion">
+		select
+		QUES_ID
+		from
+		mm_questions
+	</select>
+	
+	<select id="checkUser" resultMap="BaseResultMapUser">
+		select
+		ID,LOGINNAME 
+		from
+		mm_user
+	</select>
+	
+	<select id="checkExam" resultMap="BaseResultMapExam">
+		select
+		EXAM_ID
+		from
+		mm_exam
+	</select>
+</mapper> 

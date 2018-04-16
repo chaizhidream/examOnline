@@ -1,0 +1,53 @@
+* {margin: 0; padding: 0;}
+html, body
+{width: 100%;height: 100%;overflow:auto;font-size:12px;margin:0;padding:0; font-family:"微软雅黑";background:#fff; text-align:center;
+}
+ul,li{ list-style:none;}
+a{ text-decoration:none; color:#666;}
+a:hover{text-decoration:none;}
+.hover{background:#0f6c8d;}
+
+i{font-style:normal;}
+
+@font-face{font-family:iconfont;src:url(iconfont.eot?t=1493949807789);
+src:
+url(${pageContext.request.contextPath }/fonts/jzbh.eot?t=1493949807789#iefix) format('embedded-opentype'),
+url(${pageContext.request.contextPath }/fonts/jzbh.woff?t=1493949807789) format('woff'),
+url(${pageContext.request.contextPath }/fonts/jzbh.ttf?t=1493949807789) format('truetype'),
+url(${pageContext.request.contextPath }/fonts/jzbh.svg?t=1493949807789#iconfont) format('svg')}
+.iconfont{font-family:iconfont!important;font-style:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+#active{font-size:12px; color:#289cd5; font-weight:bold;}
+.course_main{width:100%; height:100%;}
+
+/*top start*/
+.top{width:100%; height:90px; background:#fff; color:#000;}
+.top_nr{width:1200px; margin:0 auto;}
+.top_left{height:90px; float:left;}
+.top_left i{width:180px; height:90px; display:block; float:left; background:../images/student/logo.png) no-repeat center;}
+.top_left h1{line-height:100px; display:block; float:left; font-size:28px; }
+
+.top_right{height:90px; float:right; line-height:90px; padding-right:10px;}
+.top_right a{padding:0 10px; color:#000; font-size:14px; display:block; float:left;}
+.top_right a span{padding-right:5px; display:block; float:left;}
+.top_right a i{color:#f00; padding: 0 5px; display:block; float:left;}
+.top_right a b{display:block; float:left;}
+.top_right a img{margin-top:30px; display:block; float:left;}
+/*top end*/
+/*nav start*/
+.nav{width:100%; height:50px; background:#389fc3; margin-top:15px;}
+.nav_nr{width:1200px; height:50px; line-height:50px; margin:0 auto;  font-size:14px;}
+.nav_nr ul{display:block; margin:0;}
+.nav_nr ul li{height:50px;  display:block; float:left;}
+.nav_nr ul li a{ color:#fff; display:block; height:50px; float:left; padding:0 20px;}
+.nav_nr ul li a:hover{text-decoration:none;}
+.nav_nr i{color:#fff; display:block; float:left;}
+
+/*分页 start*/
+.fy{width:100%; height:50px; margin-left:15px; margin-top: 10px; float:left;}
+/*分页 end*/
+/*百分比进度 start*/
+.easyPieChart {position: relative;text-align: center;}
+.easyPieChart canvas { position: absolute;top: 0;left: 0;}
+/*百分比进度 end*/
+/*nav end*/
+.foot{width:100%; height:50px; clear:both;}

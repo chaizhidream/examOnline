@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mmmm.mapper.AdminMapper">
+	<resultMap id="BaseResultMap" type="com.mmmm.entity.Menu">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="pId" property="pId" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="page" property="page" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="BaseResultMapUser" type="com.mmmm.entity.User">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="NAME" property="name" jdbcType="VARCHAR" />
+		<result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+		<result column="LOGINNAME" property="loginName" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="getMenu" resultMap="BaseResultMap">
+		select
+		*
+		from
+		mm_menu
+	</select>
+
+	<select id="showUser" resultMap="BaseResultMapUser">
+		select
+		t.ID , t.NAME , t.PASSWORD
+		, t.LOGINNAME , CASE WHEN t.STATE = '1' THEN '正常' ELSE t.STATE END AS
+		STATE
+		from
+		mm_user t where t.ROLE = 2
+	</select>
+
+	<insert id="addUser" parameterType="com.mmmm.entity.User">
+		insert into mm_user (ID,NAME,
+		PASSWORD,
+		LOGINNAME, ROLE , STATE)
+		values
+		(#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{loginName,jdbcType=VARCHAR}, 2
+		,#{state,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="addGrade" parameterType="java.lang.Integer">
+		insert into mm_grade (USERID ,GRADE,EXAM_GRADE, STATE)
+		values
+		(#{id,jdbcType=INTEGER},'N','N','1')
+	</insert>
+
+	<delete id="deleteUser" parameterType="java.lang.Integer">
+		delete from mm_user
+		where
+		ID = #{id,jdbcType=INTEGER}
+	</delete>
+	<delete id="deleteGradeByUserId" parameterType="java.lang.Integer">
+		delete from mm_grade
+		where
+		USERID = #{id,jdbcType=INTEGER}
+	</delete>
+	<delete id="deleteExamListByUserId" parameterType="java.lang.Integer">
+		delete from mm_examlist
+		where
+		USERID = #{id,jdbcType=INTEGER}
+	</delete>
+	<delete id="deleteFormalExamByUserId" parameterType="java.lang.Integer">
+		delete from mm_formalexam
+		where
+		USERID = #{id,jdbcType=INTEGER}
+	</delete>
+
+	<update id="exitUser" parameterType="com.mmmm.entity.User">
+		update mm_user
+		set NAME = #{name,jdbcType=VARCHAR},
+		PASSWORD = #{password,jdbcType=VARCHAR},
+		LOGINNAME = #{loginName,jdbcType=VARCHAR},
+		STATE = #{state,jdbcType=VARCHAR}
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="adminUser" resultType="com.mmmm.entity.User">
+		select
+		t.ID , t.NAME , t.PASSWORD
+		, t.LOGINNAME , CASE WHEN t.STATE = '1' THEN '正常' ELSE t.STATE END AS
+		STATE
+		from
+		mm_user t where t.ROLE = 1
+	</select>
+</mapper> 

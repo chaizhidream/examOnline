@@ -1,0 +1,6 @@
+{                                                      
+	"total":100,	
+	"rows":[ 
+		{"id":"001","name":"10-20公斤","minWeight":"10","maxWeight":"20","minLength":"11","maxLength":"22","operator":"张三","operatingTime":"2016-08-18","company":"杭州分部"}
+	]
+}
