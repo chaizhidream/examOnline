@@ -1,6 +1,0 @@
-{                                                      
-	"total":100,	
-	"rows":[ 
-		{"id":"100","routeType":"干线","routeName":"郑京线","vehicleNum":"123456","shippers":"中国铁路","driver":"老王","telephone":"1234567","vehicleType":"火车","ton":"40吨","remark":"无"}
-	]
-}

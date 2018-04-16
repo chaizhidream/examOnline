@@ -1,6 +1,0 @@
-{                                                      
-	"total":100,	
-	"rows":[ 
-		{"id":"001","courierNum":"09876","name":"李大","telephone":"13912345678","checkPwd":"123456","pda":"123456","standard":{"name":"10-20公斤"},"type":"小件员","vehicleType":"卡车","vehicleNum":"98765","company":"杭州分部","deltag":"0"}
-	]
-}
